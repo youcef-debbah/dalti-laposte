@@ -6,7 +6,7 @@ import com.dalti.laposte.core.util.QueueUtils;
 import dz.jsoftware95.queue.common.GlobalConf;
 
 public enum StringSetting implements StringPreference {
-    REMOTE_CONFIG_VERSION("none"),
+    REMOTE_CONFIG_VERSION("0.9.0"),
     AVERAGE_REMAINING_TIME_EXPRESSION("a:r:a*r"),
 
     SERVICES_API_URL(BuildConfiguration.DEFAULT_SERVICES_API_URL),

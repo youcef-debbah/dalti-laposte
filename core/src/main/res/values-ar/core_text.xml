@@ -157,6 +157,7 @@
     <string name="version">الإصدار</string>
     <string name="last_auto_refresh">آخر تحديث تلقائي</string>
     <string name="host">المقلم</string>
+    <string name="config_version">إصدار إعدادات المقلم</string>
     <string name="google_services_id">معرف خدمات Google Play</string>
     <string name="in_app_messages_id">معرف التطبيق</string>
     <string name="open_time_label">من</string>

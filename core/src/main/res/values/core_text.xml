@@ -164,6 +164,7 @@
     <string name="version">Version</string>
     <string name="last_auto_refresh">Last Auto Refresh</string>
     <string name="host">Server</string>
+    <string name="config_version">Server Configs Version</string>
     <string name="google_services_id">Google Services ID</string>
     <string name="in_app_messages_id">Application ID</string>
     <string name="open_time_label">from</string>

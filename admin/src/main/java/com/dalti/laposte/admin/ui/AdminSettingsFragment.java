@@ -19,6 +19,7 @@ import com.dalti.laposte.core.repositories.BooleanSetting;
 import com.dalti.laposte.core.repositories.IntegerSetting;
 import com.dalti.laposte.core.repositories.LongSetting;
 import com.dalti.laposte.core.repositories.StringNumberSetting;
+import com.dalti.laposte.core.repositories.StringSetting;
 import com.dalti.laposte.core.util.PreferenceUtil;
 import com.dalti.laposte.core.util.QueueUtils;
 
@@ -150,6 +151,7 @@ public class AdminSettingsFragment extends PreferenceFragmentCompat {
                 aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.host, getString(R.string.hostname)));
 
             aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.version, buildConf.getFullVersionName()));
+            aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.config_version, appConfig.getRemoteString(StringSetting.REMOTE_CONFIG_VERSION)));
             aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.in_app_messages_id, appConfig.getInAppMessageID()));
             aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.google_services_id, appConfig.getApplicationID()));
         }
