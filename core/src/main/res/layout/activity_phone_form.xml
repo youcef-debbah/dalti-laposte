@@ -35,12 +35,12 @@
                     >
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/large"
                         android:layout_weight="12"
                         android:gravity="bottom|center_horizontal"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
                         app:string_res="@{activity.description}"
                         />
 
@@ -52,7 +52,6 @@
                         />
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/large"
@@ -60,6 +59,7 @@
                         android:layout_marginEnd="@dimen/large"
                         android:layout_marginBottom="@dimen/tiny"
                         android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
                         app:string_res="@{activity.stateRepresentation}"
                         />
 
@@ -71,9 +71,9 @@
                         android:layout_marginBottom="@dimen/large"
                         android:minWidth="@dimen/large_button_width"
                         android:text="@string/enter_sms_code"
+                        app:controller_name="@{activity.namespace + `_sms_code`}"
                         app:gone_unless="@{activity.codeInputVisibility}"
                         app:on_click="@{v -> activity.showVerificationCodeDialog()}"
-                        app:controller_name="@{activity.namespace + `_sms_code`}"
                         />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -83,11 +83,11 @@
                         android:layout_margin="@dimen/large"
                         android:layout_weight="6"
                         android:hint="@string/phone_number"
+                        android:layoutDirection="ltr"
+                        android:textDirection="ltr"
                         app:counterEnabled="true"
                         app:counterMaxLength="9"
                         app:prefixText="@string/phone_prefix"
-                        android:layoutDirection="ltr"
-                        android:textDirection="ltr"
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -108,9 +108,9 @@
                         android:layout_height="wrap_content"
                         android:minWidth="@dimen/large_button_width"
                         android:text="@string/ok"
+                        app:controller_name="@{activity.namespace + `_submit`}"
                         app:icon="@drawable/ic_baseline_check_24"
                         app:on_click="@{e -> activity.updatePhone(phoneInput)}"
-                        app:controller_name="@{activity.namespace + `_submit`}"
                         />
 
                     <Button
@@ -120,9 +120,9 @@
                         android:layout_marginBottom="@dimen/large"
                         android:minWidth="@dimen/large_button_width"
                         android:text="@string/back"
+                        app:controller_name="@{activity.namespace + `_back`}"
                         app:icon="@drawable/ic_baseline_arrow_back_24"
                         app:on_click="@{e -> activity.finish()}"
-                        app:controller_name="@{activity.namespace + `_back`}"
                         />
 
                     <!--suppress AndroidElementNotAllowed -->
