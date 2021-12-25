@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.client.ui.ActivationCodeFormActivity"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <include
+            layout="@layout/decorated_actionbar_layout"
+            app:basicHandler="@{activity.basicHandler}"
+            />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <!--suppress AndroidElementNotAllowed -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+
+                    <include
+                        layout="@layout/component_app_activated"
+                        app:handler="@{activity.basicHandler}"
+                        />
+
+                    <include
+                        layout="@layout/component_app_not_activated"
+                        app:handler="@{activity.basicHandler}"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/current_activated_code"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                        app:gone_unless="@{activity.currentActivationCodeVisibility}"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{activity.currentActivatedCode}"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                        app:gone_unless="@{activity.currentActivationCodeVisibility}"
+                        />
+
+                    <!--suppress AndroidElementNotAllowed -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/small"
+                        />
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        >
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/tiny"
+                            android:minWidth="@dimen/large_button_width"
+                            android:text="@string/scan_activation_code"
+                            app:controller_name="@{activity.namespace + `_scan`}"
+                            app:icon="@drawable/ic_baseline_qr_code_scanner_24"
+                            app:on_click="@{activity::startCodeScan}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Outlined"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/tiny"
+                            android:minWidth="@dimen/large_button_width"
+                            android:text="@string/how_to_activate"
+                            app:controller_name="@{activity.namespace + `_activation_info`}"
+                            app:icon="@drawable/ic_baseline_info_24"
+                            app:on_click="@{activity::openActivationInfo}"
+                            />
+                    </TableLayout>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:padding="@dimen/small"
+                            android:text="@string/or"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Overline"
+                            android:textSize="@dimen/text_size_body1"
+                            />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/activation_code"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="17"
+                        android:textDirection="ltr"
+                        android:layoutDirection="ltr"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/code_input"
+                            style="@style/Widget.App.TextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionSend"
+                            android:digits="0123456789"
+                            android:inputType="number"
+                            android:text="@{activity.activationCodeInput}"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/submit"
+                        app:controller_name="@{activity.namespace + `_submit`}"
+                        app:icon="@drawable/ic_baseline_check_24"
+                        app:on_click="@{v -> activity.submit()}"
+                        />
+
+                    <!--suppress AndroidElementNotAllowed -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/small"
+                        android:layout_weight="50"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

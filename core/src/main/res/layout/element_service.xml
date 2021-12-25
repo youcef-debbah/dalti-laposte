@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.dalti.laposte.core.repositories.Service"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.core.ui.ServicesListFragment"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        style="@style/Widget.App.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            tools:layout_height="180dp"
+            tools:layout_width="match_parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/compact_thumbnails"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/small"
+                android:background="@color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:src_res="@{data.thumbnails}"
+                tools:layout_height="@dimen/compact_thumbnails"
+                tools:layout_width="@dimen/compact_thumbnails"
+                />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small"
+                android:layout_marginTop="@dimen/small"
+                android:layout_marginEnd="@dimen/small"
+                android:text="@{data.description}"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="service description"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small"
+                android:layout_marginEnd="@dimen/small"
+                android:paddingBottom="@dimen/small"
+                android:text="@{data.address ?? @string/loading}"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView1"
+                tools:text="Service address"
+                />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="imageView,textView2"
+                tools:layout_editor_absoluteY="80dp"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider"
+                style="@style/Widget.App.Divider.padded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier"
+                tools:layout_height="1dp"
+                />
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select"
+                app:controller_name="@{fragment.namespace + `_select`}"
+                app:controller_payload="@{data.id}"
+                app:icon="@drawable/ic_baseline_check_circle_24"
+                app:layout_constraintEnd_toStartOf="@+id/delete_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialDivider"
+                app:on_click="@{e -> fragment.onServiceSelected(data.id)}"
+                />
+
+            <Button
+                android:id="@+id/delete_button"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info"
+                app:controller_name="@{fragment.namespace + `_info`}"
+                app:controller_payload="@{data.id}"
+                app:icon="@drawable/ic_baseline_info_24"
+                app:layout_constraintBottom_toBottomOf="@+id/button1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button1"
+                app:layout_constraintTop_toTopOf="@+id/button1"
+                app:on_click="@{e -> fragment.onItemOpened(data)}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

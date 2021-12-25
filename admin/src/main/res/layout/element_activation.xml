@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.dalti.laposte.core.repositories.Activation"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.ActivationsListFragment"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <Button
+            style="@style/Widget.App.Button.Naked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:on_click="@{e -> fragment.onItemSelected(data)}"
+            app:controller_name="@{data.namespace + `_select`}"
+            app:controller_payload="@{data.id}"
+            app:string="@{data.codeLabel ?? @string/loading}"
+            />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            android:paddingBottom="@dimen/small"
+            app:flexWrap="wrap"
+            app:justifyContent="center"
+            app:visible_on_data="@{data.activationDate}"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/small_icon"
+                android:layout_height="@dimen/small_icon"
+                app:src_res="@{data.activationDateIcon}"
+                app:tint="?colorSecondary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/small"
+                android:paddingEnd="@dimen/small"
+                android:text="@string/activated_at"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                android:textColor="?colorSecondary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                android:textColor="?colorSecondary"
+                app:date_time="@{data.activationDate}"
+                />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            style="@style/Widget.App.Divider.padded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_height="1dp"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,68 @@
+<resources>
+    <!--    Application icon name-->
+    <string name="app_name">Dalti</string>
+    <!--    UI text-->
+    <string name="enter_ticket_number">Enter your Ticket Number</string>
+    <string name="add_ticket">Add Ticket</string>
+    <string name="edit_ticket">Edit Ticket</string>
+    <string name="clear_ticket">Clear Ticket</string>
+    <string name="your_ticket">Your ticket is</string>
+    <string name="ticket_passed">Your turn has already passed</string>
+    <string name="beforehand_dialog_title">Alarm timing</string>
+    <string name="beforehand_dialog_pretext">The ideal duration between the notification of this alarm and when your turn will come</string>
+    <string name="new_alarm_dialog_title">New Alarm</string>
+    <string name="queue_length_dialog_title">Maximum queue length</string>
+    <string name="queue_length_dialog_pretext">The maximum number of people waiting before you, when this alarm is launched</string>
+    <string name="snooze_dialog_title">Snooze</string>
+    <string name="min_liquidity_dialog_title">Minimum Liquidity</string>
+    <string name="min_liquidity_dialog_pretext">The minimum liquidity that should be available in the post office for this alarm to start</string>
+    <string name="priority_dialog_title">Alarm Priority</string>
+    <string name="ringtone_dialog_title">Alarm Ringtone</string>
+    <string name="ringtone_dialog_pretext">Pick a ringtone</string>
+    <string name="test_service_description">Central Post Office</string>
+    <string name="snooze_for">Snooze for</string>
+    <string name="unknown_availability_notification_title">Unknown State Alert</string>
+    <string name="unknown_availability_notification_summary">shows a notification when the post office state is unknown</string>
+    <string name="help_title1">How to use this application\?</string>
+    <string name="help_title1_intro">Visiting a poste office can take a lot of time, this is a big waste, time is money after all!</string>
+    <string name="help_title1_intro2">This application will help solve this problem by letting you:</string>
+    <string name="help_title1_header1">&#8226; View current office status</string>
+    <string name="help_title1_header1_text">"After selecting a poste office you can immediately see it's current state (is it open, is liquidity available, etc.)\nfor example like this:"</string>
+    <string name="help_title1_header2">&#8226; View current queue status</string>
+    <string name="help_title1_header2_text">You can also see the current state of waiting queue (in realtime) this include an estimation of the expected waiting time (if you go to the poste office immediately)\nfor example:</string>
+    <string name="help_title1_header3">&#8226; Get a notification when your turn is close</string>
+    <!--    "ADD TICKET" should be translated the same way as "add_ticket" text but with caps-->
+    <string name="help_title1_header3_text">When you get your ticket from the poste office click the \"ADD&#160;TICKET\" button and enter your ticket number, your ticket will be shown like this:</string>
+    <!--    "ALARMS" should be translated the same way as "alarms" text but with caps-->
+    <string name="help_title1_header3_text2">You can configure when you will get notified in the \"ALARMS\" tab, you can even add multiple alarms if you want to get notified multiple times.</string>
+    <string name="help_title1_header4">&#8226; Get an SMS when your turn is close</string>
+    <string name="help_title1_header4_text">Generally you will need an internet connection to use this application but if you add your phone number to an alarm we will send you an SMS even if you are offline, please remember that you still need an internet connection when you add your phone number or edit your ticket number.</string>
+    <string name="help_title2">Why only few poste offices are supported\?</string>
+    <!--    "Algérie Poste" "Algérie Télécom" should not be translated -->
+    <string name="help_title2_text">This application is just a simple prototype. We hope that in the future we will integrate this application with companies like \"Algérie&#160;Poste\" and \"Algérie&#160;Télécom\" to provide more services across the whole country.</string>
+    <string name="help_activation">How to activate this application\?</string>
+    <string name="help_activation_link_text">Before you can you this application you will need to activate it first, you can learn more about this from here:</string>
+    <string name="help_more_help">For more information, questions or suggestions contact us at:</string>
+    <string name="help_activation_intro">Before using this application you will need to activate it first, in this page we will explain how to do that. You can also learn more about how to use this application in general from here:</string>
+    <string name="help_activation_why_activate">Why you need to activate\?</string>
+    <string name="help_activation_this_app_is_ad_free">"This is an ad-free application that is also free to download witch means that (in contrary to most other applications) we don't receive any income from the application itself!"</string>
+    <string name="help_activation_offer">Instead we sell activation codes.</string>
+    <string name="help_activation_offer_price">Instead we sell activation codes, a single activation code cost only&#160;%s&#160;DA!</string>
+    <string name="help_activation_offer_price_duration">Instead we sell activation codes, a single activation code cost only&#160;%1$s&#160;DA and last for %2$s&#160;days!</string>
+    <string name="help_activation_where_to_buy">Where can you buy an activation code\?</string>
+    <string name="help_activation_buy_from_sell_point">You can buy an activation code from our selling points near all the poste offices we support.</string>
+    <string name="help_activation_to_open_the_map">To open a map that shows our selling point location do the following:</string>
+    <!--    "SELECT OFFICE" should be translated the same way as "select_service" text but with caps-->
+    <string name="help_activation_open_map_step1">&#8226; From the home page click \"SELECT&#160;OFFICE\" button.</string>
+    <!--    "INFO" should be translated the same way as "info" text but with caps-->
+    <string name="help_activation_open_map_step2">&#8226; Click \"INFO\" button of the office that you want to visit.</string>
+    <!--    "MAP" should be translated the same way as "map" text but with caps-->
+    <string name="help_activation_open_map_step3">&#8226; Click \"MAP\" button to open the map.</string>
+    <string name="help_activation_how_to_use_activation_code">How to use an activation code\?</string>
+    <!--    "ACTIVATE" should be translated the same way as "activate_application" text but with caps-->
+    <string name="help_activation_open_scanner_then">&#8226; Open the activation page by clicking on the &#8942; menu then selecting \"ACTIVATE\" item.</string>
+    <!--    "SCAN" should be translated the same way as "scan_activation_code" text but with caps-->
+    <string name="help_activation_click_scan">&#8226; Click \"SCAN\" and put the activation code in front of the camera.</string>
+    <!--    "SUBMIT" should be translated the same way as "submit" text but with caps-->
+    <string name="help_activation_write_code">&#8226; Write the activate code manually and click \"SUBMIT\".</string>
+</resources>

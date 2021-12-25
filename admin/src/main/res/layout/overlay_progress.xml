@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/inc_token_button"
+        style="@style/Widget.App.Button.Filled.Transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="@dimen/recommended_touch_target"
+        android:textStyle="bold"
+        app:shapeAppearanceOverlay="@style/RoundedShape.UpperDisk" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/inc_waiting_button"
+        style="@style/Widget.App.Button.Filled.Accent.Transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="@dimen/recommended_touch_target"
+        android:textStyle="bold"
+        app:shapeAppearanceOverlay="@style/RoundedShape.LowerDisk" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

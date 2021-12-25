@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.client.ui.ClientActivationInfoActivity"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/huge"
+                    android:layout_marginTop="@dimen/large"
+                    android:layout_marginEnd="@dimen/huge"
+                    android:layout_marginBottom="@dimen/large"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    >
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_intro"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Button
+                            style="@style/Widget.App.Button.Link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/help"
+                            app:controller_name="@{activity.namespace + `_help`}"
+                            app:icon="@drawable/ic_baseline_help_24"
+                            app:on_click="@{activity::help}"
+                            />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_why_activate"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_this_app_is_ad_free"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        app:string="@{activity.activationOfferText}"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_where_to_buy"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_buy_from_sell_point"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_to_open_the_map"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_open_map_step1"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_open_map_step2"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_open_map_step3"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_how_to_use_activation_code"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_open_scanner_then"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_click_scan"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/or"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_write_code"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/medium"
+                        android:layout_marginBottom="@dimen/medium"
+                        tools:layout_height="1dp"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_policy"
+                        app:controller_name="@{activity.namespace + `_privacy_policy`}"
+                        app:icon="@drawable/ic_baseline_security_24"
+                        app:on_click="@{activity::privacyPolicy}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rate_us"
+                        app:controller_name="@{activity.namespace + `_rate_us`}"
+                        app:icon="@drawable/ic_baseline_star_rate_24"
+                        app:on_click="@{activity::rateUs}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

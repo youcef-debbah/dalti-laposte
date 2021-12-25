@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dalti.laposte.admin"
+    >
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.dalti.laposte.admin.ui.AdminApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App.Main"
+        android:usesCleartextTraffic="true"
+        >
+
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="false"
+            />
+
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true"
+            />
+
+        <receiver
+            android:name="com.dalti.laposte.admin.model.AdminActionReceiver"
+            android:exported="false"
+            />
+
+        <service
+            android:name="com.dalti.laposte.admin.ui.CompactDashboardService"
+            android:enabled="true"
+            android:exported="false"
+            />
+
+        <service
+            android:name="com.dalti.laposte.admin.ui.AdminQueueService"
+            android:enabled="true"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.firebase.messaging.main_notification_channel_id"
+                android:value="@string/info_channel_id"
+                />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/common_google_signin_btn_icon_light"
+                />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/brand_color"
+                />
+        </service>
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.ServicesListActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminSettingsActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ProfileActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminPhoneFormActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.ProfileActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ActivationsListActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ActivationCodeActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.ActivationsListActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminAlarmListActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminAlarmActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminAlarmListActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminAlarmFormActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminAlarmListActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.ServiceDescriptionActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.MapActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ServiceStateFormActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminActivationInfoActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ServiceNoteFormActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminTestActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ShortMessagesStatsActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.ShortMessagesHistoryActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.ShortMessagesStatsActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.HowToFixGoogleServicesActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminPrivacyPolicyActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminAboutUsActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.admin.ui.AdminHelpActivity"
+            android:parentActivityName="com.dalti.laposte.admin.ui.AdminDashboardActivity"
+            />
+
+    </application>
+
+</manifest>

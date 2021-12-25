@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RoundedShape">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="SharpShape">
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="RoundedShape.Circle">
+        <item name="cornerSize">@fraction/fully_rounded_corner</item>
+    </style>
+
+    <style name="RoundedShape.Small">
+        <item name="cornerSize">@dimen/corner_small</item>
+    </style>
+
+    <style name="RoundedShape.Medium">
+        <item name="cornerSize">@dimen/corner_medium</item>
+    </style>
+
+    <style name="RoundedShape.Medium.Lower">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/corner_medium</item>
+        <item name="cornerSizeBottomRight">@dimen/corner_medium</item>
+    </style>
+
+    <style name="RoundedShape.Large">
+        <item name="cornerSize">@dimen/corner_large</item>
+    </style>
+
+    <style name="SharpShape.Rect">
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="SharpShape.Hexagon">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="SharpShape.Corner_24">
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="SharpShape.SoftCorner">
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="RoundedShape.UpperDisk">
+        <item name="cornerSizeTopLeft">@fraction/fully_rounded_corner</item>
+        <item name="cornerSizeTopRight">@fraction/fully_rounded_corner</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="RoundedShape.LowerDisk">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@fraction/fully_rounded_corner</item>
+        <item name="cornerSizeBottomRight">@fraction/fully_rounded_corner</item>
+    </style>
+</resources>

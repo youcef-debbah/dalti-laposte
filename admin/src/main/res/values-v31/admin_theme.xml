@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.Main" parent="Theme.App.Basic">
+        <item name="android:windowSplashScreenBackground">@color/brand_color</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_admin_splash_icon</item>
+    </style>
+</resources>

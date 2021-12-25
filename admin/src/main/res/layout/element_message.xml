@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.dalti.laposte.core.repositories.ShortMessage"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.MessagesListFragment"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        style="@style/Widget.App.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/small"
+            android:paddingBottom="@dimen/small"
+            app:alignContent="center"
+            app:alignItems="center"
+            app:flexWrap="wrap"
+            app:justifyContent="center"
+            tools:layout_height="180dp"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/compact_icon"
+                    android:layout_height="@dimen/compact_icon"
+                    android:layout_marginStart="@dimen/large"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/tiny"
+                    android:layout_marginBottom="@dimen/tiny"
+                    app:src_res_tinted="@{@drawable/ic_baseline_phone_24}"
+                    app:tint_color_list="@{@colorStateList/primary_color_selector}"
+                    tools:src="@tools:sample/backgrounds/scenic"
+                    />
+
+                <TextView
+                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tiny"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/large"
+                    android:layout_marginBottom="@dimen/tiny"
+                    android:gravity="center"
+                    android:textDirection="ltr"
+                    android:textSize="@dimen/text_size_body1"
+                    app:string="@{data.phone ?? @string/loading}"
+                    tools:text="+213696501316"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <include
+                layout="@layout/component_vertical_value"
+                app:color="@{data.iconColor}"
+                app:icon="@{data.icon}"
+                app:label="@{@string/request_time}"
+                app:value="@{data.formattedCreationTime}"
+                />
+
+            <include
+                layout="@layout/component_vertical_value"
+                app:color="@{@colorStateList/primary_color_selector}"
+                app:icon="@{@drawable/ic_baseline_calendar_today_24}"
+                app:label="@{@string/date}"
+                app:value="@{data.formattedDate}"
+                />
+
+            <include
+                layout="@layout/component_vertical_value"
+                app:color="@{@colorStateList/primary_color_selector}"
+                app:icon="@{@drawable/ic_baseline_send_24}"
+                app:label="@{@string/send_time}"
+                app:value="@{data.formattedConfirmationTime}"
+                />
+
+            <include
+                layout="@layout/component_vertical_value"
+                app:color="@{@colorStateList/primary_color_selector}"
+                app:icon="@{@drawable/ic_baseline_verified_24}"
+                app:label="@{@string/delivery_time}"
+                app:value="@{data.formattedDeliveryTime}"
+                />
+
+            <include
+                layout="@layout/component_vertical_value"
+                app:color="@{@colorStateList/primary_color_selector}"
+                app:icon="@{@drawable/ic_baseline_assignment_24}"
+                app:label="@{@string/outcome}"
+                app:value="@{data.stateOutcome}"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/Widget.App.Divider.padded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small"
+                android:layout_marginBottom="@dimen/small"
+                tools:layout_height="1dp"
+                />
+
+            <TextView
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/small"
+                android:layout_marginEnd="@dimen/large"
+                android:layout_marginBottom="@dimen/small"
+                android:gravity="center"
+                app:string="@{data.textContent}"
+                tools:text="Dalti-laposte thank you for using our service!"
+                />
+        </com.google.android.flexbox.FlexboxLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

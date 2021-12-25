@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/large"
+                            android:layout_marginTop="@dimen/medium"
+                            android:layout_marginEnd="@dimen/large"
+                            android:layout_marginBottom="@dimen/small"
+                            android:layout_weight="1"
+                            android:text="@string/alarm_info"
+                            />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/large"
+                            android:layout_marginTop="@dimen/medium"
+                            android:layout_marginEnd="@dimen/large"
+                            android:layout_marginBottom="@dimen/small"
+                            android:checked="@{activity.alarm.enabled}"
+                            android:text="@string/enabled"
+                            app:onCheckedChangeListener="@{(view, checked) -> activity.setEnabled(checked)}"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.App.Divider.padded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/small"
+                        tools:layout_height="1dp"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:flexWrap="wrap"
+                        app:justifyContent="flex_start"
+                        >
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/first_column"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{activity.progressData.progressIcon}"
+                                app:label="@{@string/post_office}"
+                                app:value="@{activity.progressData.serviceDescription}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_confirmation_number_24}"
+                                app:label="@{@string/ticket}"
+                                app:value="@{activity.alarm.ticket}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_access_time_24}"
+                                app:label="@{@string/alarm_time}"
+                                app:value="@{activity.alarm.formattedDuration}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_padded_waiting_24}"
+                                app:label="@{@string/alarm_queue}"
+                                app:value="@{activity.alarm.queue}"
+                                />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/second_column"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_attach_money_24}"
+                                app:label="@{@string/alarm_liquidity}"
+                                app:value="@{activity.alarm.formattedLiquidity}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_phone_24}"
+                                app:label="@{@string/phone_number}"
+                                app:value="@{activity.alarm.phone}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_calendar_today_24}"
+                                app:label="@{@string/request_time}"
+                                app:value="@{activity.alarm.formattedCreationTime}"
+                                />
+
+                            <include
+                                layout="@layout/component_vertical_value"
+                                app:icon="@{@drawable/ic_baseline_notifications_24}"
+                                app:label="@{@string/last_launch}"
+                                app:value="@{activity.alarm.formattedLastLaunch}"
+                                />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.flexbox.FlexboxLayout>
+
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/small"
+                        android:paddingEnd="@dimen/small"
+                        android:paddingBottom="@dimen/small"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_evenly"
+                        >
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/medium_button_width"
+                            android:text="@string/edit"
+                            app:controller_name="@{activity.namespace + `_edit`}"
+                            app:controller_payload="@{activity.progressID}"
+                            app:icon="@drawable/ic_baseline_edit_24"
+                            app:on_click="@{activity::editAlarm}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/medium_button_width"
+                            android:text="@string/clone"
+                            app:controller_name="@{activity.namespace + `_clone`}"
+                            app:controller_payload="@{activity.progressID}"
+                            app:icon="@drawable/ic_baseline_add_alarm_24"
+                            app:on_click="@{activity::cloneAlarm}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/medium_button_width"
+                            android:text="@string/copy_phone"
+                            app:controller_name="@{activity.namespace + `_phone`}"
+                            app:controller_payload="@{activity.progressID}"
+                            app:icon="@drawable/ic_baseline_content_copy_24"
+                            app:on_click="@{v -> activity.copyPhone(activity.alarm.phone)}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/medium_button_width"
+                            android:text="@string/send_sms"
+                            app:controller_name="@{activity.namespace + `_sms`}"
+                            app:controller_payload="@{activity.progressID}"
+                            app:icon="@drawable/ic_baseline_sms_24"
+                            app:on_click="@{v -> activity.sendSms(activity.alarm)}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled.Accent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/medium_button_width"
+                            android:text="@string/delete"
+                            app:controller_name="@{activity.namespace + `_delete`}"
+                            app:controller_payload="@{activity.progressID}"
+                            app:icon="@drawable/ic_baseline_delete_24"
+                            app:on_click="@{activity::deleteAlarm}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.admin.ui.AdminAlarmActivity"
+            />
+    </data>
+</layout>

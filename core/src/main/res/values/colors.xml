@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- basic colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="transparent">#00FFFFFF</color>
+
+    <!-- embedded colors -->
+    <color name="brand_color">#3F51B5</color>
+    <color name="affirmative">#4CAF50</color>
+    <color name="warning">#F9A825</color>
+    <color name="error">#E53935</color>
+
+    <!-- gray shades -->
+    <color name="gray_240">#F2F2F2</color>
+    <color name="gray_230">#E6E6E6</color>
+    <color name="gray_220">#DCDCDC</color>
+    <color name="gray_210">#D2D2D2</color>
+    <color name="gray_200">#C8C8C8</color>
+    <color name="gray_190">#BEBEBE</color>
+    <color name="gray_180">#B4B4B4</color>
+    <color name="gray_170">#AAAAAA</color>
+    <color name="gray_160">#A0A0A0</color>
+    <color name="gray_150">#969696</color>
+    <color name="gray_140">#8C8C8C</color>
+    <color name="gray_130">#828282</color>
+    <color name="gray_120">#787878</color>
+    <color name="gray_110">#6E6E6E</color>
+    <color name="gray_100">#646464</color>
+    <color name="gray_090">#5A5A5A</color>
+    <color name="gray_080">#505050</color>
+    <color name="gray_070">#464646</color>
+    <color name="gray_060">#3C3C3C</color>
+    <color name="gray_050">#323232</color>
+    <color name="gray_040">#282828</color>
+    <color name="gray_030">#1E1E1E</color>
+    <color name="gray_020">#141402</color>
+    <color name="gray_010">#0A0A0A</color>
+
+    <!-- indigo shades -->
+    <color name="indigo_50">#E8EAF6</color>
+    <color name="indigo_100">#C5CAE9</color>
+    <color name="indigo_200">#9FA8DA</color>
+    <color name="indigo_300">#7986CB</color>
+    <color name="indigo_400">#5C6BC0</color>
+    <color name="indigo_500">#3F51B5</color>
+    <color name="indigo_600">#3949AB</color>
+    <color name="indigo_700">#303F9F</color>
+    <color name="indigo_800">#283593</color>
+    <color name="indigo_900">#1A237E</color>
+    <color name="indigo_A100">#8C9EFF</color>
+    <color name="indigo_A200">#536DFE</color>
+    <color name="indigo_A400">#3D5AFE</color>
+    <color name="indigo_A700">#304FFE</color>
+
+    <!-- pink shades -->
+    <color name="pink_50">#fce4ec</color>
+    <color name="pink_100">#f8bcd0</color>
+    <color name="pink_200">#f48fb1</color>
+    <color name="pink_300">#f06292</color>
+    <color name="pink_400">#ec407a</color>
+    <color name="pink_500">#e91e63</color>
+    <color name="pink_600">#e61a5b</color>
+    <color name="pink_700">#e31651</color>
+    <color name="pink_800">#df1247</color>
+    <color name="pink_900">#d90a35</color>
+    <color name="pink_A100">#ffffff</color>
+    <color name="pink_A200">#ffd0d8</color>
+    <color name="pink_A400">#ff9dae</color>
+    <color name="pink_A700">#ff8498</color>
+
+</resources>

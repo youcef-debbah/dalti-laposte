@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    android:layout_marginBottom="@dimen/large"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:flexWrap="wrap"
+                            app:justifyContent="center"
+                            >
+
+                            <TextView
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/small"
+                                android:gravity="center"
+                                android:text="@string/activation_code"
+                                />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <Button
+                                    style="@style/Widget.App.Button.NakedIconOnly"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/small"
+                                    app:icon="@drawable/ic_baseline_content_copy_24"
+                                    app:on_click="@{activity::copyToClipboard}"
+                                    app:controller_name="@{activity.namespace + `_copy`}"
+                                    app:controller_payload="@{activity.selectedActivation.activation.id}"
+                                    />
+
+                                <TextView
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    app:string="@{activity.selectedActivation.activation.codeLabel}"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.flexbox.FlexboxLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            style="@style/Widget.App.Divider.padded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:layout_height="1dp"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:imageBitmap="@{activity.selectedActivation.codeImage}"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="@dimen/large"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/small"
+                        app:visible_on_data="@{activity.selectedActivation.activation.activationDate}"
+                        >
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/large"
+                            app:flexWrap="wrap"
+                            app:justifyContent="center"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/small_icon"
+                                android:layout_height="@dimen/small_icon"
+                                app:src_res="@{activity.selectedActivation.activation.activationDateIcon}"
+                                app:tint="?colorSecondary"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/small"
+                                android:paddingEnd="@dimen/small"
+                                android:text="@string/activated_at"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                                android:textColor="?colorSecondary"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                                android:textColor="?colorSecondary"
+                                app:date_time="@{activity.selectedActivation.activation.activationDate}"
+                                />
+                        </com.google.android.flexbox.FlexboxLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            style="@style/Widget.App.Divider.padded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:layout_height="1dp"
+                            />
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small"
+                            android:stretchColumns="0,1"
+                            >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/expiration_date"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                    />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                    app:date_time="@{activity.selectedActivation.activation.expirationDate}"
+                                    />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/application_version"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                    />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                    app:string="@{activity.selectedActivation.activation.applicationVersionAsText}"
+                                    />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/android_version"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                    />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                    app:string="@{activity.selectedActivation.activation.androidVersionAsText}"
+                                    />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/google_services_version"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                    />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:layout_weight="1"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                    app:string="@{activity.selectedActivation.activation.googleVersion}"
+                                    />
+                            </TableRow>
+                        </TableLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.admin.ui.ActivationCodeActivity"
+            />
+    </data>
+</layout>

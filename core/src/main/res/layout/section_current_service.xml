@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.core.ui.ProgressFragment"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:animate_layout="@{true}"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginEnd="@dimen/small"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_thumbnails"
+                android:layout_height="@dimen/compact_thumbnails"
+                android:layout_margin="@dimen/small"
+                app:src_res="@{fragment.selection.thumbnails}"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:text="@{fragment.selection.service.description ?? fragment.noSelectionText}"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginEnd="@dimen/small"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            app:gone_unless="@{fragment.selection.hasBasicState}"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:gravity="center"
+                android:minWidth="@dimen/compact_thumbnails"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/compact_icon"
+                    android:layout_height="@dimen/compact_icon"
+                    app:src_res="@{fragment.selection.basicStateIcon}"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/compact_thumbnails"
+                    android:layout_height="wrap_content"
+                    app:src_res="@{fragment.selection.basicStateLogo}"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                app:string_res="@{fragment.selection.basicStateDescription}"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginEnd="@dimen/small"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            app:gone_unless="@{fragment.selection.hasSecondaryState}"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:gravity="center"
+                android:minWidth="@dimen/compact_thumbnails"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/compact_icon"
+                    android:layout_height="@dimen/compact_icon"
+                    app:src_res="@{fragment.selection.secondaryStateIcon}"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/compact_thumbnails"
+                    android:layout_height="wrap_content"
+                    app:src_res="@{fragment.selection.secondaryStateLogo}"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:text="@{fragment.selection.secondaryStateDescription}"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginEnd="@dimen/small"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            app:gone_unless="@{fragment.selection.hasNote}"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/large_icon"
+                android:layout_height="@dimen/large_icon"
+                android:layout_margin="@dimen/small"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/first_icon"
+                    android:layout_width="@dimen/compact_icon"
+                    android:layout_height="@dimen/compact_icon"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/second_icon"
+                    android:layout_width="@dimen/compact_icon"
+                    android:layout_height="@dimen/compact_icon"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:text="@{fragment.selection.service.note}"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/small"
+            app:flexWrap="wrap"
+            app:gone_unless="@{fragment.selection.closingTimerVisibility}"
+            app:justifyContent="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/tiny"
+                android:paddingEnd="@dimen/tiny"
+                android:text="@string/time_before_closing"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/tiny"
+                android:paddingEnd="@dimen/tiny"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                app:duration_min_hour="@{fragment.selection.timeBeforeClosing}"
+                />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            style="@style/Widget.App.Divider.padded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:layout_marginBottom="@dimen/small"
+            tools:layout_height="1dp"
+            />
+
+        <Button
+            style="@style/Widget.App.Button.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/large_button_width"
+            android:text="@string/select_service"
+            app:controller_name="@{fragment.namespace + `_open`}"
+            app:controller_payload="@{fragment.selection.service.id}"
+            app:icon="@drawable/ic_baseline_list_24"
+            app:on_click="@{fragment::openServiceActivity}"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

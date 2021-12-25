@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cameras_names">
+        <item>إختيار تلقائي</item>
+        <item>الكاميرا الأولى</item>
+        <item>الكاميرا الثانية</item>
+        <item>الكاميرا الثالثة</item>
+        <item>الكاميرا الرابعة</item>
+        <item>الكاميرا الخامسة</item>
+        <item>الكاميرا السادسة</item>
+        <item>الكاميرا السابعة</item>
+        <item>الكاميرا الثامنة</item>
+    </string-array>
+
+    <string-array name="cameras_indexes">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="sim_strategy_names">
+        <item>تجاهل</item>
+        <item>استعمل الشريحة 1 فقط</item>
+        <item>استعمل الشريحة 2 فقط</item>
+        <item>استعمل الشريحة 1 أو 2</item>
+        <item>استعمل الشريحة 2 أو 1</item>
+    </string-array>
+
+    <string-array name="sim_strategy_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="basic_states">
+        <item>غير معروف</item>
+        <item>مفتوح</item>
+        <item>مفتوح (بدون استقبال)</item>
+        <item>مغلق</item>
+    </string-array>
+
+    <string-array name="liquidity_states">
+        <item>غير معروفة</item>
+        <item>متوفرة</item>
+        <item>محدودة</item>
+        <item>غير متوفرة</item>
+    </string-array>
+
+    <string-array name="alarm_liquidity_options">
+        <item>فقط إذا كانت متوفرة</item>
+        <item>حتى إذا كانت محدودة</item>
+        <item>دائما</item>
+    </string-array>
+
+    <string-array name="alarm_liquidity_options_description">
+        <item>أعلمني فقط عندما لا يكون هناك نقص في السيولة</item>
+        <item>أعلمني حتى إذا كانت السيولة محدودة (قد لا تتمكن من القيام بعمليات سحب كبيرة)</item>
+        <item>أعلمني دائمًا، حتى إذا كانت السيولة غير متوفرة (قد تضطر إلى إنتظار ودائع الزبائن الأخرين قبل السحب)</item>
+    </string-array>
+
+    <string-array name="alarm_priority_options">
+        <item>الحد الأدنى</item>
+        <item>منخفضة</item>
+        <item>متوسطة</item>
+        <item>مرتفعة</item>
+    </string-array>
+
+    <string-array name="alarm_priority_options_description">
+        <item>سيظهر الإشعار فقط في درج الإشعارات</item>
+        <item>سيظهر الإشعار في شريط الحالة ويهتز الهاتف</item>
+        <item>سيظهر الإشعار في شريط الحالة ويهتز الهاتف مع الصوت</item>
+        <item>سيظهر الإشعار في شريط الحالة وأعلى الشاشة مع الإهتزاز والصوت</item>
+    </string-array>
+
+    <string-array name="alarm_ringtone_options">
+        <item>بدون صوت</item>
+        <item>جرس</item>
+        <item>فقاعة</item>
+        <item>إنبثاق</item>
+        <item>نكزة</item>
+        <item>إيجابي</item>
+        <item>إنكشاف</item>
+        <item>بداية</item>
+        <item>نهضة</item>
+    </string-array>
+
+    <string-array name="day_names">
+        <item>السبت</item>
+        <item>الأحد</item>
+        <item>الإثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>جمعة</item>
+        <item>السبت</item>
+    </string-array>
+
+    <string-array name="icon_types">
+        <item>قياسي</item>
+        <item>إعلامي</item>
+        <item>تحذيري</item>
+        <item>إنذاري</item>
+    </string-array>
+</resources>

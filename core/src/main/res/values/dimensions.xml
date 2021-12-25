@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tiny">4dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="medium">12dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="huge">24dp</dimen>
+
+    <dimen name="corner_small">16dp</dimen>
+    <dimen name="corner_medium">28dp</dimen>
+    <dimen name="corner_large">40dp</dimen>
+
+    <dimen name="recommended_touch_target">48dp</dimen>
+    <dimen name="smallest_touch_target">36dp</dimen>
+
+    <dimen name="nav_drawer_elevation">16dp</dimen>
+    <dimen name="app_bar_elevation">6dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="dialog_elevation">24dp</dimen>
+
+    <dimen name="wide_thumbnails">100dp</dimen>
+    <dimen name="compact_thumbnails">80dp</dimen>
+    <dimen name="small_thumbnails">56dp</dimen>
+    <dimen name="small_icon">24dp</dimen>
+    <dimen name="compact_icon">40dp</dimen>
+    <dimen name="large_icon">80dp</dimen>
+    <dimen name="large_button_width">215dp</dimen>
+    <dimen name="medium_button_width">165dp</dimen>
+    <dimen name="note_icon">40dp</dimen>
+    <dimen name="splash_icon">140dp</dimen>
+    <dimen name="about_us_icon">108dp</dimen>
+    <dimen name="max_header_width">100dp</dimen>
+
+    <dimen name="card_elevation_lowest">0dp</dimen>
+    <dimen name="card_elevation_low">2dp</dimen>
+    <dimen name="card_elevation_medium">3dp</dimen>
+    <dimen name="card_elevation_high">4dp</dimen>
+    <dimen name="card_elevation_highest">5dp</dimen>
+
+    <dimen name="overlay_elevation">12dp</dimen>
+    <dimen name="refresh_layout_elevation">3dp</dimen>
+
+    <dimen name="dead_space">10dp</dimen>
+
+    <dimen name="text_size_overline">14sp</dimen>
+    <dimen name="text_size_caption">14sp</dimen>
+    <dimen name="text_size_button">14sp</dimen>
+    <dimen name="text_size_body1">16sp</dimen>
+    <dimen name="text_size_body2">14sp</dimen>
+    <dimen name="text_size_subtitle1">16sp</dimen>
+    <dimen name="text_size_subtitle2">14sp</dimen>
+    <dimen name="text_size_headline6">20sp</dimen>
+    <dimen name="text_size_headline5">22sp</dimen>
+    <dimen name="text_size_headline4">26sp</dimen>
+    <dimen name="text_size_headline3">28sp</dimen>
+    <dimen name="text_size_headline2">32sp</dimen>
+    <dimen name="text_size_headline1">36sp</dimen>
+
+    <dimen name="filled_button_elevation">6dp</dimen>
+    <dimen name="filled_icon_only_button_elevation">6dp</dimen>
+    <dimen name="icon_button_disabled_elevation">0dp</dimen>
+
+</resources>

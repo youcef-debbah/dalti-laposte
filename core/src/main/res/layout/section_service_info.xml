@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.core.ui.ServiceDescriptionActivity" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/large"
+        android:gravity="start">
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/general_information"
+            />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            tools:layout_height="1dp" />
+
+        <!-- office name -->
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/office_name" />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:string="@{activity.service.name}"
+            tools:text="office name value" />
+
+        <!-- office address -->
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/wilaya"/>
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:string="@{activity.service.wilayaName}"
+            tools:text="wilaya value" />
+
+        <!-- office address -->
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/office_address" />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:string="@{activity.service.address}"
+            tools:text="office address value" />
+
+        <!-- postal code -->
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/Postal_code"/>
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:string="@{activity.service.postalCode}"
+            tools:text="30000" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

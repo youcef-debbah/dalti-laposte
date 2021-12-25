@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/small"
+        tools:layout_height="350dp"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_element"
+            android:layout_width="@dimen/compact_icon"
+            android:layout_height="@dimen/compact_icon"
+            android:layout_marginStart="@dimen/large"
+            app:layout_constraintBottom_toBottomOf="@+id/value_element"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/label_element"
+            app:src_res_tinted="@{icon}"
+            app:tint_color_list="@{color ?? @colorStateList/primary_color_selector}"
+            tools:src="@tools:sample/avatars"
+            />
+
+        <TextView
+            android:id="@+id/label_element"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginTop="@dimen/small"
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            app:layout_constraintBottom_toTopOf="@+id/value_element"
+            app:layout_constraintStart_toEndOf="@+id/icon_element"
+            app:layout_constraintTop_toTopOf="parent"
+            app:string_res="@{label}"
+            tools:text="Label"
+            />
+
+        <TextView
+            android:id="@+id/value_element"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginBottom="@dimen/small"
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icon_element"
+            app:layout_constraintTop_toBottomOf="@+id/label_element"
+            app:string="@{value}"
+            tools:text="Value"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="label"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="value"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="icon"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="color"
+            type="java.lang.Object"
+            />
+    </data>
+</layout>

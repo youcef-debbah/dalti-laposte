@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.client.ui.ClientHelpActivity"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/huge"
+                    android:layout_marginTop="@dimen/large"
+                    android:layout_marginEnd="@dimen/huge"
+                    android:layout_marginBottom="@dimen/large"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_intro"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:layout_marginBottom="@dimen/small"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="@dimen/max_header_width"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_logo_queue"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_intro2"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header1"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header1_text"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tiny"
+                        android:layout_marginBottom="@dimen/small"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small"
+                            android:gravity="start|center_vertical"
+                            android:orientation="horizontal"
+                            >
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/small"
+                                android:gravity="center"
+                                android:minWidth="@dimen/compact_thumbnails"
+                                android:orientation="vertical"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:tint="?warningIconOnForeground"
+                                    app:srcCompat="@drawable/ic_baseline_warning_24"
+                                    />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_thumbnails"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_logo_office_halfclose_80_40"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/small"
+                                android:text="@string/service_overloaded"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small"
+                            android:gravity="start|center_vertical"
+                            android:orientation="horizontal"
+                            >
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/small"
+                                android:gravity="center"
+                                android:minWidth="@dimen/compact_thumbnails"
+                                android:orientation="vertical"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:tint="?checkedIconOnForeground"
+                                    app:srcCompat="@drawable/ic_baseline_check_circle_24"
+                                    />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_thumbnails"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_logo_big_money_stack_80_40"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/small"
+                                android:text="@string/liquidity_available"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small"
+                            app:flexWrap="wrap"
+                            app:justifyContent="center"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/tiny"
+                                android:paddingEnd="@dimen/tiny"
+                                android:text="@string/time_before_closing"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/tiny"
+                                android:paddingEnd="@dimen/tiny"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                                app:duration_min_hour="@{1000 * 60 * 207}"
+                                />
+                        </com.google.android.flexbox.FlexboxLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header2"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header2_text"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/small"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:alignContent="center"
+                            app:alignItems="center"
+                            app:flexWrap="wrap"
+                            app:justifyContent="space_evenly"
+                            >
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/tiny"
+                                android:layout_marginBottom="@dimen/tiny"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:tint="?colorSecondary"
+                                    app:srcCompat="@drawable/ic_padded_pleb_24"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                                    android:textColor="?colorSecondary"
+                                    app:formatted_number="@{`124`}"
+                                    tools:text="current"
+                                    />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/tiny"
+                                android:layout_marginBottom="@dimen/tiny"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:tint="?colorSecondary"
+                                    app:srcCompat="@drawable/ic_padded_waiting_24"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                                    android:textColor="?colorSecondary"
+                                    app:formatted_number="@{`295`}"
+                                    />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.flexbox.FlexboxLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/small"
+                            android:paddingEnd="@dimen/small"
+                            android:text="@string/potential_waiting_time"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                            />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|center_horizontal"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/small"
+                            android:paddingEnd="@dimen/small"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                            android:textColor="?colorSecondary"
+                            app:duration_hh_mn="@{1000 * 60 * 190}"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header3"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header3_text"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/small"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:alignContent="center"
+                            app:alignItems="center"
+                            app:flexWrap="wrap"
+                            app:justifyContent="space_evenly"
+                            >
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/tiny"
+                                android:layout_marginBottom="@dimen/tiny"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:tint="?colorSecondary"
+                                    app:srcCompat="@drawable/ic_padded_pleb_24"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                                    android:textColor="?colorSecondary"
+                                    app:formatted_number="@{`124`}"
+                                    tools:text="current"
+                                    />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/tiny"
+                                android:layout_marginBottom="@dimen/tiny"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/compact_icon"
+                                    android:layout_height="@dimen/compact_icon"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:tint="?colorSecondary"
+                                    app:srcCompat="@drawable/ic_padded_waiting_24"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                                    android:textColor="?colorSecondary"
+                                    app:formatted_number="@{`145`}"
+                                    />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.flexbox.FlexboxLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/small"
+                            android:paddingEnd="@dimen/small"
+                            android:text="@string/remaining_time"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                            />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|center_horizontal"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/small"
+                            android:paddingEnd="@dimen/small"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                            android:textColor="?colorSecondary"
+                            app:duration_hh_mn="@{1000 * 60 * 110}"
+                            />
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.App.CardView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="@{activity.ticketCardColor}"
+                            app:cardElevation="@dimen/card_elevation_highest"
+                            app:shapeAppearanceOverlay="@style/SharpShape.Corner_24"
+                            >
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:minWidth="@dimen/large_button_width"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/small"
+                                    android:layout_marginTop="@dimen/large"
+                                    android:layout_marginEnd="@dimen/small"
+                                    android:text="@string/your_ticket"
+                                    android:textAllCaps="true"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                                    android:textColor="@{activity.ticketColor}"
+                                    android:textSize="@dimen/text_size_headline4"
+                                    tools:ignore="TooDeepLayout"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/small"
+                                    android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                                    android:textColor="@{activity.ticketColor}"
+                                    android:textStyle="bold"
+                                    app:number_03d="@{269}"
+                                    tools:text="095"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </com.google.android.material.card.MaterialCardView>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header3_text2"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title1_header4"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            >
+
+                            <com.dalti.laposte.core.ui.AlignedTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/help_title1_header4_text"
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                                />
+                        </FrameLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/compact_thumbnails"
+                            android:layout_height="@dimen/compact_thumbnails"
+                            android:layout_marginStart="@dimen/tiny"
+                            app:srcCompat="@drawable/ic_logo_sms_80"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title2"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_title2_text"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                        />
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_activation_link_text"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Button
+                            style="@style/Widget.App.Button.Link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/how_to_activate"
+                            app:controller_name="@{activity.namespace + `_activation_info`}"
+                            app:icon="@drawable/ic_baseline_help_24"
+                            app:on_click="@{activity::howToGetActivationCode}"
+                            />
+                    </FrameLayout>
+
+                    <com.dalti.laposte.core.ui.AlignedTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_more_help"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.HelpBody"
+                        />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Button
+                            style="@style/Widget.App.Button.Naked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:minHeight="0dp"
+                            android:paddingTop="0dp"
+                            android:paddingBottom="0dp"
+                            android:textAllCaps="false"
+                            app:controller_name="@{activity.namespace + `_send_feedback`}"
+                            app:on_click="@{activity::sendFeedback}"
+                            app:string="@{activity.email}"
+                            />
+                    </FrameLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/medium"
+                        android:layout_marginBottom="@dimen/medium"
+                        tools:layout_height="1dp"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/privacy_policy"
+                        app:controller_name="@{activity.namespace + `_privacy_policy`}"
+                        app:icon="@drawable/ic_baseline_security_24"
+                        app:on_click="@{activity::privacyPolicy}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rate_us"
+                        app:controller_name="@{activity.namespace + `_rate_us`}"
+                        app:icon="@drawable/ic_baseline_star_rate_24"
+                        app:on_click="@{activity::rateUs}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

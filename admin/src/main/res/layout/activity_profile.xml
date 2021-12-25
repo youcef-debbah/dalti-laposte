@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include
+            layout="@layout/decorated_actionbar_layout"
+            app:basicHandler="@{activity.basicHandler}"
+            />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:layout_weight="1"
+                        android:gravity="bottom|center_horizontal"
+                        android:orientation="vertical"
+                        >
+
+                        <include
+                            layout="@layout/component_app_activated"
+                            app:handler="@{activity.basicHandler}"
+                            />
+
+                        <include
+                            layout="@layout/component_app_not_activated"
+                            app:handler="@{activity.basicHandler}"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/wide_thumbnails"
+                        android:layout_height="@dimen/wide_thumbnails"
+                        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                        app:tint="?colorPrimary"
+                        />
+
+                    <TextView
+                        style="@style/TextAppearance.Jsoftware95.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/small"
+                        android:gravity="center"
+                        app:string_res="@{activity.activeUsername}"
+                        />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.App.TextInputLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textDirection="ltr"
+                            android:layoutDirection="ltr"
+                            >
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/phone_input"
+                                style="@style/Widget.App.TextInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:hint="@string/phone_number"
+                                android:text="@{activity.principalPhone}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            style="@style/Widget.App.Button.FilledIconOnly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginEnd="@dimen/tiny"
+                            android:layout_marginBottom="2dp"
+                            app:icon="@drawable/ic_baseline_edit_24"
+                            app:on_click="@{activity::openPhoneForm}"
+                            app:controller_name="@{activity.namespace + `_edit_phone`}"
+                            tools:ignore="RtlHardcoded"
+                            />
+                    </FrameLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_input"
+                            style="@style/Widget.App.TextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/username"
+                            android:inputType="text"
+                            android:text="@{activity.principalName}"
+                            >
+
+                            <requestFocus />
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password_input"
+                            style="@style/Widget.App.TextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:text="@{activity.principalPassword}"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/save"
+                        app:icon="@drawable/ic_baseline_check_24"
+                        app:on_click="@{v -> activity.submit()}"
+                        app:controller_name="@{activity.namespace + `_submit`}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/back"
+                        app:icon="@drawable/ic_baseline_arrow_back_24"
+                        app:on_click="@{v -> activity.finish()}"
+                        app:controller_name="@{activity.namespace + `_back`}"
+                        />
+
+                    <!--suppress AndroidElementNotAllowed -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.admin.ui.ProfileActivity"
+            />
+    </data>
+</layout>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="progress"
+            type="com.dalti.laposte.core.repositories.Progress"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.client.ui.ClientProgressFragment"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/small"
+        >
+
+        <include
+            layout="@layout/section_core_progress"
+            app:progress="@{progress}"
+            app:selection="@{fragment.selection}"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/tiny"
+            app:gone_unless="@{fragment.selection.unknownUIVisibility}"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/last_update"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                app:gone_unless="@{progress.timestampVisibility}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/tiny"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                app:gone_unless="@{progress.timestampVisibility}"
+                app:time_only="@{progress.timestamp}"
+                tools:text="10:15"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:gone_unless="@{fragment.selection.knownUIVisibility}"
+            >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small"
+                app:gone_unless="@{fragment.getEstimation(progress.id).visibility}"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/small"
+                android:paddingEnd="@dimen/small"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                app:string_res="@{fragment.getEstimation(progress.id).estimatedLabel}"
+                tools:text="Estimated Waiting Time"
+                />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/small"
+                android:paddingEnd="@dimen/small"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                android:textColor="?colorSecondary"
+                app:duration_hh_mn="@{fragment.getEstimation(progress.id).estimatedTime}"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small"
+                app:gone_unless="@{fragment.getEstimation(progress.id).visibility}"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/small"
+            app:gone_unless="@{progress.ticketInfoVisible}"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@{progress.ticketCardColor}"
+                app:cardElevation="@dimen/card_elevation_highest"
+                app:shapeAppearanceOverlay="@style/SharpShape.Corner_24"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="@dimen/large_button_width"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small"
+                        android:layout_marginTop="@dimen/large"
+                        android:layout_marginEnd="@dimen/small"
+                        android:text="@string/your_ticket"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                        android:textSize="@dimen/text_size_headline4"
+                        app:text_color_list="@{progress.ticketColor}"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                        android:textStyle="bold"
+                        app:number_03d="@{progress.ticket}"
+                        app:text_color_list="@{progress.ticketColor}"
+                        tools:text="095"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+
+        <Button
+            style="@style/Widget.App.Button.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="@dimen/large_button_width"
+            android:text="@string/add_ticket"
+            app:controller_name="@{fragment.namespace + `_add_ticket`}"
+            app:controller_payload="@{progress.id}"
+            app:gone_unless="@{progress.addTicketButtonVisible}"
+            app:icon="@drawable/ic_baseline_confirmation_number_24"
+            app:on_click="@{e -> fragment.openTicketDialog(progress.rank)}"
+            />
+
+        <Button
+            style="@style/Widget.App.Button.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="@dimen/large_button_width"
+            android:text="@string/clear_ticket"
+            app:controller_name="@{fragment.namespace + `_delete_ticket`}"
+            app:controller_payload="@{progress.id}"
+            app:gone_unless="@{progress.ticketInfoVisible}"
+            app:icon="@drawable/ic_baseline_cancel_24"
+            app:on_click="@{e -> fragment.deleteTicket(progress.id)}"
+            />
+
+        <Button
+            style="@style/Widget.App.Button.Outlined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="@dimen/large_button_width"
+            android:text="@string/edit_ticket"
+            app:controller_name="@{fragment.namespace + `_edit_ticket`}"
+            app:controller_payload="@{progress.id}"
+            app:gone_unless="@{progress.ticketInfoVisible}"
+            app:icon="@drawable/ic_baseline_edit_24"
+            app:on_click="@{e -> fragment.openTicketDialog(progress.rank)}"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

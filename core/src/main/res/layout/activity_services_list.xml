@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <include layout="@layout/simple_actionbar_layout" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container_view"
+                android:name="com.dalti.laposte.core.ui.ServicesListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            style="@style/Widget.App.FAB.Overflow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:on_click="@{activity::clearSelection}"
+            app:controller_name="@{activity.namespace + `_clear_selection`}"
+            app:srcCompat="@drawable/ic_baseline_cancel_24"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.core.ui.ServicesListActivity"
+            />
+    </data>
+</layout>

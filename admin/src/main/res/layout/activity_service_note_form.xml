@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.admin.ui.ServiceNoteFormActivity"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/large"
+                        android:gravity="center"
+                        android:text="@string/costume_service_state"
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:textColor="?colorPrimary"
+                        />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.App.Divider.padded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large"
+                        tools:layout_height="1dp"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small"
+                        android:gravity="start|center_vertical"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/large_icon"
+                            android:layout_height="@dimen/large_icon"
+                            android:layout_margin="@dimen/small"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/first_icon"
+                                android:layout_width="@dimen/compact_icon"
+                                android:layout_height="@dimen/compact_icon"
+                                />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/second_icon"
+                                android:layout_width="@dimen/compact_icon"
+                                android:layout_height="@dimen/compact_icon"
+                                />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            >
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/icon_1"
+                                    app:controller_name="@{activity.namespace + `_first_icon`}"
+                                    app:controller_payload="@{activity.serviceID}"
+                                    app:on_click="@{activity::showFirstIconDialog}"
+                                    />
+
+                                <Spinner
+                                    android:id="@+id/first_icon_type_input"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:entries="@array/icon_types"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                >
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/icon_2"
+                                    app:controller_name="@{activity.namespace + `_second_icon`}"
+                                    app:controller_payload="@{activity.serviceID}"
+                                    app:on_click="@{activity::showSecondIconDialog}"
+                                    />
+
+                                <Spinner
+                                    android:id="@+id/second_icon_type_input"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:entries="@array/icon_types"
+                                    />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextAreaLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/arabic_version"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="250"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/note_arb_input"
+                            style="@style/Widget.App.TextInput.TextArea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="@{activity.lastNoteArb}"
+                            android:textAlignment="textStart"
+                            tools:ignore="RtlHardcoded"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextAreaLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/french_version"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="250"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/note_fre_input"
+                            style="@style/Widget.App.TextInput.TextArea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@{activity.lastNoteFre}"
+                            tools:ignore="RtlHardcoded"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextAreaLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/english_version"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="250"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/note_eng_input"
+                            style="@style/Widget.App.TextInput.TextArea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@{activity.lastNoteEng}"
+                            tools:ignore="RtlHardcoded"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/tiny"
+                        >
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/tiny"
+                            android:text="@string/closing_time"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.Filled"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/tiny"
+                            app:controller_name="@{activity.namespace + `_edit_close_time`}"
+                            app:controller_payload="@{activity.serviceID}"
+                            app:on_click="@{activity::showCloseTimePicker}"
+                            app:string="@{activity.closeTime}"
+                            />
+
+                        <Button
+                            style="@style/Widget.App.Button.FilledIconOnly.Accent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/tiny"
+                            app:controller_name="@{activity.namespace + `_reset_close_time`}"
+                            app:controller_payload="@{activity.serviceID}"
+                            app:icon="@drawable/ic_baseline_loop_24"
+                            app:on_click="@{activity::resetCloseTime}"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/update"
+                        app:controller_name="@{activity.namespace + `_submit`}"
+                        app:controller_payload="@{activity.serviceID}"
+                        app:icon="@drawable/ic_baseline_check_24"
+                        app:on_click="@{v -> activity.submit()}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled.Accent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/reset"
+                        app:controller_name="@{activity.namespace + `_reset`}"
+                        app:controller_payload="@{activity.serviceID}"
+                        app:icon="@drawable/ic_baseline_loop_24"
+                        app:on_click="@{activity::reset}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/back"
+                        app:controller_name="@{activity.namespace + `_back`}"
+                        app:controller_payload="@{activity.serviceID}"
+                        app:icon="@drawable/ic_baseline_arrow_back_24"
+                        app:on_click="@{activity::back}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

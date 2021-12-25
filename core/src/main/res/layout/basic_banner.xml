@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.dalti.laposte.core.ui.BasicHandler"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.CardView.Banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:gone_unless="@{handler.bannerState.visibility}"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/banner_icon"
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:src_res_tinted="@{handler.bannerState.icon}"
+                app:tint_color_list="@{handler.bannerState.iconColor}"
+                tools:layout_height="@dimen/compact_icon"
+                tools:layout_width="@dimen/compact_icon"
+                />
+
+            <TextView
+                android:id="@+id/banner_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginEnd="@dimen/small"
+                android:gravity="start|center_vertical"
+                android:minHeight="@dimen/compact_icon"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/banner_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:string_res="@{handler.bannerState.text}"
+                />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="banner_icon,banner_text"
+                />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/buttons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier"
+                >
+
+                <Button
+                    style="@style/Widget.App.Button.Outlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    android:text="@string/learn_more"
+                    app:controller_name="@{handler.namespace + `_info`}"
+                    app:gone_unless="@{handler.bannerState.infoVisibility}"
+                    app:icon="@drawable/ic_baseline_info_24"
+                    app:on_click="@{v -> handler.bannerState.openInfo()}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Outlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    android:text="@string/retry"
+                    app:controller_name="@{handler.namespace + `_restart`}"
+                    app:gone_unless="@{handler.bannerState.restartVisibility}"
+                    app:icon="@drawable/ic_baseline_loop_24"
+                    app:on_click="@{handler.bannerState::restart}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    android:text="@string/open"
+                    app:controller_name="@{handler.namespace + `_open_store`}"
+                    app:gone_unless="@{handler.bannerState.openStoreVisibility}"
+                    app:icon="@drawable/ic_baseline_open_in_new_24"
+                    app:on_click="@{handler.bannerState::openGoogleService}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    android:text="@string/fix"
+                    app:controller_name="@{handler.namespace + `_fix`}"
+                    app:controller_payload="@{handler.bannerState.errorCode}"
+                    app:gone_unless="@{handler.bannerState.resolutionVisibility}"
+                    app:icon="@drawable/ic_baseline_construction_24"
+                    app:on_click="@{handler.bannerState::openResolutionActivity}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    app:controller_name="@{handler.namespace + `_activate`}"
+                    app:gone_unless="@{handler.bannerState.activationWarningVisibility}"
+                    app:icon_res="@{handler.activationIcon}"
+                    app:on_click="@{handler::openActivationActivity}"
+                    app:string="@{handler.activationTitle}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny"
+                    android:layout_marginEnd="@dimen/small"
+                    android:text="@string/retry"
+                    app:controller_name="@{handler.namespace + `_refresh`}"
+                    app:gone_unless="@{handler.bannerState.syncWarningVisibility}"
+                    app:icon="@drawable/ic_baseline_loop_24"
+                    app:on_click="@{handler::refresh}"
+                    />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <Space
+                android:id="@+id/end_space"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small"
+                app:layout_constraintTop_toBottomOf="@+id/buttons"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

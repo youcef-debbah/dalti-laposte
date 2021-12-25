@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/small"
+        android:layout_marginBottom="@dimen/small"
+        >
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.dalti.laposte.core.model.QueueRecyclerView
+                android:id="@+id/admin_alarms_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/element_admin_alarm"
+                />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_data"
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+            app:gone_unless="@{fragment.noDataIconVisibility}"
+            />
+
+    </FrameLayout>
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.AdminAlarmsListFragment"
+            />
+    </data>
+</layout>

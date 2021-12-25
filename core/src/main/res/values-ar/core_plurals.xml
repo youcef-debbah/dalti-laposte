@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    zero → n is 0;-->
+<!--    one → n is 1;-->
+<!--    two → n is 2;-->
+<!--    few → n mod 100 in 3..10;-->
+<!--    many → n mod 100 in 11..99;-->
+<!--    other → everything else-->
+
+    <plurals name="persons_waiting_before_you">
+        <item quantity="zero">لا أحد ينتظر قبلك</item>
+        <item quantity="one">شخص واحد ينتظر قبلك</item>
+        <item quantity="two">شخصان ينتظران قبلك</item>
+        <item quantity="few">%d أشخاص ينتظرون قبلك</item>
+        <item quantity="many">%d شخصا ينتظر قبلك</item>
+        <item quantity= "other">%d شخص ينتظر قبلك</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="zero">%d&#160;ساعة</item>
+        <item quantity="one">%d&#160;ساعة</item>
+        <item quantity="two">%d&#160;ساعات</item>
+        <item quantity="few">%d&#160;ساعات</item>
+        <item quantity="many">%d&#160;ساعة</item>
+        <item quantity= "other">%d&#160;ساعة</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="zero">%d&#160;دقيقة</item>
+        <item quantity="one">%d&#160;دقيقة</item>
+        <item quantity="two">%d&#160;دقائق</item>
+        <item quantity="few">%d&#160;دقائق</item>
+        <item quantity="many">%d&#160;دقيقة</item>
+        <item quantity= "other">%d&#160;دقيقة</item>
+    </plurals>
+
+    <plurals name="seconds">
+        <item quantity="zero">%d&#160;ثانية</item>
+        <item quantity="one">%d&#160;ثانية</item>
+        <item quantity="two">%d&#160;ثواني</item>
+        <item quantity="few">%d&#160;ثواني</item>
+        <item quantity="many">%d&#160;ثانية</item>
+        <item quantity= "other">%d&#160;ثانية</item>
+    </plurals>
+</resources>

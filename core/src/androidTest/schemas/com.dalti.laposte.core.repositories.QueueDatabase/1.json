@@ -1,0 +1,712 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f8eca26057b30495374850ecf69a1c15",
+    "entities": [
+      {
+        "tableName": "service",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`service_id` INTEGER NOT NULL, `wilaya` INTEGER NOT NULL, `extra` INTEGER NOT NULL, `availability` INTEGER, `addressEng` TEXT, `addressFre` TEXT, `addressArb` TEXT, `nameEng` TEXT, `nameFre` TEXT, `nameArb` TEXT, `descriptionEng` TEXT, `descriptionFre` TEXT, `descriptionArb` TEXT, `noteEng` TEXT, `noteFre` TEXT, `noteArb` TEXT, `noteState` INTEGER, `map` TEXT, `postalCode` INTEGER NOT NULL, `scheduleData` TEXT, `unknown` INTEGER NOT NULL, `closeTime` INTEGER, PRIMARY KEY(`service_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "service_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wilaya",
+            "columnName": "wilaya",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extra",
+            "columnName": "extra",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "availability",
+            "columnName": "availability",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressEng",
+            "columnName": "addressEng",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressFre",
+            "columnName": "addressFre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressArb",
+            "columnName": "addressArb",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nameEng",
+            "columnName": "nameEng",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nameFre",
+            "columnName": "nameFre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nameArb",
+            "columnName": "nameArb",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descriptionEng",
+            "columnName": "descriptionEng",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descriptionFre",
+            "columnName": "descriptionFre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descriptionArb",
+            "columnName": "descriptionArb",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteEng",
+            "columnName": "noteEng",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteFre",
+            "columnName": "noteFre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteArb",
+            "columnName": "noteArb",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteState",
+            "columnName": "noteState",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "map",
+            "columnName": "map",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "postalCode",
+            "columnName": "postalCode",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scheduleData",
+            "columnName": "scheduleData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "unknown",
+            "columnName": "unknown",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "closeTime",
+            "columnName": "closeTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "service_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "progress",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`progress_id` INTEGER NOT NULL, `service_id` INTEGER NOT NULL, `currentToken` INTEGER, `waiting` INTEGER, `potentialTime` INTEGER, `timestamp` INTEGER, `lastUpdater` TEXT, `ticket` INTEGER, `lastTicketUpdate` INTEGER, `remainingTime` INTEGER, `averageServingTime` INTEGER, PRIMARY KEY(`progress_id`), FOREIGN KEY(`service_id`) REFERENCES `service`(`service_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "progress_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceID",
+            "columnName": "service_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentToken",
+            "columnName": "currentToken",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "waiting",
+            "columnName": "waiting",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "potentialTime",
+            "columnName": "potentialTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastUpdater",
+            "columnName": "lastUpdater",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ticket",
+            "columnName": "ticket",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastTicketUpdate",
+            "columnName": "lastTicketUpdate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "remainingTime",
+            "columnName": "remainingTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "averageServingTime",
+            "columnName": "averageServingTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "progress_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_progress_service_id",
+            "unique": false,
+            "columnNames": [
+              "service_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_progress_service_id` ON `${TABLE_NAME}` (`service_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "service",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "service_id"
+            ],
+            "referencedColumns": [
+              "service_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "extra",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`extra_id` INTEGER NOT NULL, `value` TEXT, PRIMARY KEY(`extra_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "extra_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "extra_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "state",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`state_id` INTEGER NOT NULL, `value` INTEGER, PRIMARY KEY(`state_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "state_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "state_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "activation",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activation_id` INTEGER NOT NULL, `code` TEXT, `duration` INTEGER NOT NULL, `activationDate` INTEGER, `expirationDate` INTEGER, `applicationVersion` INTEGER, `androidVersion` INTEGER, `googleVersion` INTEGER, PRIMARY KEY(`activation_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "activation_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "duration",
+            "columnName": "duration",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activationDate",
+            "columnName": "activationDate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "expirationDate",
+            "columnName": "expirationDate",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "applicationVersion",
+            "columnName": "applicationVersion",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "androidVersion",
+            "columnName": "androidVersion",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "googleVersion",
+            "columnName": "googleVersion",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activation_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_activation_code",
+            "unique": false,
+            "columnNames": [
+              "code"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_activation_code` ON `${TABLE_NAME}` (`code`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "turn_alarm",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`turn_alarm_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `duration` INTEGER NOT NULL, `liquidity` INTEGER NOT NULL, `queue` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `vibrate` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `ringtone` INTEGER NOT NULL, `snooze` INTEGER NOT NULL, `phone` TEXT, `creationTime` INTEGER NOT NULL, `lastUpdate` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "turn_alarm_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "beforehandDuration",
+            "columnName": "duration",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "minLiquidity",
+            "columnName": "liquidity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxQueueLength",
+            "columnName": "queue",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vibrate",
+            "columnName": "vibrate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "priority",
+            "columnName": "priority",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ringtone",
+            "columnName": "ringtone",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snooze",
+            "columnName": "snooze",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "creationTime",
+            "columnName": "creationTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdate",
+            "columnName": "lastUpdate",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "turn_alarm_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "admin_alarm",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`admin_alarm_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `identifier` TEXT, `enabled` INTEGER, `creationTime` INTEGER, `lastLaunch` INTEGER, `progress` INTEGER, `ticket` INTEGER, `duration` INTEGER, `queue` INTEGER, `liquidity` INTEGER, `phone` TEXT, `lastSendingState` INTEGER, `lastSendingTime` INTEGER, `sentMessagesCount` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "admin_alarm_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "identifier",
+            "columnName": "identifier",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "creationTime",
+            "columnName": "creationTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastLaunch",
+            "columnName": "lastLaunch",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "progress",
+            "columnName": "progress",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ticket",
+            "columnName": "ticket",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "duration",
+            "columnName": "duration",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "queue",
+            "columnName": "queue",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "liquidity",
+            "columnName": "liquidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastSendingState",
+            "columnName": "lastSendingState",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastSendingTime",
+            "columnName": "lastSendingTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sentMessagesCount",
+            "columnName": "sentMessagesCount",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "admin_alarm_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "short_message",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`short_message_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `phone` TEXT, `smsToken` TEXT, `textContent` TEXT, `parts` INTEGER NOT NULL, `state` INTEGER NOT NULL, `creationTime` INTEGER NOT NULL, `confirmationTime` INTEGER, `deliveryTime` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "short_message_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "smsToken",
+            "columnName": "smsToken",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "textContent",
+            "columnName": "textContent",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts",
+            "columnName": "parts",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creationTime",
+            "columnName": "creationTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "confirmationTime",
+            "columnName": "confirmationTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deliveryTime",
+            "columnName": "deliveryTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "short_message_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "logged_event",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`logged_event_id` INTEGER NOT NULL, `name` TEXT, `parameters` TEXT, PRIMARY KEY(`logged_event_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "logged_event_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parameters",
+            "columnName": "parameters",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "logged_event_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "web_page",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`web_page_name` TEXT NOT NULL, `data` TEXT, `downloadTime` INTEGER, `mimeType` TEXT, `encoding` TEXT, PRIMARY KEY(`web_page_name`))",
+        "fields": [
+          {
+            "fieldPath": "name",
+            "columnName": "web_page_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "downloadTime",
+            "columnName": "downloadTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mimeType",
+            "columnName": "mimeType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "encoding",
+            "columnName": "encoding",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "web_page_name"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f8eca26057b30495374850ecf69a1c15')"
+    ]
+  }
+}

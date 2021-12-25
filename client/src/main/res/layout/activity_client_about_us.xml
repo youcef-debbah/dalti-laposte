@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.client.ui.ClientAboutUsActivity"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/large"
+                    android:paddingBottom="@dimen/large"
+                    >
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/brand_color"
+                        app:cardElevation="@dimen/card_elevation_highest"
+                        app:shapeAppearanceOverlay="@style/RoundedShape.Medium"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/about_us_icon"
+                            android:layout_height="@dimen/about_us_icon"
+                            app:srcCompat="@drawable/ic_app_splash_icon"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        app:string="@{activity.buildVersion}"
+                        />
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:gravity="center"
+                        app:string="@{activity.buildTime}"
+                        />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.App.Divider.padded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/tiny"
+                        tools:layout_height="1dp"
+                        />
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/large"
+                        android:layout_marginTop="@dimen/small"
+                        android:layout_marginRight="@dimen/large"
+                        android:layout_marginBottom="@dimen/tiny"
+                        android:gravity="center"
+                        android:text="@string/thank_you_for_usage"
+                        android:textSize="@dimen/text_size_subtitle1"
+                        />
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/large"
+                        android:layout_marginTop="@dimen/tiny"
+                        android:layout_marginRight="@dimen/large"
+                        android:layout_marginBottom="@dimen/small"
+                        android:gravity="center"
+                        app:string="@{@string/help_title2_text}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled.Accent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/rate_us"
+                        app:controller_name="@{activity.namespace + `_rate_us`}"
+                        app:icon="@drawable/ic_baseline_star_rate_24"
+                        app:on_click="@{activity::rateUs}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/send_feedback"
+                        app:controller_name="@{activity.namespace + `_send_feedback`}"
+                        app:icon="@drawable/ic_baseline_feedback_24"
+                        app:on_click="@{activity::sendFeedback}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/privacy_policy"
+                        app:controller_name="@{activity.namespace + `_privacy_policy`}"
+                        app:icon="@drawable/ic_baseline_security_24"
+                        app:on_click="@{activity::privacyPolicy}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

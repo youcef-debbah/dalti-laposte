@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/tiny"
+        android:orientation="horizontal"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/compact_icon"
+            android:layout_height="@dimen/compact_icon"
+            android:layout_marginStart="@dimen/medium"
+            android:layout_marginTop="@dimen/tiny"
+            android:layout_marginEnd="@dimen/tiny"
+            android:layout_marginBottom="@dimen/tiny"
+            app:src_res_tinted="@{icon}"
+            app:tint_color_list="@{color ?? @colorStateList/primary_color_selector}"
+            tools:src="@tools:sample/backgrounds/scenic"
+            />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tiny"
+            android:gravity="center"
+            app:string_res="@{label}"
+            tools:text="Label"
+            />
+
+        <TextView
+            android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tiny"
+            android:layout_marginTop="@dimen/tiny"
+            android:layout_marginEnd="@dimen/medium"
+            android:layout_marginBottom="@dimen/tiny"
+            android:gravity="center"
+            app:string="@{value}"
+            tools:text="Value"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="label"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="value"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="icon"
+            type="java.lang.Object"
+            />
+
+        <variable
+            name="color"
+            type="java.lang.Object"
+            />
+    </data>
+</layout>

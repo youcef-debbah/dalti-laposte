@@ -1,0 +1,294 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- themes -->
+
+    <style name="Theme.App.Basic" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="shapeAppearanceSmallComponent">@style/RoundedShape.Circle</item>
+        <item name="shapeAppearanceMediumComponent">@style/RoundedShape.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/RoundedShape.Medium</item>
+
+        <item name="nativeBackground">@color/gray_230</item>
+        <item name="colorOnBackground">@color/gray_130</item>
+        <item name="android:windowBackground">?nativeBackground</item>
+        <item name="android:colorBackground">?nativeBackground</item>
+        <item name="android:colorForeground">@color/black</item>
+        <item name="android:navigationBarColor">?nativeBackground</item>
+        <item name="android:navigationBarDividerColor">?nativeBackground</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+
+        <item name="colorPrimary">@color/indigo_500</item>
+        <item name="colorSecondary">@color/pink_500</item>
+        <item name="colorSurface">@color/white</item>
+
+        <item name="colorPrimaryVariant">@color/indigo_800</item>
+        <item name="colorSecondaryVariant">@color/pink_800</item>
+
+        <item name="colorError">@color/error</item>
+        <item name="errorIconOnForeground">@color/error</item>
+        <item name="warningIconOnForeground">@color/warning</item>
+        <item name="checkedIconOnForeground">@color/affirmative</item>
+
+        <item name="colorShadowedSurface">@color/gray_240</item>
+        <item name="colorAlternativeSurface">@color/pink_A200</item>
+        <item name="colorOnAlternativeSurface">@color/pink_800</item>
+
+        <item name="materialDividerStyle">@style/Widget.App.Divider</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout.Colored</item>
+        <item name="appBarLayoutStyle">@style/Widget.App.AppBarLayout</item>
+
+        <item name="textAppearanceOverline">@style/TextAppearance.Jsoftware95.Overline</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Jsoftware95.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Jsoftware95.Button</item>
+
+        <item name="textAppearanceBody2">@style/TextAppearance.Jsoftware95.Body2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Jsoftware95.Body1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Jsoftware95.Subtitle2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Jsoftware95.Subtitle1</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Jsoftware95.Headline6</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Jsoftware95.Headline5</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Jsoftware95.Headline4</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Jsoftware95.Headline3</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Jsoftware95.Headline2</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Jsoftware95.Headline1</item>
+
+        <item name="linearProgressIndicatorStyle">@style/Widget.App.LinearProgressIndicator</item>
+    </style>
+
+    <style name="Theme.App.Main" parent="Theme.App.Basic" />
+
+    <style name="Theme.App.Settings" parent="Theme.App.Basic">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!-- global styles -->
+
+    <style name="Widget.App.Divider" parent="Widget.MaterialComponents.MaterialDivider">
+        <item name="dividerColor">@color/on_surface_extra_light_color_selector</item>
+        <item name="dividerInsetStart">0dp</item>
+        <item name="dividerInsetEnd">0dp</item>
+    </style>
+
+    <style name="Widget.App.Divider.padded">
+        <item name="dividerInsetStart">@dimen/large</item>
+        <item name="dividerInsetEnd">@dimen/large</item>
+    </style>
+
+    <style name="Widget.App.TabLayout.Colored" parent="Widget.MaterialComponents.TabLayout.Colored">
+        <item name="android:paddingEnd">@dimen/tiny</item>
+        <item name="tabIndicatorColor">?colorOnPrimary</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="Widget.App.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="elevation">@dimen/app_bar_elevation</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <!-- individual styles -->
+    <style name="Widget.App.Checkbox.AlwaysOn" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:paddingEnd">@dimen/small</item>
+    </style>
+
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginTop">@dimen/small</item>
+        <item name="android:layout_marginBottom">@dimen/small</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="cardElevation">@dimen/card_elevation_high</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="strokeColor">@color/on_surface_extra_light_color_selector</item>
+        <item name="cardBackgroundColor">?colorSurface</item>
+    </style>
+
+    <style name="Widget.App.CardView.Banner" parent="Widget.App.CardView">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Medium.Lower</item>
+    </style>
+
+    <style name="Widget.App.FAB.Overflow" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:layout_margin">@dimen/large</item>
+        <item name="fabSize">normal</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="backgroundTint">?colorSecondary</item>
+        <item name="tint">?colorOnSecondary</item>
+    </style>
+
+    <style name="Widget.App.ActionBar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">@dimen/small</item>
+        <item name="android:minWidth">@dimen/large_button_width</item>
+    </style>
+
+    <style name="Widget.App.TextAreaLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">@style/SharpShape.Rect</item>
+        <item name="android:layout_margin">@dimen/large</item>
+        <item name="android:minWidth">@dimen/large_button_width</item>
+    </style>
+
+    <style name="Widget.App.TextInput" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingStart">@dimen/huge</item>
+        <item name="android:paddingEnd">@dimen/huge</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/text_size_body1</item>
+        <item name="android:textColor">@color/on_surface_color_selector</item>
+    </style>
+
+    <style name="Widget.App.TextInput.TextArea">
+        <item name="android:paddingStart">9dp</item>
+        <item name="android:paddingEnd">9dp</item>
+        <item name="android:minLines">3</item>
+        <item name="android:maxLines">16</item>
+        <item name="android:inputType">textMultiLine|textCapSentences|textAutoCorrect</item>
+    </style>
+
+    <style name="Widget.App.Button.FilledIconOnly" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Circle</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:layout_margin">@dimen/small</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">@dimen/small</item>
+        <item name="android:stateListAnimator" tools:ignore="NewApi">
+            @animator/filled_button_state_list_animator
+        </item>
+    </style>
+
+    <style name="Widget.App.Button.FilledIconOnly.Accent">
+        <item name="android:textColor">@color/button_filled_accent_foreground_color_selector</item>
+        <item name="iconTint">@color/button_filled_accent_foreground_color_selector</item>
+        <item name="backgroundTint">@color/button_filled_accent_background_color_selector</item>
+        <item name="rippleColor">@color/button_filled_accent_ripple_color_selector</item>
+    </style>
+
+
+    <style name="Widget.App.Button.OutlinedIconOnly" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Circle</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">@dimen/small</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/button_outlined_stroke_color_selector</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedIconOnly.Accent">
+        <item name="android:textColor">@color/button_outlined_accent_foreground_color_selector
+        </item>
+        <item name="iconTint">@color/button_outlined_accent_foreground_color_selector</item>
+        <item name="backgroundTint">@color/button_outlined_accent_background_color_selector</item>
+        <item name="rippleColor">@color/button_outlined_accent_ripple_color_selector</item>
+        <item name="strokeColor">@color/button_outlined_accent_stroke_color_selector</item>
+    </style>
+
+    <style name="Widget.App.Button.NakedIconOnly" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Circle</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">@dimen/small</item>
+    </style>
+
+    <style name="Widget.App.Button.Filled" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:paddingStart">@dimen/medium</item>
+        <item name="android:paddingEnd">@dimen/medium</item>
+        <item name="android:paddingTop">@dimen/small</item>
+        <item name="android:paddingBottom">@dimen/small</item>
+    </style>
+
+    <style name="Widget.App.Button.Filled.Accent">
+        <item name="android:textColor">@color/button_filled_accent_foreground_color_selector</item>
+        <item name="iconTint">@color/button_filled_accent_foreground_color_selector</item>
+        <item name="backgroundTint">@color/button_filled_accent_background_color_selector</item>
+        <item name="rippleColor">@color/button_filled_accent_ripple_color_selector</item>
+    </style>
+
+    <style name="Widget.App.Button.Filled.Transparent">
+        <item name="android:textColor">@color/button_filled_transparent_foreground_color_selector
+        </item>
+        <item name="iconTint">@color/button_filled_transparent_foreground_color_selector</item>
+        <item name="backgroundTint">@color/button_filled_transparent_background_color_selector
+        </item>
+        <item name="android:stateListAnimator" tools:ignore="NewApi">
+            @animator/filled_transparent_button_state_list_animator
+        </item>
+    </style>
+
+    <style name="Widget.App.Button.Filled.Accent.Transparent">
+        <item name="android:textColor">
+            @color/button_filled_accent_transparent_foreground_color_selector
+        </item>
+        <item name="iconTint">@color/button_filled_accent_transparent_foreground_color_selector
+        </item>
+        <item name="backgroundTint">
+            @color/button_filled_accent_transparent_background_color_selector
+        </item>
+        <item name="android:stateListAnimator" tools:ignore="NewApi">
+            @animator/filled_transparent_button_state_list_animator
+        </item>
+    </style>
+
+    <style name="Widget.App.Button.Outlined" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:paddingStart">@dimen/medium</item>
+        <item name="android:paddingEnd">@dimen/medium</item>
+        <item name="android:paddingTop">@dimen/small</item>
+        <item name="android:paddingBottom">@dimen/small</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/button_outlined_stroke_color_selector</item>
+    </style>
+
+    <style name="Widget.App.Button.Outlined.Accent">
+        <item name="android:textColor">@color/button_outlined_accent_foreground_color_selector
+        </item>
+        <item name="iconTint">@color/button_outlined_accent_foreground_color_selector</item>
+        <item name="backgroundTint">@color/button_outlined_accent_background_color_selector</item>
+        <item name="rippleColor">@color/button_outlined_accent_ripple_color_selector</item>
+        <item name="strokeColor">@color/button_outlined_accent_stroke_color_selector</item>
+    </style>
+
+    <style name="Widget.App.Button.Naked" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Circle</item>
+        <item name="android:paddingStart">@dimen/medium</item>
+        <item name="android:paddingEnd">@dimen/medium</item>
+        <item name="android:paddingTop">@dimen/small</item>
+        <item name="android:paddingBottom">@dimen/small</item>
+    </style>
+
+    <style name="Widget.App.Button.Link" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="shapeAppearanceOverlay">@style/RoundedShape.Circle</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <style name="Widget.App.Button.Naked.Big">
+        <item name="android:textSize">25sp</item>
+        <item name="iconPadding">@dimen/small</item>
+    </style>
+
+    <style name="Widget.App.ScrollView" parent="android:Widget.ScrollView">
+        <item name="android:scrollbarThumbVertical">?colorAlternativeSurface</item>
+    </style>
+
+    <style name="Widget.App.ScrollView.AlwaysOn">
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+    </style>
+
+    <style name="Widget.App.LinearProgressIndicator" parent="Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="trackColor">?colorAlternativeSurface</item>
+        <item name="indicatorColor">?colorOnAlternativeSurface</item>
+        <item name="showAnimationBehavior">none</item>
+        <item name="hideAnimationBehavior">none</item>
+    </style>
+</resources>

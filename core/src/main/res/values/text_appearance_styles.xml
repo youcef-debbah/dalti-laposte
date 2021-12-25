@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.Jsoftware95.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textSize">@dimen/text_size_overline</item>
+        <item name="android:textColor">@color/on_surface_light_color_selector</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/text_size_button</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/text_size_body1</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">@dimen/text_size_subtitle1</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">@dimen/text_size_subtitle2</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">@dimen/text_size_headline6</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">@dimen/text_size_headline5</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">@dimen/text_size_headline4</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">@dimen/text_size_headline3</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textSize">@dimen/text_size_headline2</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">@dimen/text_size_headline1</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Clock" parent="TextAppearance.Jsoftware95.Headline5">
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_headline4</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Clock.Number">
+        <item name="android:textSize">@dimen/text_size_headline1</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.Clock.Label">
+        <item name="android:textSize">@dimen/text_size_headline4</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.Jsoftware95.HelpBody" parent="TextAppearance.Jsoftware95.Body1">
+        <item name="android:layout_marginTop">@dimen/tiny</item>
+        <item name="android:layout_marginBottom">@dimen/tiny</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+    </style>
+</resources>

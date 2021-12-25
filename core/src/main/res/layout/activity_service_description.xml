@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/main_nested_scroll_view"
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card"
+                    style="@style/Widget.App.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="@dimen/compact_thumbnails"
+                            android:layout_height="@dimen/compact_thumbnails"
+                            android:layout_marginTop="@dimen/large"
+                            android:background="@color/transparent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@{activity.service.thumbnails}"
+                            tools:layout_height="@dimen/compact_thumbnails"
+                            tools:layout_width="@dimen/compact_thumbnails"
+                            />
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/large"
+                            android:gravity="center"
+                            android:text="@{activity.service.description}"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView"
+                            tools:text="service description"
+                            />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/materialDivider1"
+                            style="@style/Widget.App.Divider.padded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/large"
+                            app:layout_constraintTop_toBottomOf="@+id/description"
+                            tools:layout_height="1dp"
+                            />
+
+                        <Button
+                            android:id="@+id/select_button"
+                            style="@style/Widget.App.Button.Naked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select"
+                            app:controller_name="@{activity.namespace + `_select`}"
+                            app:controller_payload="@{activity.service.id}"
+                            app:icon="@drawable/ic_baseline_check_circle_24"
+                            app:iconGravity="top"
+                            app:layout_constraintEnd_toStartOf="@+id/map_button"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/materialDivider1"
+                            app:on_click="@{activity::selectService}"
+                            />
+
+                        <Button
+                            android:id="@+id/map_button"
+                            style="@style/Widget.App.Button.Naked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/map"
+                            app:controller_name="@{activity.namespace + `_map`}"
+                            app:controller_payload="@{activity.service.id}"
+                            app:icon="@drawable/ic_baseline_map_24"
+                            app:iconGravity="top"
+                            app:layout_constraintBottom_toBottomOf="@+id/select_button"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/select_button"
+                            app:layout_constraintTop_toTopOf="@+id/select_button"
+                            app:on_click="@{activity::openMap}"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    style="@style/Widget.App.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <include
+                        layout="@layout/section_service_info"
+                        app:activity="@{activity}"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
+                    style="@style/Widget.App.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/large"
+                    >
+
+                    <include layout="@layout/section_service_schedule" />
+
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.core.ui.ServiceDescriptionActivity"
+            />
+    </data>
+</layout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.AdminProgressFragment"
+            />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:animate_layout="@{true}"
+                android:orientation="vertical"
+                >
+
+                <include
+                    layout="@layout/basic_banner"
+                    app:handler="@{fragment.basicHandler}"
+                    />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/large"
+                        >
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/small"
+                            android:paddingBottom="@dimen/small"
+                            >
+
+                            <include
+                                layout="@layout/section_current_service"
+                                app:fragment="@{fragment}"
+                                />
+
+                            <Button
+                                style="@style/Widget.App.Button.Outlined"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="@dimen/large_button_width"
+                                android:text="@string/note"
+                                app:controller_name="@{fragment.namespace + `_note`}"
+                                app:icon="@drawable/ic_baseline_announcement_24"
+                                app:on_click="@{e -> fragment.showServiceNoteForm()}"
+                                />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large"
+                        >
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/progress_rank_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:animate_layout="@{true}"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="ongoing_operations_channel_id">OngoingOperations</string>
+    <string name="info_channel_id">Information</string>
+    <string name="alarms_channel_id">Alarms</string>
+    <string name="english_version">English Version</string>
+    <string name="french_version">Version Française</string>
+    <string name="arabic_version">النسخة العربية</string>
+</resources>

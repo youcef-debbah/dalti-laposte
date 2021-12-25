@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="checkedIconOnForeground" format="reference|color" />
+    <attr name="warningIconOnForeground" format="reference|color" />
+    <attr name="errorIconOnForeground" format="reference|color" />
+    <attr name="colorAlternativeSurface" format="reference|color"/>
+    <attr name="colorShadowedSurface" format="reference|color"/>
+    <attr name="colorOnAlternativeSurface" format="reference|color"/>
+    <attr name="nativeBackground" format="reference|color"/>
+</resources>

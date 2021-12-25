@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cameras_names">
+        <item>auto</item>
+        <item>première caméra</item>
+        <item>deuxième caméra</item>
+        <item>troisième caméra</item>
+        <item>quatrième caméra</item>
+        <item>cinquième caméra</item>
+        <item>sixième caméra</item>
+        <item>septième caméra</item>
+        <item>huitième caméra</item>
+    </string-array>
+
+    <string-array name="cameras_indexes">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="sim_strategy_names">
+        <item>Ignorer</item>
+        <item>Utiliser SIM 1 uniquement</item>
+        <item>Utiliser SIM 2 uniquement</item>
+        <item>Utiliser SIM 1 ou SIM 2</item>
+        <item>Utiliser SIM 2 ou SIM 1</item>
+    </string-array>
+
+    <string-array name="sim_strategy_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="basic_states">
+        <item>Inconnu</item>
+        <item>Ouvert</item>
+        <item>Ouvert (pas de réception)</item>
+        <item>Fermé</item>
+    </string-array>
+
+    <string-array name="liquidity_states">
+        <item>Inconnu</item>
+        <item>Disponible</item>
+        <item>Limitée</item>
+        <item>Épuisé</item>
+    </string-array>
+
+    <string-array name="alarm_liquidity_options">
+        <item>si disponible</item>
+        <item>Même si limité</item>
+        <item>Toujours</item>
+    </string-array>
+
+    <string-array name="alarm_liquidity_options_description">
+        <item>"Notifiez-moi seulement quand il n'y a pas un manque de liquidité"</item>
+        <item>Notifiez-moi même si la liquidité est limitée (vous ne pourrez peut-être pas effectuer de gros retraits)</item>
+        <item>"Notifiez-moi toujours, même si la liquidité n'est pas disponible (il peut être nécessaire d'attendre que les autres déposent avant de retirer)"</item>
+    </string-array>
+
+    <string-array name="alarm_priority_options">
+        <item>Minimum</item>
+        <item>Bas</item>
+        <item>Normal</item>
+        <item>Haut</item>
+    </string-array>
+
+    <string-array name="alarm_priority_options_description">
+        <item>"La notification n'apparaît que dans le tiroir des notifications"</item>
+        <item>"La notification apparaît dans la barre d'état et le téléphone vibre"</item>
+        <item>"La notification apparaît dans la barre d'état et le téléphone vibre avec le son"</item>
+        <item>"La notification apparaît dans la barre d'état et en haut de l'écran, avec une vibration et le son"</item>
+    </string-array>
+
+    <string-array name="alarm_ringtone_options">
+        <item>Silencieux</item>
+        <item>Cloche</item>
+        <item>Bubble Pop-up</item>
+        <item>Révélation musicale</item>
+        <item>Poke</item>
+        <item>Positif</item>
+        <item>Révélation</item>
+        <item>Démarrer</item>
+        <item>Uplifting</item>
+    </string-array>
+
+    <string-array name="day_names">
+        <item>Samedi</item>
+        <item>Dimanche</item>
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+    </string-array>
+
+    <string-array name="icon_types">
+        <item>Par défaut</item>
+        <item>Affirmatif</item>
+        <item>Avertissement</item>
+        <item>Problème</item>
+    </string-array>
+</resources>

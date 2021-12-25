@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.admin.ui.ShortMessagesStatsActivity"
+            />
+
+        <variable
+            name="model"
+            type="com.dalti.laposte.admin.model.ShortMessagesStatsModel"
+            />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/compact_icon"
+                            android:layout_height="@dimen/compact_icon"
+                            android:layout_margin="@dimen/large"
+                            android:layout_weight="0"
+                            app:srcCompat="@drawable/ic_baseline_assessment_24"
+                            app:tint="?colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/sms_statistics"
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Headline5"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.App.Divider.padded"
+                        tools:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/large"
+                        android:text="@string/sms_history"
+                        app:controller_name="@{activity.namespace + `_history`}"
+                        app:icon="@drawable/ic_baseline_history_24"
+                        app:on_click="@{activity::openMessagesHistory}"
+                        />
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/all_messages"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:alignContent="center"
+                        app:alignItems="center"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_around"
+                        >
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/handled_sms_requests}"
+                            app:value="@{model.messagesCount}"
+                            />
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/sent_sms}"
+                            app:value="@{model.sentMessages.messagesCount}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/ooredoo"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:alignContent="center"
+                        app:alignItems="center"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_around"
+                        >
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/handled_sms_requests}"
+                            app:value="@{model.ooredooMessagesCount}"
+                            />
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/sent_sms}"
+                            app:value="@{model.sentMessages.ooredooMessagesCount}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/mobilis"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:alignContent="center"
+                        app:alignItems="center"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_around"
+                        >
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/handled_sms_requests}"
+                            app:value="@{model.mobilisMessagesCount}"
+                            />
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/sent_sms}"
+                            app:value="@{model.sentMessages.mobilisMessagesCount}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/djezzy"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:alignContent="center"
+                        app:alignItems="center"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_around"
+                        >
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/handled_sms_requests}"
+                            app:value="@{model.djezzyMessagesCount}"
+                            />
+
+                        <include
+                            layout="@layout/component_vertical_value"
+                            app:label="@{@string/sent_sms}"
+                            app:value="@{model.sentMessages.djezzyMessagesCount}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large"
+                        android:layout_weight="1"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

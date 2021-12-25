@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:orientation="vertical"
+    android:padding="@dimen/large">
+
+    <TextView
+        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/work_schedule" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small"
+        tools:layout_height="1dp" />
+
+    <TableLayout
+        android:id="@+id/service_schedule_table"
+        android:layout_marginBottom="@dimen/small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</androidx.appcompat.widget.LinearLayoutCompat>

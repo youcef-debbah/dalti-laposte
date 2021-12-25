@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle"
+            android:gravity="fill"
+            android:scaleGravity="fill"
+            android:width="@dimen/splash_icon"
+            android:height="@dimen/splash_icon"
+            >
+            <solid android:color="@color/brand_color" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_admin_splash_icon"
+        android:gravity="center"
+        android:scaleGravity="center"
+        android:width="@dimen/splash_icon"
+        android:height="@dimen/splash_icon"
+        />
+</layer-list>

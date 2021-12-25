@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.AdminPanelFragment"
+            />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.App.ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/large"
+                    >
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin_panel"
+                        />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        tools:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/compact_dashboard"
+                            />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:checked="@{fragment.compactUIShown}"
+                            app:controller_name="@{fragment.namespace + `_compact_ui`}"
+                            app:on_click="@{fragment::toggleCompactUI}"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/activations"
+                        app:controller_name="@{fragment.namespace + `_activations`}"
+                        app:icon="@drawable/ic_baseline_qr_code_24"
+                        app:on_click="@{fragment::openActivationsList}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/alarms"
+                        app:controller_name="@{fragment.namespace + `_alarms`}"
+                        app:icon="@drawable/ic_baseline_alarm_24"
+                        app:on_click="@{fragment::openAdminAlarmsList}"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/large"
+                    >
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sms_info"
+                        />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        tools:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/sms_notifications"
+                            />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:checked="@{fragment.smsSendingEnabled}"
+                            app:controller_name="@{fragment.namespace + `_enable_sms`}"
+                            app:on_click="@{fragment::toggleSmsState}"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/test_sms"
+                        app:controller_name="@{fragment.namespace + `_test_sms`}"
+                        app:icon="@drawable/ic_baseline_sms_24"
+                        app:on_click="@{fragment::testSMS}"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/small"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_evenly"
+                        >
+
+                        <include
+                            layout="@layout/component_counter"
+                            app:title="@{@string/sms_requests}"
+                            app:value="@{fragment.smsRequests}"
+                            />
+
+                        <include
+                            layout="@layout/component_counter"
+                            app:title="@{@string/sms_ignored}"
+                            app:value="@{fragment.smsIgnored}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/small"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_evenly"
+                        >
+
+                        <include
+                            layout="@layout/component_counter"
+                            app:title="@{@string/sent_sms}"
+                            app:value="@{fragment.sentMessages}"
+                            />
+
+                        <include
+                            layout="@layout/component_counter"
+                            app:title="@{@string/failed_sms}"
+                            app:value="@{fragment.smsFailedMessages}"
+                            />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/small"
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_evenly"
+                        >
+
+                        <include
+                            layout="@layout/component_counter"
+                            app:title="@{@string/delivered_sms}"
+                            app:value="@{fragment.deliveredMessages}"
+                            />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/small"
+                            >
+
+                            <TextView
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/latest_sms_outcome"
+                                />
+
+                            <TextView
+                                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                app:string="@{fragment.smsLatestOutcome}"
+                                />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/more_statistics"
+                        app:controller_name="@{fragment.namespace + `_more_stats`}"
+                        app:icon="@drawable/ic_baseline_bar_chart_24"
+                        app:on_click="@{fragment::openStatsActivity}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled.Accent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/reset"
+                        app:controller_name="@{fragment.namespace + `_reset_stats`}"
+                        app:icon="@drawable/ic_baseline_loop_24"
+                        app:on_click="@{fragment::resetStats}"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</layout>

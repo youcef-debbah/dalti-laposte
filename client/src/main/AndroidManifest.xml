@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dalti.laposte.client"
+    >
+
+    <application
+        android:name="com.dalti.laposte.client.ui.ClientApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App.Main"
+        android:usesCleartextTraffic="true"
+        >
+
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="false"
+            />
+
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true"
+            />
+
+        <receiver
+            android:name="com.dalti.laposte.client.model.ClientActionReceiver"
+            android:exported="false"
+            />
+
+        <service
+            android:name="com.dalti.laposte.client.ui.ClientQueueService"
+            android:enabled="true"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_channel_id"
+                android:value="@string/info_channel_id"
+                />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/common_google_signin_btn_icon_light"
+                />
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/brand_color"
+                />
+        </service>
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.ServicesListActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientSettingsActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+        <activity
+            android:name="com.dalti.laposte.client.ui.ActivationCodeFormActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+        <activity
+            android:name="com.dalti.laposte.core.ui.scanner.ScannerActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ActivationCodeFormActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.ServiceDescriptionActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.MapActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientActivationInfoActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientPhoneFormActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.core.ui.HowToFixGoogleServicesActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientHelpActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientAboutUsActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+
+        <activity
+            android:name="com.dalti.laposte.client.ui.ClientPrivacyPolicyActivity"
+            android:parentActivityName="com.dalti.laposte.client.ui.ClientDashboardActivity"
+            />
+    </application>
+
+</manifest>

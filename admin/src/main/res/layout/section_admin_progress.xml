@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="progress"
+            type="com.dalti.laposte.core.repositories.Progress"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.AdminProgressFragment"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_height="match_parent"
+        >
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            style="@style/Widget.App.Divider.padded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:gone_unless="@{progress.dividerVisibility}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="1dp"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayoutCompat2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat2"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat2"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                android:layout_margin="@dimen/small"
+                app:src_res_tinted="@{@drawable/ic_baseline_timer_24}"
+                app:tint_color_list="@{fragment.selection.primaryColor}"
+                tools:src="@drawable/ic_baseline_timer_24"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                app:duration_sec_min_compact="@{progress.averageServingTime}"
+                app:text_color_list="@{fragment.selection.primaryColor}"
+                tools:text="1' 15''"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayoutCompat"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                android:layout_margin="@dimen/tiny"
+                app:src_res_tinted="@{@drawable/ic_padded_waiting_24}"
+                app:tint_color_list="@{fragment.selection.secondaryColor}"
+                tools:src="@drawable/ic_padded_waiting_24"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                app:string="@{progress.waitingText}"
+                app:text_color_list="@{fragment.selection.secondaryColor}"
+                tools:text="waiting"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                app:src_res_tinted="@{progress.icon ?? @drawable/ic_padded_man_24}"
+                app:tint_color_list="@{fragment.selection.primaryColor}"
+                tools:src="@drawable/ic_padded_pleb_24"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                app:string="@{progress.currentTokenText}"
+                app:text_color_list="@{fragment.selection.primaryColor}"
+                tools:text="current"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/Widget.App.Button.FilledIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:controller_name="@{fragment.namespace + `_inc_token`}"
+            app:controller_payload="@{progress.rank}"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
+            app:on_click="@{v -> fragment.onIncCurrentClick(v, progress.rank)}"
+            />
+
+        <Button
+            android:id="@+id/progress_setting_button"
+            style="@style/Widget.App.Button.FilledIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:controller_name="@{fragment.namespace + `_state_form`}"
+            app:controller_payload="@{progress.rank}"
+            app:icon="@drawable/ic_baseline_settings_24"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat4"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat4"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4"
+            app:on_click="@{v -> fragment.showServiceStateForm(progress.rank)}"
+            />
+
+        <!--suppress AndroidElementNotAllowed -->
+        <Button
+            android:id="@+id/button7"
+            style="@style/Widget.App.Button.FilledIconOnly.Accent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:controller_name="@{fragment.namespace + `_inc_waiting`}"
+            app:controller_payload="@{progress.rank}"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutCompat2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2"
+            app:on_click="@{e -> fragment.incWaiting(progress.rank)}"
+            />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="button5,button7,progress_setting_button"
+            />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:alignContent="center"
+            app:alignItems="center"
+            app:flexWrap="wrap"
+            app:justifyContent="center"
+            >
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/tiny"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier2"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/last_update"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/tiny"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                app:time_only="@{progress.timestamp}"
+                tools:text="10:15"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/tiny"
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                app:string="@{progress.lastUpdaterLabel}"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

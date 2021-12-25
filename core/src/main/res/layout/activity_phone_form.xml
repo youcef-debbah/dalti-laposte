@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include layout="@layout/simple_actionbar_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.App.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/large"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/large"
+                        android:layout_weight="12"
+                        android:gravity="bottom|center_horizontal"
+                        app:string_res="@{activity.description}"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/wide_thumbnails"
+                        android:layout_height="@dimen/wide_thumbnails"
+                        android:layout_margin="@dimen/large"
+                        android:background="@drawable/ic_logo_sms_80"
+                        />
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/large"
+                        android:layout_marginTop="@dimen/large"
+                        android:layout_marginEnd="@dimen/large"
+                        android:layout_marginBottom="@dimen/tiny"
+                        android:gravity="center"
+                        app:string_res="@{activity.stateRepresentation}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled.Accent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/tiny"
+                        android:layout_marginBottom="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/enter_sms_code"
+                        app:gone_unless="@{activity.codeInputVisibility}"
+                        app:on_click="@{v -> activity.showVerificationCodeDialog()}"
+                        app:controller_name="@{activity.namespace + `_sms_code`}"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/large"
+                        android:layout_weight="6"
+                        android:hint="@string/phone_number"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="9"
+                        app:prefixText="@string/phone_prefix"
+                        android:layoutDirection="ltr"
+                        android:textDirection="ltr"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phone_input"
+                            style="@style/Widget.App.TextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="0123456789"
+                            android:imeOptions="actionSend"
+                            android:inputType="phone"
+                            app:phone="@{activity.phone}"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        style="@style/Widget.App.Button.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/ok"
+                        app:icon="@drawable/ic_baseline_check_24"
+                        app:on_click="@{e -> activity.updatePhone(phoneInput)}"
+                        app:controller_name="@{activity.namespace + `_submit`}"
+                        />
+
+                    <Button
+                        style="@style/Widget.App.Button.Outlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large"
+                        android:minWidth="@dimen/large_button_width"
+                        android:text="@string/back"
+                        app:icon="@drawable/ic_baseline_arrow_back_24"
+                        app:on_click="@{e -> activity.finish()}"
+                        app:controller_name="@{activity.namespace + `_back`}"
+                        />
+
+                    <!--suppress AndroidElementNotAllowed -->
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="12"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.dalti.laposte.core.ui.PhoneForm"
+            />
+    </data>
+</layout>

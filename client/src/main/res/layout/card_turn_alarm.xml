@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="com.dalti.laposte.core.repositories.TurnAlarm" />
+
+        <variable
+            name="alarm"
+            type="com.dalti.laposte.core.repositories.TurnAlarm"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.client.ui.AlarmsFragment"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        style="@style/Widget.App.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tiny"
+            >
+
+            <Button
+                android:id="@+id/schedule_button"
+                style="@style/Widget.App.Button.Naked.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isBeforehandDurationActive(alarm.id)}"
+                android:tag="@{TurnAlarm.BEFOREHAND_DURATION}"
+                android:text="@{alarm.beforehandDurationAsText}"
+                app:controller_name="@{alarm.namespace + `_beforehand`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_baseline_access_time_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:on_click="@{view -> fragment.openBeforehandDurationDialog(alarm.id, alarm.beforehandDuration)}"
+                tools:text="20 minutes"
+                />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{alarm.enabled}"
+                android:enabled="@{fragment.isEnabledActive(alarm.id)}"
+                android:gravity="center"
+                android:paddingStart="0dp"
+                android:paddingEnd="@dimen/small"
+                app:layout_constraintBottom_toBottomOf="@+id/schedule_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/schedule_button"
+                app:onCheckedChangeListener="@{(view, checked) -> fragment.updateEnabled(alarm.id, checked, view)}"
+                />
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isMaxQueueLengthActive(alarm.id)}"
+                android:tag="@{TurnAlarm.MAX_QUEUE_LENGTH}"
+                app:controller_name="@{alarm.namespace + `_max_queue`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_padded_waiting_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/schedule_button"
+                app:on_click="@{view -> fragment.openMaxQueueLengthDialog(alarm.id, alarm.maxQueueLength)}"
+                app:string="@{alarm.maxQueueLength}"
+                tools:text="100"
+                />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isMinLiquidityActive(alarm.id)}"
+                android:tag="@{TurnAlarm.MIN_LIQUIDITY}"
+                android:text="@{alarm.minLiquidityAsText}"
+                app:controller_name="@{alarm.namespace + `_min_liquidity`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_baseline_attach_money_24"
+                app:layout_constraintBottom_toBottomOf="@+id/button1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button1"
+                app:on_click="@{view -> fragment.openMinLiquidityDialog(alarm.id, alarm.minLiquidity)}"
+                tools:text="available"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/materialCheckBox"
+                style="@style/Widget.App.Checkbox.AlwaysOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{alarm.vibrate}"
+                android:enabled="@{fragment.isVibrateActive(alarm.id)}"
+                android:textColor="?colorPrimary"
+                android:text="@string/vibrate"
+                app:gone_unless="@{fragment.extraInputVisibility}"
+                app:layout_constraintBottom_toBottomOf="@+id/button5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button5"
+                app:onCheckedChangeListener="@{(view, checked) -> fragment.updateVibrate(alarm.id, checked, view)}"
+                />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isRingtoneActive(alarm.id)}"
+                android:tag="@{TurnAlarm.RINGTONE}"
+                android:text="@{alarm.ringtoneAsText}"
+                app:controller_name="@{alarm.namespace + `_ringtone`}"
+                app:controller_payload="@{alarm.id}"
+                app:gone_unless="@{fragment.extraInputVisibility}"
+                app:icon="@drawable/ic_baseline_notifications_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button1"
+                app:on_click="@{view -> fragment.openRingtoneDialog(alarm.id, alarm.ringtone)}"
+                tools:text="Silent"
+                />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isSnoozeActive(alarm.id)}"
+                android:tag="@{TurnAlarm.SNOOZE}"
+                app:controller_name="@{alarm.namespace + `_snooze`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_baseline_snooze_24"
+                app:layout_constraintBottom_toTopOf="@+id/sms_buttons"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button5"
+                app:on_click="@{view -> fragment.openSnoozeDialog(alarm.id, alarm.snooze)}"
+                app:string="@{alarm.snoozeAsText}"
+                tools:text="01 min 30 sec"
+                />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test"
+                app:controller_name="@{alarm.namespace + `_test`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_baseline_play_circle_outline_24"
+                app:layout_constraintBottom_toBottomOf="@+id/button8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button8"
+                app:layout_constraintVertical_bias="0.0"
+                app:on_click="@{e -> fragment.testAlarm(alarm)}"
+                />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/sms_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button8"
+                >
+
+                <Button
+                    style="@style/Widget.App.Button.Naked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_sms"
+                    app:controller_name="@{alarm.namespace + `_sms`}"
+                    app:controller_payload="@{alarm.id}"
+                    app:icon="@drawable/ic_baseline_sms_24"
+                    app:invisible_unless="@{alarm.visibleWhenNotPhone()}"
+                    app:on_click="@{e -> fragment.enableSMS(alarm.id)}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Naked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{alarm.phone}"
+                    android:textDirection="ltr"
+                    app:controller_name="@{alarm.namespace + `_phone`}"
+                    app:controller_payload="@{alarm.id}"
+                    app:gone_unless="@{alarm.visibleWhenPhone()}"
+                    app:icon="@drawable/ic_baseline_sms_24"
+                    app:on_click="@{e -> fragment.editPhone(alarm.id)}"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <Button
+                android:id="@+id/priority_button"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{fragment.isPriorityActive(alarm.id)}"
+                android:tag="@{TurnAlarm.PRIORITY}"
+                android:text="@{alarm.priorityAsText}"
+                app:controller_name="@{alarm.namespace + `_priority`}"
+                app:controller_payload="@{alarm.id}"
+                app:gone_unless="@{fragment.extraInputVisibility}"
+                app:icon="@drawable/ic_baseline_campaign_24"
+                app:layout_constraintBottom_toBottomOf="@+id/sms_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sms_buttons"
+                app:layout_constraintVertical_bias="0.5"
+                app:on_click="@{view -> fragment.openPriorityDialog(alarm.id, alarm.priority)}"
+                tools:text="High"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/materialDivider"
+                style="@style/Widget.App.Divider.padded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/delete_button"
+                tools:layout_height="1dp"
+                />
+
+            <Button
+                android:id="@+id/delete_button"
+                style="@style/Widget.App.Button.Naked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                app:controller_name="@{alarm.namespace + `_delete`}"
+                app:controller_payload="@{alarm.id}"
+                app:icon="@drawable/ic_baseline_delete_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:on_click="@{e -> fragment.deleteAlarm(alarm.id)}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

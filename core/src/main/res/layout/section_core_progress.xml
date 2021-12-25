@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="selection"
+            type="com.dalti.laposte.core.repositories.Selection"
+            />
+
+        <variable
+            name="progress"
+            type="com.dalti.laposte.core.repositories.Progress"
+            />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_height="match_parent"
+        >
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            style="@style/Widget.App.Divider.padded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:gone_unless="@{progress.dividerVisibility}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="1dp"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                android:layout_margin="@dimen/small"
+                app:src_res_tinted="@{progress.icon ?? @drawable/ic_padded_man_24}"
+                app:tint_color_list="@{selection.secondaryColor}"
+                tools:src="@drawable/ic_padded_pleb_24"
+                />
+
+            <TextView
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                app:string="@{progress.currentTokenText}"
+                app:text_color_list="@{selection.secondaryColor}"
+                tools:text="current"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayoutCompat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_icon"
+                android:layout_height="@dimen/compact_icon"
+                android:layout_margin="@dimen/small"
+                app:src_res_tinted="@{@drawable/ic_padded_waiting_24}"
+                app:tint_color_list="@{selection.secondaryColor}"
+                tools:src="@drawable/ic_padded_waiting_24"
+                />
+
+            <TextView
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                app:string="@{progress.waitingText}"
+                app:text_color_list="@{selection.secondaryColor}"
+                tools:text="waiting"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

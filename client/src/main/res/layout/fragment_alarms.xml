@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.client.ui.AlarmsFragment"
+            />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:invisible_unless="@{fragment.noAlarmIconVisibility}"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/compact_thumbnails"
+                android:layout_height="@dimen/compact_thumbnails"
+                android:background="@drawable/ic_baseline_alarm_off_24"
+                android:backgroundTint="?colorOnBackground"
+                />
+
+            <TextView
+                android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/no_alarms"
+                android:textColor="?colorOnBackground"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.core.widget.NestedScrollView
+            style="@style/Widget.App.ScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/alarms_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:animate_layout="@{true}"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/small"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+</layout>

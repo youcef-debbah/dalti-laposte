@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.dalti.laposte.core.repositories.AdminAlarm"
+            />
+
+        <variable
+            name="fragment"
+            type="com.dalti.laposte.admin.ui.AdminAlarmsListFragment"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginEnd="@dimen/large"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:textAppearance="@style/TextAppearance.Jsoftware95.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:live_string="@{fragment.getLoadedProgress(data.progress)}"
+                    />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{data.enabled}"
+                    android:text="@string/enabled"
+                    app:onCheckedChangeListener="@{(view, checked) -> fragment.setEnabled(data.id,checked)}"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"
+                app:justifyContent="space_evenly"
+                app:alignItems="center"
+                app:alignContent="center"
+                >
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_confirmation_number_24}"
+                    app:label="@{@string/ticket}"
+                    app:value="@{data.ticket}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_access_time_24}"
+                    app:label="@{@string/alarm_time}"
+                    app:value="@{data.formattedDuration}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_phone_24}"
+                    app:label="@{@string/phone_number}"
+                    app:value="@{data.phone}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_send_24}"
+                    app:label="@{@string/sent_messages_count}"
+                    app:value="@{data.sentMessagesCount}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_edit_24}"
+                    app:label="@{@string/last_update}"
+                    app:value="@{data.formattedCreationTime}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_pending_actions_24}"
+                    app:label="@{@string/last_sending_time}"
+                    app:value="@{data.formattedLastLaunch}"
+                    />
+
+                <include
+                    layout="@layout/component_vertical_value"
+                    app:icon="@{@drawable/ic_baseline_assignment_turned_in_24}"
+                    app:label="@{@string/last_sending_result}"
+                    app:value="@{data.formattedLastSendingState}"
+                    />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/Widget.App.Divider.padded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_height="1dp"
+                />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/tiny"
+                android:paddingBottom="@dimen/tiny"
+                app:flexWrap="wrap"
+                app:justifyContent="space_evenly"
+                >
+
+                <Button
+                    style="@style/Widget.App.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open"
+                    app:controller_name="@{fragment.namespace + `_open`}"
+                    app:controller_payload="@{data.id}"
+                    app:icon="@drawable/ic_baseline_open_in_new_24"
+                    app:on_click="@{e -> fragment.onItemSelected(data)}"
+                    />
+
+                <Button
+                    style="@style/Widget.App.Button.Filled.Accent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete"
+                    app:controller_name="@{fragment.namespace + `_delete`}"
+                    app:controller_payload="@{data.id}"
+                    app:icon="@drawable/ic_baseline_delete_24"
+                    app:on_click="@{e -> fragment.deleteAlarm(data.id)}"
+                    />
+            </com.google.android.flexbox.FlexboxLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
