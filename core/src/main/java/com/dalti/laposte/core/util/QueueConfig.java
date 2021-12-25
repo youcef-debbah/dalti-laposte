@@ -6,7 +6,6 @@ import dz.jsoftware95.common.ProjectPhase;
 
 public final class QueueConfig {
     public static final ProjectPhase PROJECT_PHASE = ProjectPhase.PRODUCTION;
-    public static final boolean ANALYTICS = true;
     public static final int ANR_TIMEOUT_SECONDS = 5;
 
     public static final int ON_DURATION = 1250;
