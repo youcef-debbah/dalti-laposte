@@ -6,8 +6,7 @@ import dz.jsoftware95.queue.common.GlobalConf;
 
 public interface BuildConfiguration {
 
-//    String DEFAULT_PRODUCTION_HOST_NAME = "www.dalti-laposte.com";
-    String DEFAULT_PRODUCTION_HOST_NAME = "51.83.16.203";
+    String DEFAULT_PRODUCTION_HOST_NAME = "www.dalti-laposte.com";
 
     String DEFAULT_QUEUE_API_URL = GlobalConf.QUEUE_API_V_1;
     String DEFAULT_EMULATOR_LOCAL_HOST_NAME = "10.0.2.2";
