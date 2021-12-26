@@ -69,7 +69,7 @@ dependencies {
     api("androidx.constraintlayout:constraintlayout:2.1.2")
     api("com.google.android.flexbox:flexbox:3.0.0")
     // alpha 3 causes link error for some api 31 resources
-    api("com.google.android.material:material:1.6.0-alpha01")
+    api("com.google.android.material:material:1.5.0-rc01")
     api("androidx.lifecycle:lifecycle-livedata:2.3.1")
     api("androidx.lifecycle:lifecycle-viewmodel:2.3.1")
     api("androidx.lifecycle:lifecycle-service:2.3.1")
