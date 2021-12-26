@@ -786,7 +786,7 @@ public abstract class Event {
         interface Param {
             String ID = "WORKER_REQUEST_ID";
             String TIMESTAMP = "WORKER_REQUEST_TIMESTAMP";
-            String WORKER_NAME = "WORKER_NAME";
+            String WORKER_NAME = "WORKER_REQUEST_NAME";
             String UPTIME = "WORKER_REQUEST_UPTIME";
         }
     }
@@ -798,9 +798,9 @@ public abstract class Event {
             /**
              * number of millis between job enqueue and it's actual run time
              */
-            String DELAY = "WORKER_DELAY";
-            String ID = "WORKER_REQUEST_ID";
-            String WORKER_NAME = "WORKER_NAME";
+            String DELAY = "WORKER_SESSION_DELAY";
+            String ID = "WORKER_SESSION_ID";
+            String WORKER_NAME = "WORKER_SESSION_NAME";
         }
     }
 
@@ -808,7 +808,7 @@ public abstract class Event {
         String NAME = "SERVICE_MISSING_WARNING";
 
         interface Param {
-            String SOURCE_OPERATION = "SOURCE_OPERATION";
+            String SOURCE_OPERATION = "SERVICE_MISSING_SOURCE_OPERATION";
         }
     }
 
@@ -816,7 +816,7 @@ public abstract class Event {
         String NAME = "ACTIVATION_NEEDED_WARNING";
 
         interface Param {
-            String SOURCE_OPERATION = "SOURCE_OPERATION";
+            String SOURCE_OPERATION = "ACTIVATION_NEEDED_SOURCE_OPERATION";
         }
     }
 
@@ -824,7 +824,7 @@ public abstract class Event {
         String NAME = "SET_TICKET";
 
         interface Param {
-            String TICKET_ID = "TICKET_ID";
+            String TICKET_ID = "TICKET_ID";//not reported
             String TICKET_NUMBER = "TICKET_NUMBER";
         }
     }
@@ -833,7 +833,7 @@ public abstract class Event {
         String NAME = "CLEAR_TICKET";
 
         interface Param {
-            String TICKET_ID = "TICKET_ID";
+            String TICKET_ID = "TICKET_ID";//not reported
             String TICKET_CLEARING_TRIGGER = "TICKET_CLEARING_TRIGGER";
         }
     }
@@ -878,8 +878,8 @@ public abstract class Event {
         String NAME = "SMS_SENT";
 
         interface Param {
-            String SMS_ID = "SENT_SMS_ID";
-            String SMS_TOKEN = "SENT_SMS_TOKEN";
+            String SMS_ID = "SENT_SMS_ID";//not reported
+            String SMS_TOKEN = "SENT_SMS_TOKEN";//not reported
         }
     }
 
@@ -887,8 +887,8 @@ public abstract class Event {
         String NAME = "SMS_NOT_SENT";
 
         interface Param {
-            String SMS_ID = "UNSENT_SMS_ID";
-            String SMS_TOKEN = "UNSENT_SMS_TOKEN";
+            String SMS_ID = "UNSENT_SMS_ID";//not reported
+            String SMS_TOKEN = "UNSENT_SMS_TOKEN";//not reported
             String SMS_OUTCOME = "UNSENT_SMS_OUTCOME";
         }
     }
@@ -897,8 +897,8 @@ public abstract class Event {
         String NAME = "SMS_DELIVERED";
 
         interface Param {
-            String SMS_ID = "DELIVERED_SMS_ID";
-            String SMS_TOKEN = "DELIVERED_SMS_TOKEN";
+            String SMS_ID = "DELIVERED_SMS_ID";//not reported
+            String SMS_TOKEN = "DELIVERED_SMS_TOKEN";//not reported
         }
     }
 
@@ -964,7 +964,7 @@ public abstract class Event {
         String NAME = "DELETE_TURN_ALARM_PHONE";
 
         interface Param {
-            String TURN_ALARM_ID = "DELETED_ALARM_ID";
+            String TURN_ALARM_ID = "DELETED_ALARM_ID";//not reported
         }
     }
 
@@ -972,7 +972,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_PHONE";
 
         interface Param {
-            String TURN_ALARM_ID = "PHONE_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "PHONE_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_PHONE";
         }
     }
@@ -981,7 +981,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_VIBRATION";
 
         interface Param {
-            String TURN_ALARM_ID = "VIBRATION_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "VIBRATION_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_VIBRATION";
         }
     }
@@ -990,7 +990,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_SNOOZE";
 
         interface Param {
-            String TURN_ALARM_ID = "SNOOZE_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "SNOOZE_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_SNOOZE";
         }
     }
@@ -999,7 +999,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_RINGTONE";
 
         interface Param {
-            String TURN_ALARM_ID = "RINGTONE_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "RINGTONE_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_RINGTONE";
         }
     }
@@ -1008,7 +1008,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_PRIORITY";
 
         interface Param {
-            String TURN_ALARM_ID = "PRIORITY_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "PRIORITY_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_PRIORITY";
         }
     }
@@ -1017,7 +1017,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_MIN_LIQUIDITY";
 
         interface Param {
-            String TURN_ALARM_ID = "LIQUIDITY_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "LIQUIDITY_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_LIQUIDITY";
         }
     }
@@ -1026,7 +1026,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_MAX_QUEUE_LENGTH";
 
         interface Param {
-            String TURN_ALARM_ID = "MAX_QUEUE_LENGTH_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "MAX_QUEUE_LENGTH_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_MAX_QUEUE_LENGTH";
         }
     }
@@ -1035,7 +1035,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_DURATION";
 
         interface Param {
-            String TURN_ALARM_ID = "DURATION_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "DURATION_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_DURATION";
         }
     }
@@ -1044,7 +1044,7 @@ public abstract class Event {
         String NAME = "UPDATE_TURN_ALARM_ENABLED";
 
         interface Param {
-            String TURN_ALARM_ID = "ENABLED_UPDATED_TURN_ALARM_ID";
+            String TURN_ALARM_ID = "ENABLED_UPDATED_TURN_ALARM_ID";//not reported
             String NEW_VALUE = "UPDATED_TURN_ALARM_ENABLED";
         }
     }

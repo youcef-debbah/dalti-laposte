@@ -269,7 +269,7 @@ public class QueueUtils {
 
     public static void handleServiceNeeded(String operation) {
         handleServiceNeeded(true);
-        Teller.log(Event.ServiceMissingWarning.NAME, Event.ActivationNeededWarning.Param.SOURCE_OPERATION, operation);
+        Teller.log(Event.ServiceMissingWarning.NAME, Event.ServiceMissingWarning.Param.SOURCE_OPERATION, operation);
     }
 
     public static void handleServiceNeeded(boolean feedbackEnabled) {
