@@ -264,6 +264,7 @@ public class ContextInitLogger extends BasicJob {
     }
 
     interface UserProperty {
+        // this is not included with the other properties
         String APPLICATION_ID = "APPLICATION_ID";
 
         String APPLICATION_VERSION = "APPLICATION_VERSION";
