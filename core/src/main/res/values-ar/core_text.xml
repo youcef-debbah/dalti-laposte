@@ -85,7 +85,7 @@
     <string name="refresh">تحديث</string>
     <string name="enable_sms">تمكين الرسائل القصيرة</string>
     <string name="dashboard">لوحة القيادة</string>
-    <string name="progress">الصفحة الرئيسة</string>
+    <string name="progress">الصفحة الرئيسية</string>
     <string name="select_service">إختر مكتب بريد</string>
     <string name="select_service_first">يرجى اختيار مكتب أولا</string>
     <string name="data_updated">تم تحديث البيانات</string>
@@ -206,11 +206,11 @@
     <string name="service_overloaded">مكتب البريد مفتوح حاليا ولكنه لا يستقبل عملاء جدد (توقف توزيع التذاكر)</string>
     <string name="unknown_service_state">الحالة الحالية لهذا المكتب غير معروفة</string>
     <string name="liquidity_available">السيولة متاحة</string>
-    <string name="liquidity_available_with_cap">السيولة متاحة (أقصى حد للسحب هو %,d&#160;د.ج)</string>
+    <string name="liquidity_available_with_cap">السيولة متاحة (أقصى حد للسحب هو %d&#160;د.ج)</string>
     <string name="liquidity_limited">السيولة محدودة، قد لا تتمكن من القيام بعمليات سحب كبيرة</string>
-    <string name="liquidity_limited_with_cap">السيولة محدودة، لا يمكنك سحب أكثر من %,d&#160;د.ج</string>
+    <string name="liquidity_limited_with_cap">السيولة محدودة، لا يمكنك سحب أكثر من %d&#160;د.ج</string>
     <string name="liquidity_depleted">السيولة غير متوفرة، قد تضطر إلى إنتظار ودائع الآخرين حتى تتمكن من السحب!</string>
-    <string name="liquidity_depleted_with_cap">السيولة غير متوفرة (أقصى حد للسحب هو %,d&#160;د.ج)، قد تضطر إلى إنتظار ودائع الآخرين حتى تتمكن من السحب!</string>
+    <string name="liquidity_depleted_with_cap">السيولة غير متوفرة (أقصى حد للسحب هو %d&#160;د.ج)، قد تضطر إلى إنتظار ودائع الآخرين حتى تتمكن من السحب!</string>
     <string name="service_coming_soon">سيتم تضمين هذا المكتب في خدمتنا قريبا</string>
     <string name="service_stopped">للأسف، لم يعد هذا المكتب مدرجا في خدمتنا</string>
     <string name="service_paused">هذا المكتب غير مدعوم مؤقتا من طرف خدمتنا، نحن آسفون للغاية على الإزعاج!</string>
