@@ -43,9 +43,12 @@ android {
         val proguardRules = File("proguard-rules.pro")
 
         named("debug") {
-            isDebuggable = true
-            isMinifyEnabled = false
-            isShrinkResources = false
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(defaultProguardFile, proguardRules)
         }
     }

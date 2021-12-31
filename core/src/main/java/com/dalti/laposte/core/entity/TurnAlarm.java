@@ -1,5 +1,7 @@
 package com.dalti.laposte.core.entity;
 
+import android.os.Build;
+
 import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -196,7 +198,7 @@ public class TurnAlarm implements Item {
     }
 
     public static Integer ringtoneRes(Integer ringtone, int priority) {
-        if (ringtone != null && notificationPriority(priority) > NotificationCompat.PRIORITY_LOW)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && ringtone != null && notificationPriority(priority) > NotificationCompat.PRIORITY_LOW)
             switch (ringtone) {
                 case 1:
                     return R.raw.sound_bell;

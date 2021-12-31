@@ -63,6 +63,9 @@ android {
         }
 
         named("release") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
             isDebuggable = false
             isMinifyEnabled = true
             isShrinkResources = true
