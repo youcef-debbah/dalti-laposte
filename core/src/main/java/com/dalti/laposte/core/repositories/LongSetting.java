@@ -1,5 +1,7 @@
 package com.dalti.laposte.core.repositories;
 
+import com.dalti.laposte.core.entity.TurnAlarm;
+
 import java.util.concurrent.TimeUnit;
 
 public enum LongSetting implements LongPreference {

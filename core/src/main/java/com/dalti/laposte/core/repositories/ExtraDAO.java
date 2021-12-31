@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.dalti.laposte.core.entity.Extra;
+
 @Dao
 @WorkerThread
 public abstract class ExtraDAO {

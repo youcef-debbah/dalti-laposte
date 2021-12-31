@@ -3,6 +3,7 @@ package com.dalti.laposte.core.model;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
@@ -15,6 +16,7 @@ import dz.jsoftware95.silverbox.android.observers.MainObserver;
 
 public class QueueRecyclerView extends StatefulRecyclerView {
 
+    @Keep
     private MainObserver<BackendEvent> backendObserver;
 
     public QueueRecyclerView(@NonNull Context context) {

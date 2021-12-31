@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.room.Room;
 
-import com.dalti.laposte.admin.repositories.AdminAPI;
+import com.dalti.laposte.admin.entity.AdminAPI;
 import com.dalti.laposte.admin.repositories.AdminActivationRepository;
 import com.dalti.laposte.admin.repositories.AdminBuildConfiguration;
 import com.dalti.laposte.admin.repositories.AdminUpdateHandler;
@@ -12,7 +12,7 @@ import com.dalti.laposte.core.repositories.AbstractActivationRepository;
 import com.dalti.laposte.core.repositories.AbstractUpdateHandler;
 import com.dalti.laposte.core.repositories.ActivationDAO;
 import com.dalti.laposte.core.repositories.AdminAlarmDAO;
-import com.dalti.laposte.core.repositories.CoreAPI;
+import com.dalti.laposte.core.entity.CoreAPI;
 import com.dalti.laposte.core.repositories.ExtraDAO;
 import com.dalti.laposte.core.repositories.LogDAO;
 import com.dalti.laposte.core.repositories.ProgressDAO;

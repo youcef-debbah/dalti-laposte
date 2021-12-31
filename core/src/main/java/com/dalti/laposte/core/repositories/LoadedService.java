@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.annotation.WorkerThread;
 
+import com.dalti.laposte.core.entity.Service;
 import com.dalti.laposte.core.ui.VectorDrawableUtil;
 
 import java.util.List;

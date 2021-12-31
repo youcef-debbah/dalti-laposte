@@ -25,7 +25,7 @@ import com.dalti.laposte.core.model.DashboardModel;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.Estimation;
 import com.dalti.laposte.core.repositories.Event;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.Selection;
 import com.dalti.laposte.core.repositories.StringNumberSetting;
 import com.dalti.laposte.core.repositories.Teller;

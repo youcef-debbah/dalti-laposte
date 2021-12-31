@@ -1,9 +1,11 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.dalti.laposte.core.repositories.Property;
 
 import org.jetbrains.annotations.NotNull;
 

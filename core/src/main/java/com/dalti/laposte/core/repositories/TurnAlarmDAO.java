@@ -9,9 +9,11 @@ import androidx.room.Query;
 import androidx.room.RoomDatabase;
 import androidx.room.Transaction;
 
+import com.dalti.laposte.core.entity.TurnAlarm;
+
 import java.util.List;
 
-import dz.jsoftware95.queue.response.ResponseConfig;
+import dz.jsoftware95.queue.common.ResponseConfig;
 import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 
 @Dao

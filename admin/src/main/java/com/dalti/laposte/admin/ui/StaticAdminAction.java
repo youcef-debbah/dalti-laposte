@@ -1,8 +1,8 @@
 package com.dalti.laposte.admin.ui;
 
 import com.dalti.laposte.core.repositories.AdminAction;
-import com.dalti.laposte.core.repositories.Progress;
-import com.dalti.laposte.core.repositories.Service;
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.Service;
 
 public enum StaticAdminAction implements AdminAction {
     NONE,

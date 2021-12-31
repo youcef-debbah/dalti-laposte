@@ -3,6 +3,8 @@ package com.dalti.laposte.core.repositories;
 import androidx.annotation.AnyThread;
 import androidx.annotation.Nullable;
 
+import com.dalti.laposte.core.entity.Service;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 

@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

@@ -3,7 +3,7 @@ package com.dalti.laposte.admin.repositories;
 import androidx.annotation.AnyThread;
 import androidx.annotation.Nullable;
 
-import com.dalti.laposte.core.repositories.AdminAlarm;
+import com.dalti.laposte.core.entity.AdminAlarm;
 import com.dalti.laposte.core.repositories.AdminAlarmDAO;
 
 import javax.inject.Inject;

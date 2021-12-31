@@ -1,9 +1,9 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import java.util.List;
 import java.util.Map;
 
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 
 public class AlarmsInfo extends ServerResponse {
     private List<AdminAlarm> alarms;

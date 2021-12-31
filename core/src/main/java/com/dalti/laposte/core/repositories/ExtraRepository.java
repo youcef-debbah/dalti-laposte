@@ -9,6 +9,7 @@ import androidx.annotation.WorkerThread;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.dalti.laposte.core.entity.Extra;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import java.util.Collection;

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
@@ -20,20 +21,26 @@ import com.dalti.laposte.admin.BR;
 import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.model.ActivationsListModel;
 import com.dalti.laposte.core.model.QueueRecyclerView;
-import com.dalti.laposte.core.repositories.Activation;
+import com.dalti.laposte.core.entity.Activation;
 import com.dalti.laposte.core.ui.AbstractQueueFragment;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import dz.jsoftware95.silverbox.android.backend.BackendEvent;
 import dz.jsoftware95.silverbox.android.backend.Item;
 import dz.jsoftware95.silverbox.android.frontend.BasicRefreshBehaviour;
 import dz.jsoftware95.silverbox.android.frontend.StatefulRecyclerView;
 import dz.jsoftware95.silverbox.android.middleware.BindingUtil;
+import dz.jsoftware95.silverbox.android.observers.MainObserver;
 
 @AndroidEntryPoint
 public class ActivationsListFragment extends AbstractQueueFragment {
 
     ActivationsListModel model;
+    @Keep
+    private MainObserver<BackendEvent> mainObserver;
+    @Keep
+    private BasicRefreshBehaviour refreshBehaviour;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -60,7 +67,7 @@ public class ActivationsListFragment extends AbstractQueueFragment {
         final SwipeRefreshLayout refreshLayout = view.findViewById(com.dalti.laposte.R.id.refresh_layout);
         if (refreshLayout != null) {
             QueueUtils.style(refreshLayout);
-            final BasicRefreshBehaviour refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
+            refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
             model.addModelObserver(refreshBehaviour);
             refreshLayout.setOnRefreshListener(refreshBehaviour);
         }
@@ -79,7 +86,8 @@ public class ActivationsListFragment extends AbstractQueueFragment {
         recycler.setLayoutManager(layoutManager);
 
         model.getCurrentActivations().observe(getViewLifecycleOwner(), adapter::setData);
-        model.addDataObserver(recycler.newBackendObserver(model, getViewLifecycle()));
+        mainObserver = recycler.newBackendObserver(model, getViewLifecycle());
+        model.addDataObserver(mainObserver);
     }
 
     @Override

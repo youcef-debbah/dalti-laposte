@@ -30,7 +30,7 @@ import com.dalti.laposte.core.repositories.AdminAction;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.BooleanSetting;
 import com.dalti.laposte.core.repositories.DashboardRepository;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.Selection;
 import com.dalti.laposte.core.repositories.Teller;
 import com.dalti.laposte.core.ui.QueueNotifications;

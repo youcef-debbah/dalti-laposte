@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PagedList;
 
-import com.dalti.laposte.core.repositories.Service;
+import com.dalti.laposte.core.entity.Service;
 import com.dalti.laposte.core.repositories.ServicesListRepository;
 import com.dalti.laposte.core.repositories.Teller;
 

@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.dalti.laposte.core.repositories.Activation"
+            type="com.dalti.laposte.core.entity.Activation"
             />
 
         <variable

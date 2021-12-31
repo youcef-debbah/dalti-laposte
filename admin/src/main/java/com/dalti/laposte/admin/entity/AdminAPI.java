@@ -1,13 +1,13 @@
-package com.dalti.laposte.admin.repositories;
+package com.dalti.laposte.admin.entity;
 
-import com.dalti.laposte.core.repositories.ActivationsInfo;
-import com.dalti.laposte.core.repositories.AlarmsInfo;
+import com.dalti.laposte.core.entity.ActivationsInfo;
+import com.dalti.laposte.core.entity.AlarmsInfo;
 
-import dz.jsoftware95.queue.common.AlarmInfo;
+import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.GlobalConf;
-import dz.jsoftware95.queue.common.Situation;
-import dz.jsoftware95.queue.response.ServerResponse;
-import dz.jsoftware95.queue.response.UpdateResult;
+import dz.jsoftware95.queue.api.Situation;
+import dz.jsoftware95.queue.api.ServerResponse;
+import dz.jsoftware95.queue.api.UpdateResult;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

@@ -13,7 +13,9 @@
 package dz.jsoftware95.silverbox.android.middleware;
 
 import android.app.Application;
+import android.util.Log;
 
+import androidx.annotation.Keep;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import dz.jsoftware95.silverbox.android.backend.BackendEvent;
 import dz.jsoftware95.silverbox.android.backend.Repository;
 import dz.jsoftware95.silverbox.android.common.Check;
+import dz.jsoftware95.silverbox.android.common.LDT;
 import dz.jsoftware95.silverbox.android.observers.MainObserver;
 import dz.jsoftware95.silverbox.android.observers.UnMainObserver;
 
@@ -30,6 +33,7 @@ import dz.jsoftware95.silverbox.android.observers.UnMainObserver;
 public abstract class RepositoryModel<R extends Repository> extends BasicModel {
 
     private R repository;
+    @Keep
     private MainObserver<BackendEvent> backendObserver;
 
     /**
@@ -49,12 +53,17 @@ public abstract class RepositoryModel<R extends Repository> extends BasicModel {
         return new UnMainObserver<RepositoryModel<T>, BackendEvent>(model) {
             @Override
             protected void onUpdate(@NonNull RepositoryModel<T> model, @Nullable BackendEvent event) {
+                LDT.i("BackendObserver event: " + event);
                 if (event != null) {
-                    if (event.shouldStartRefreshing() && event.shouldStopRefreshing())
+                    boolean cond1 = event.shouldStartRefreshing() && event.shouldStopRefreshing();
+                    LDT.i("event.shouldStartRefreshing() && event.shouldStopRefreshing() = " + cond1);
+                    if (cond1)
                         model.markAs(!model.isRefreshing());
                     else {
+                        LDT.i("event.shouldStartRefreshing() = " + event.shouldStartRefreshing());
                         if (event.shouldStartRefreshing())
                             model.markAsRefreshing();
+                        LDT.i("event.shouldStopRefreshing() = " + event.shouldStopRefreshing());
                         if (event.shouldStopRefreshing())
                             model.markAsRefreshDone();
                     }

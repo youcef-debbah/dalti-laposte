@@ -13,7 +13,7 @@ import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.BooleanSetting;
 import com.dalti.laposte.core.repositories.Event;
 import com.dalti.laposte.core.repositories.Teller;
-import com.dalti.laposte.core.repositories.TurnAlarm;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.repositories.TurnAlarmDAO;
 import com.dalti.laposte.core.util.QueueUtils;
 
@@ -30,7 +30,7 @@ import javax.inject.Singleton;
 
 import dagger.Lazy;
 import dz.jsoftware95.queue.common.BiFunction;
-import dz.jsoftware95.queue.response.ResponseConfig;
+import dz.jsoftware95.queue.common.ResponseConfig;
 import dz.jsoftware95.silverbox.android.backend.DataEvent;
 import dz.jsoftware95.silverbox.android.backend.Item;
 import dz.jsoftware95.silverbox.android.backend.LazyRepository;

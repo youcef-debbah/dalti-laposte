@@ -7,10 +7,10 @@ import com.dalti.laposte.core.model.BasicActionReceiver;
 import com.dalti.laposte.core.repositories.DashboardRepository;
 import com.dalti.laposte.core.repositories.Event;
 import com.dalti.laposte.core.repositories.NotificationUtils;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.SmsRepository;
 import com.dalti.laposte.core.repositories.Teller;
-import com.dalti.laposte.core.repositories.TurnAlarm;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.ui.Request;
 
 import javax.inject.Inject;

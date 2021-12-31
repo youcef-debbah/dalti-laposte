@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.junit.Test;
 
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;

@@ -11,6 +11,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -46,6 +47,7 @@ public class ActivationCodeFormActivity extends AbstractQueueActivity implements
     private TextView codeInput;
 
     private ActivationFormModel model;
+    @Keep
     private MainObserver<BackendEvent> observer;
     private ActivityResultLauncher<Intent> activationCodeReader;
     private LiveData<Integer> currentActivationCodeVisibility;
@@ -155,12 +157,6 @@ public class ActivationCodeFormActivity extends AbstractQueueActivity implements
 
     public LiveData<Integer> getCurrentActivationCodeVisibility() {
         return currentActivationCodeVisibility;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        observer = null;
     }
 
     public String getNamespace() {

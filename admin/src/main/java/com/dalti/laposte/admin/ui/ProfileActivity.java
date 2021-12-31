@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Keep;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.LiveData;
 
@@ -33,6 +34,7 @@ public class ProfileActivity extends AbstractQueueActivity implements Form {
     private TextView phoneInput;
     private TextView nameInput;
     private TextView passwordInput;
+    @Keep
     private UnMainObserver<Activity, BackendEvent> observer;
 
     @Inject
@@ -90,12 +92,6 @@ public class ProfileActivity extends AbstractQueueActivity implements Form {
 
         if (phoneInput != null && phoneInput.getError() == null && passwordInput.getError() == null)
             profileModel.activateApplication(getStringExtra(Teller.ACTIVATION_SOURCE));
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        observer = null;
     }
 
     public String getNamespace() {

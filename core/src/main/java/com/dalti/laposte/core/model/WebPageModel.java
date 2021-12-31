@@ -10,7 +10,7 @@ import androidx.lifecycle.Transformations;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.LongSetting;
 import com.dalti.laposte.core.repositories.NamedLongPreference;
-import com.dalti.laposte.core.repositories.WebPage;
+import com.dalti.laposte.core.entity.WebPage;
 import com.dalti.laposte.core.repositories.WebPageRepository;
 
 import javax.inject.Inject;

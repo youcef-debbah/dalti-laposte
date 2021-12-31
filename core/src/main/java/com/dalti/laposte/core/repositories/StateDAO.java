@@ -8,6 +8,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import com.dalti.laposte.core.entity.StateEntry;
+
 import dz.jsoftware95.queue.common.IdentityManager;
 import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 

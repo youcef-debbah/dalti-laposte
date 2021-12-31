@@ -11,6 +11,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.RoomDatabase;
 
+import com.dalti.laposte.core.entity.ShortMessage;
+
 import java.util.List;
 
 import dz.jsoftware95.silverbox.android.backend.PageableDAO;

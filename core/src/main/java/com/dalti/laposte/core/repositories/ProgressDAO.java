@@ -10,6 +10,9 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.Service;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -17,10 +20,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import dz.jsoftware95.queue.common.AlarmInfo;
+import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.queue.common.IdentityManager;
-import dz.jsoftware95.queue.common.IntLongPair;
+import dz.jsoftware95.queue.api.IntLongPair;
 import dz.jsoftware95.silverbox.android.backend.DataLoader;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.observers.ObserversUtil;

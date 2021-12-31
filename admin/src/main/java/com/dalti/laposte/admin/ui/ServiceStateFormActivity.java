@@ -14,7 +14,7 @@ import com.dalti.laposte.admin.BR;
 import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.repositories.AdminDashboardRepository;
 import com.dalti.laposte.core.repositories.AppConfig;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.StringNumberSetting;
 import com.dalti.laposte.core.ui.AbstractQueueActivity;
 import com.dalti.laposte.core.ui.Form;

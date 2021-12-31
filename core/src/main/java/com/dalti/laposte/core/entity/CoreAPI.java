@@ -1,12 +1,14 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
-import dz.jsoftware95.queue.common.EventsList;
+import com.dalti.laposte.core.entity.ServicesInfo;
+
+import dz.jsoftware95.queue.api.EventsList;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.queue.common.Payload;
-import dz.jsoftware95.queue.common.Situation;
-import dz.jsoftware95.queue.common.WebPageInfo;
-import dz.jsoftware95.queue.response.ServerResponse;
-import dz.jsoftware95.queue.response.ServiceInfo;
+import dz.jsoftware95.queue.api.Situation;
+import dz.jsoftware95.queue.api.WebPageInfo;
+import dz.jsoftware95.queue.api.ServerResponse;
+import dz.jsoftware95.queue.api.ServiceInfo;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;

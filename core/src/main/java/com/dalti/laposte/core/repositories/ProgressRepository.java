@@ -4,6 +4,7 @@ import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 
 import org.jetbrains.annotations.NotNull;

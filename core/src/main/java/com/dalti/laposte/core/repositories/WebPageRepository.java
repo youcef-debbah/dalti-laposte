@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.entity.CoreAPI;
+import com.dalti.laposte.core.entity.WebPage;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.ui.WebPageDetails;
 import com.dalti.laposte.core.util.QueueUtils;
@@ -27,7 +29,7 @@ import javax.inject.Singleton;
 
 import dagger.Lazy;
 import dz.jsoftware95.queue.common.GlobalUtil;
-import dz.jsoftware95.queue.common.WebPageInfo;
+import dz.jsoftware95.queue.api.WebPageInfo;
 import dz.jsoftware95.silverbox.android.backend.DataEvent;
 import dz.jsoftware95.silverbox.android.backend.LazyRepository;
 import dz.jsoftware95.silverbox.android.backend.LiveDataWrapper;

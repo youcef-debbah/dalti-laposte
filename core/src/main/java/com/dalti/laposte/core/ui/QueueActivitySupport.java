@@ -10,6 +10,7 @@ import com.dalti.laposte.core.repositories.Teller;
 
 import java.util.Objects;
 
+import dz.jsoftware95.queue.common.GlobalUtil;
 import dz.jsoftware95.silverbox.android.middleware.StatefulActivity;
 
 public abstract class QueueActivitySupport {

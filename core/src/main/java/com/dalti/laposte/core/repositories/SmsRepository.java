@@ -22,6 +22,8 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.dalti.laposte.core.entity.CoreAPI;
+import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.ui.Request;
 import com.dalti.laposte.core.util.QueueUtils;
@@ -43,7 +45,7 @@ import dz.jsoftware95.queue.common.Function;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.queue.common.GlobalUtil;
 import dz.jsoftware95.queue.common.SmsState;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.backend.Item;
 import dz.jsoftware95.silverbox.android.backend.LiveListRepository;
 import dz.jsoftware95.silverbox.android.common.StringUtil;

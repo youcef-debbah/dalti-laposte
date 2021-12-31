@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -11,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.repositories.SmsRepository;
+
 import dz.jsoftware95.silverbox.android.backend.VisualItem;
 import dz.jsoftware95.silverbox.android.middleware.TimeUtils;
 

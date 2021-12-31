@@ -10,7 +10,7 @@ import com.dalti.laposte.client.repository.ClientBuildConfiguration;
 import com.dalti.laposte.client.repository.ClientUpdateHandler;
 import com.dalti.laposte.core.repositories.AbstractActivationRepository;
 import com.dalti.laposte.core.repositories.AbstractUpdateHandler;
-import com.dalti.laposte.core.repositories.CoreAPI;
+import com.dalti.laposte.core.entity.CoreAPI;
 import com.dalti.laposte.core.repositories.ExtraDAO;
 import com.dalti.laposte.core.repositories.LogDAO;
 import com.dalti.laposte.core.repositories.ProgressDAO;

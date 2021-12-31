@@ -14,7 +14,7 @@
 
         <variable
             name="progress"
-            type="com.dalti.laposte.core.repositories.Progress"
+            type="com.dalti.laposte.core.entity.Progress"
             />
     </data>
 

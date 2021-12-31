@@ -2,6 +2,9 @@ package com.dalti.laposte.core.repositories;
 
 import androidx.annotation.NonNull;
 
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.Service;
+
 import org.jetbrains.annotations.Nullable;
 
 import dz.jsoftware95.queue.common.IdentityManager;

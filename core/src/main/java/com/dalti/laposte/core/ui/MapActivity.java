@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import com.dalti.laposte.BR;
 import com.dalti.laposte.R;
 import com.dalti.laposte.core.repositories.LoadedService;
-import com.dalti.laposte.core.repositories.Service;
+import com.dalti.laposte.core.entity.Service;
 import com.dalti.laposte.core.repositories.ServicesRepository;
 
 import javax.inject.Inject;

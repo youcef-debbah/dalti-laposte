@@ -39,7 +39,7 @@ import dz.jsoftware95.silverbox.android.concurrent.SystemWorker;
 @NotThreadSafe
 public final class LDT {
 
-    private static final String TAG = "LDT#";
+    private static final String TAG = "silverbox_log";
     private static final String SEPARATOR = "----------------------------------------";
 
     private LDT() {

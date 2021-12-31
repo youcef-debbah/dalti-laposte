@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 
 import android.content.Context;
@@ -9,6 +9,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.repositories.AdminAction;
+import com.dalti.laposte.core.repositories.AppConfig;
+import com.dalti.laposte.core.repositories.LongSetting;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.ui.NoteState;
 import com.dalti.laposte.core.util.QueueUtils;

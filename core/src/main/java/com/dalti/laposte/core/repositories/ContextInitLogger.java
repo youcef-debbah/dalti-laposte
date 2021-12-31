@@ -14,6 +14,7 @@ import androidx.webkit.WebViewCompat;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.dalti.laposte.core.entity.CoreAPI;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.util.BuildConfiguration;
 import com.dalti.laposte.core.util.QueueUtils;
@@ -31,7 +32,7 @@ import dagger.Lazy;
 import dagger.assisted.Assisted;
 import dagger.assisted.AssistedInject;
 import dz.jsoftware95.queue.common.Payload;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.concurrent.AppWorker;
 import dz.jsoftware95.silverbox.android.concurrent.BasicJob;

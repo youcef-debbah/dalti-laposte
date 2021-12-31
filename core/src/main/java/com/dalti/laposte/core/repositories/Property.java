@@ -2,7 +2,7 @@ package com.dalti.laposte.core.repositories;
 
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 
-interface Property {
+public interface Property {
     int ID_1 = 1;
     int ID_3 = 3;
     int ID_8 = 8;

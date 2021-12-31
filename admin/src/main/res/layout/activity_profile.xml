@@ -83,6 +83,7 @@
                             style="@style/Widget.App.TextInputLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:minWidth="191dp"
                             android:layoutDirection="ltr"
                             android:paddingEnd="@dimen/huge"
                             android:textDirection="ltr"

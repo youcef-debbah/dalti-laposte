@@ -9,10 +9,11 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.dalti.laposte.R.string;
 import com.dalti.laposte.admin.R;
+import com.dalti.laposte.admin.entity.AdminAPI;
 import com.dalti.laposte.admin.model.SelectedActivation;
-import com.dalti.laposte.core.repositories.Activation;
+import com.dalti.laposte.core.entity.Activation;
 import com.dalti.laposte.core.repositories.ActivationDAO;
-import com.dalti.laposte.core.repositories.ActivationsInfo;
+import com.dalti.laposte.core.entity.ActivationsInfo;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.ExtraRepository;
 import com.dalti.laposte.core.repositories.InputProperty;

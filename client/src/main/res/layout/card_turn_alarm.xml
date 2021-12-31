@@ -6,11 +6,11 @@
 
     <data>
 
-        <import type="com.dalti.laposte.core.repositories.TurnAlarm" />
+        <import type="com.dalti.laposte.core.entity.TurnAlarm" />
 
         <variable
             name="alarm"
-            type="com.dalti.laposte.core.repositories.TurnAlarm"
+            type="com.dalti.laposte.core.entity.TurnAlarm"
             />
 
         <variable

@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-import dz.jsoftware95.queue.common.AlarmData;
-import dz.jsoftware95.queue.common.AlarmInfo;
+import dz.jsoftware95.queue.api.AlarmData;
+import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.SmsState;
 import dz.jsoftware95.silverbox.android.backend.VisualItem;
 import dz.jsoftware95.silverbox.android.middleware.TimeUtils;

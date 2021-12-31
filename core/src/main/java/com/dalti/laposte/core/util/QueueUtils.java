@@ -67,7 +67,7 @@ import java.util.concurrent.TimeUnit;
 import dz.jsoftware95.common.ProjectPhase;
 import dz.jsoftware95.queue.common.Function;
 import dz.jsoftware95.queue.common.GlobalUtil;
-import dz.jsoftware95.queue.common.Situation;
+import dz.jsoftware95.queue.api.Situation;
 import dz.jsoftware95.silverbox.android.common.Assert;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.concurrent.AppWorker;

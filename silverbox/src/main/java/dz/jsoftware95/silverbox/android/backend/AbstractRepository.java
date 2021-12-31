@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import dz.jsoftware95.silverbox.android.common.Assert;
+import dz.jsoftware95.silverbox.android.common.LDT;
 import dz.jsoftware95.silverbox.android.observers.MainObserver;
 import dz.jsoftware95.silverbox.android.observers.MainObserversRegistry;
 
@@ -42,12 +43,14 @@ public abstract class AbstractRepository implements Repository {
 
     @MainThread
     protected void publish(@NonNull final BackendEvent event) {
+        LDT.i("publishing event: " + event);
         updateInternalState(event);
         observers.publish(Assert.nonNull(event));
     }
 
     @AnyThread
     protected void postPublish(@NonNull final BackendEvent event) {
+        LDT.i("posting event: " + event + " to " + observers.count() + " observer");
         updateInternalState(event);
         observers.postPublish(Assert.nonNull(event));
     }

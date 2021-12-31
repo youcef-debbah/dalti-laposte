@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.CallSuper;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -24,7 +25,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.dalti.laposte.BR;
 import com.dalti.laposte.R;
 import com.dalti.laposte.core.model.DashboardModel;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.Selection;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.google.firebase.perf.FirebasePerformance;
@@ -52,6 +53,8 @@ public abstract class ProgressFragment extends AbstractQueueFragment {
     private int largeIconSize;
 
     private Trace trace;
+    @Keep
+    private BasicRefreshBehaviour refreshBehaviour;
 
     protected abstract DashboardModel getModel();
 
@@ -147,7 +150,7 @@ public abstract class ProgressFragment extends AbstractQueueFragment {
         if (refreshLayout != null) {
             QueueUtils.style(refreshLayout);
             final DashboardModel model = getModel();
-            final BasicRefreshBehaviour refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
+            refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
             model.addModelObserver(refreshBehaviour);
             refreshLayout.setOnRefreshListener(refreshBehaviour);
         }

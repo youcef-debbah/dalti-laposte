@@ -11,6 +11,8 @@ import androidx.annotation.WorkerThread;
 import androidx.work.Data;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.entity.CoreAPI;
+import com.dalti.laposte.core.entity.LoggedEvent;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -29,12 +31,12 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import dz.jsoftware95.queue.common.EventInfo;
-import dz.jsoftware95.queue.common.EventsList;
+import dz.jsoftware95.queue.api.EventInfo;
+import dz.jsoftware95.queue.api.EventsList;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.queue.common.GlobalUtil;
-import dz.jsoftware95.queue.response.ResponseConfig;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.common.ResponseConfig;
+import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.backend.LazyRepository;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.concurrent.AppWorker;

@@ -8,7 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
 import com.dalti.laposte.client.ui.ClientDashboardActivity;
-import com.dalti.laposte.core.repositories.Service;
+import com.dalti.laposte.core.entity.Service;
 
 import org.junit.Rule;
 import org.junit.Test;

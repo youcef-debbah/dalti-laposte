@@ -12,6 +12,8 @@
 
 package dz.jsoftware95.silverbox.android.frontend;
 
+import android.util.Log;
+
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import dz.jsoftware95.silverbox.android.common.Assert;
+import dz.jsoftware95.silverbox.android.common.LDT;
 import dz.jsoftware95.silverbox.android.middleware.FrontendEvent;
 import dz.jsoftware95.silverbox.android.middleware.StatefulModel;
 import dz.jsoftware95.silverbox.android.observers.UnMainObserver;
@@ -40,6 +43,7 @@ public class BasicRefreshBehaviour extends UnMainObserver<SwipeRefreshLayout, Fr
     @Override
     protected void onUpdate(@NonNull final SwipeRefreshLayout layout,
                             @Nullable final FrontendEvent event) {
+        LDT.i("BasicRefreshBehaviour#onUpdate(" + event + ")");
         if (model != null) {
             boolean modelIsRefreshing = model.isRefreshing();
             if (modelIsRefreshing && !layout.isRefreshing())

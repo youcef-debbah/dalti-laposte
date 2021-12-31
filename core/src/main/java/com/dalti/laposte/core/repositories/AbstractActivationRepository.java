@@ -17,9 +17,9 @@ import javax.inject.Singleton;
 
 import dz.jsoftware95.queue.common.Executable;
 import dz.jsoftware95.queue.common.Pair;
-import dz.jsoftware95.queue.response.CodeActivationResult;
-import dz.jsoftware95.queue.response.ResponseConfig;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.common.CodeActivationResult;
+import dz.jsoftware95.queue.common.ResponseConfig;
+import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.backend.AbstractRepository;
 import dz.jsoftware95.silverbox.android.backend.DataEvent;
 import dz.jsoftware95.silverbox.android.common.StringUtil;

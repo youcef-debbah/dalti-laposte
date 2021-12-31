@@ -18,6 +18,8 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.model.BasicActionReceiver;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.ui.Request;

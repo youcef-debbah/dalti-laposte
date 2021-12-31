@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
 import com.dalti.laposte.admin.R;
+import com.dalti.laposte.admin.entity.AdminAPI;
 import com.dalti.laposte.core.repositories.AbstractActivationRepository;
 import com.dalti.laposte.core.repositories.ActivationState;
 import com.dalti.laposte.core.repositories.ExtraRepository;
@@ -20,7 +21,7 @@ import javax.inject.Singleton;
 import dagger.Lazy;
 import dz.jsoftware95.queue.common.Executable;
 import dz.jsoftware95.queue.common.Pair;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 import retrofit2.Call;
 
 @Singleton

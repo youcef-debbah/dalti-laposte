@@ -10,6 +10,9 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import com.dalti.laposte.core.entity.Activation;
+import com.dalti.laposte.core.entity.Extra;
+
 import java.util.Collection;
 import java.util.List;
 

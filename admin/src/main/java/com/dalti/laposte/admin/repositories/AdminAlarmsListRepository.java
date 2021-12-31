@@ -8,9 +8,10 @@ import androidx.annotation.WorkerThread;
 import androidx.lifecycle.LiveData;
 
 import com.dalti.laposte.admin.R;
-import com.dalti.laposte.core.repositories.AdminAlarm;
+import com.dalti.laposte.admin.entity.AdminAPI;
+import com.dalti.laposte.core.entity.AdminAlarm;
 import com.dalti.laposte.core.repositories.AdminAlarmDAO;
-import com.dalti.laposte.core.repositories.AlarmsInfo;
+import com.dalti.laposte.core.entity.AlarmsInfo;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.ExtraRepository;
 import com.dalti.laposte.core.repositories.InputProperty;
@@ -31,9 +32,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import dz.jsoftware95.queue.common.AlarmInfo;
+import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.Function;
-import dz.jsoftware95.queue.response.ResponseConfig;
+import dz.jsoftware95.queue.common.ResponseConfig;
 import dz.jsoftware95.silverbox.android.backend.DataEvent;
 import dz.jsoftware95.silverbox.android.backend.DatabaseUtils;
 import dz.jsoftware95.silverbox.android.backend.Item;

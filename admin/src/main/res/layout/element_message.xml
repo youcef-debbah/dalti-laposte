@@ -10,7 +10,7 @@
 
         <variable
             name="data"
-            type="com.dalti.laposte.core.repositories.ShortMessage"
+            type="com.dalti.laposte.core.entity.ShortMessage"
             />
 
         <variable

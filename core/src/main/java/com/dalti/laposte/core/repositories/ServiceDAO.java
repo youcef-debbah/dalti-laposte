@@ -14,6 +14,10 @@ import androidx.room.RoomDatabase;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
+import com.dalti.laposte.core.entity.Extra;
+import com.dalti.laposte.core.entity.Service;
+import com.dalti.laposte.core.entity.StateEntry;
+
 import java.util.Collection;
 import java.util.List;
 

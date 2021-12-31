@@ -34,7 +34,7 @@ import dagger.Lazy;
 import dz.jsoftware95.queue.common.Executable;
 import dz.jsoftware95.queue.common.GlobalUtil;
 import dz.jsoftware95.queue.common.Pair;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.middleware.BasicActivity;
 import retrofit2.Call;
 

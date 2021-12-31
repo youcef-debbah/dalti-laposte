@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import android.content.res.ColorStateList;
 
@@ -11,6 +11,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.repositories.AdminAction;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import org.jetbrains.annotations.Nullable;

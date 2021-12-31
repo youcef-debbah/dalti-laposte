@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PagedList;
 
 import com.dalti.laposte.admin.repositories.AdminAlarmsListRepository;
-import com.dalti.laposte.core.repositories.AdminAlarm;
+import com.dalti.laposte.core.entity.AdminAlarm;
 
 import javax.inject.Inject;
 

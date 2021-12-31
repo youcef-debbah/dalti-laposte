@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.Transformations;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.Service;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.dalti.laposte.core.ui.BindingAdapters;
 import com.dalti.laposte.core.ui.NoteState;

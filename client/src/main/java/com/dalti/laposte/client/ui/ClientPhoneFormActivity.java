@@ -11,7 +11,7 @@ import com.dalti.laposte.client.BR;
 import com.dalti.laposte.client.R;
 import com.dalti.laposte.core.repositories.AlarmPhonePreference;
 import com.dalti.laposte.core.repositories.ExtraRepository;
-import com.dalti.laposte.core.repositories.TurnAlarm;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.ui.PhoneFormActivity;
 import com.dalti.laposte.core.ui.PhoneService;
 

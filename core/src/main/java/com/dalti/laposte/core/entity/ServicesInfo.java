@@ -1,8 +1,8 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import java.util.List;
 
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 
 public class ServicesInfo extends ServerResponse {
     private List<Service> services;

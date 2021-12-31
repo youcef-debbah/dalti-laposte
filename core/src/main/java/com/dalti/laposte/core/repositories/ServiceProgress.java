@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
+import com.dalti.laposte.core.entity.Progress;
+import com.dalti.laposte.core.entity.Service;
+
 import java.util.Collections;
 import java.util.List;
 

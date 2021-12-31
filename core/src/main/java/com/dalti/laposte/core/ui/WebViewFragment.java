@@ -10,6 +10,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
@@ -20,7 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.dalti.laposte.R;
 import com.dalti.laposte.core.model.WebPageModel;
 import com.dalti.laposte.core.repositories.Teller;
-import com.dalti.laposte.core.repositories.WebPage;
+import com.dalti.laposte.core.entity.WebPage;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,6 +34,8 @@ import dz.jsoftware95.silverbox.android.middleware.BindingUtil;
 public class WebViewFragment extends AbstractQueueFragment {
 
     private WebPageModel model;
+    @Keep
+    private BasicRefreshBehaviour refreshBehaviour;
 
     @Override
     public void onAttach(Context context) {
@@ -58,7 +61,7 @@ public class WebViewFragment extends AbstractQueueFragment {
         final SwipeRefreshLayout refreshLayout = view.findViewById(R.id.refresh_layout);
         if (refreshLayout != null) {
             QueueUtils.style(refreshLayout);
-            final BasicRefreshBehaviour refreshBehaviour = new WebPageRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
+            refreshBehaviour = new WebPageRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
             model.addModelObserver(refreshBehaviour);
             refreshLayout.setOnRefreshListener(refreshBehaviour);
         }

@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PagedList;
 
-import com.dalti.laposte.core.repositories.ShortMessage;
+import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.repositories.SmsRepository;
 
 import javax.inject.Inject;

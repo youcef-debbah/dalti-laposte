@@ -11,7 +11,7 @@ import com.dalti.laposte.admin.BR;
 import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.model.ActivationCodeModel;
 import com.dalti.laposte.admin.model.SelectedActivation;
-import com.dalti.laposte.core.repositories.Activation;
+import com.dalti.laposte.core.entity.Activation;
 import com.dalti.laposte.core.ui.AbstractQueueActivity;
 import com.dalti.laposte.core.util.QueueUtils;
 

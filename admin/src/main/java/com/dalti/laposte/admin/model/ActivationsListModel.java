@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PagedList;
 
 import com.dalti.laposte.admin.repositories.ActivationsListRepository;
-import com.dalti.laposte.core.repositories.Activation;
+import com.dalti.laposte.core.entity.Activation;
 
 import javax.inject.Inject;
 

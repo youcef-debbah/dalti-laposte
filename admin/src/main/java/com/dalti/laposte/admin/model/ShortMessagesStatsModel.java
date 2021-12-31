@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.dalti.laposte.core.repositories.ShortMessage;
+import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.repositories.SmsRepository;
 
 import org.jetbrains.annotations.NotNull;

@@ -1,7 +1,7 @@
 package com.dalti.laposte.client.repository;
 
 import dz.jsoftware95.queue.common.GlobalConf;
-import dz.jsoftware95.queue.response.ServerResponse;
+import dz.jsoftware95.queue.api.ServerResponse;
 import retrofit2.Call;
 import retrofit2.http.POST;
 import retrofit2.http.Query;

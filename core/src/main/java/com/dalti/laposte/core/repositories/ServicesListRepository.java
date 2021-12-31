@@ -6,6 +6,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.entity.CoreAPI;
+import com.dalti.laposte.core.entity.Service;
+import com.dalti.laposte.core.entity.ServicesInfo;
 import com.dalti.laposte.core.util.BuildConfiguration;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.dalti.laposte.core.util.RepositoryUtil;
@@ -110,6 +113,7 @@ public class ServicesListRepository extends LiveListRepository<Service, ServiceD
                     ServicesInfo responseBody = response.body();
                     if (responseBody != null) {
                         List<Service> services = responseBody.getServices();
+                        Teller.info("fetched services: " + services);
                         List<Service> newServicesList = DatabaseUtils.filterValid(services);
                         try {
                             repository.waitForDAO(getClass().getSimpleName()).replaceAll(newServicesList, responseBody.getSchema());

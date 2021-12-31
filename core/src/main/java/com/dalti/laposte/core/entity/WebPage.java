@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 import dz.jsoftware95.queue.common.GlobalUtil;
-import dz.jsoftware95.queue.common.WebPageInfo;
+import dz.jsoftware95.queue.api.WebPageInfo;
 import dz.jsoftware95.silverbox.android.middleware.TimeUtils;
 
 @Entity(tableName = WebPage.NAME)

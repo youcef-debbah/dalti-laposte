@@ -7,7 +7,7 @@ import com.dalti.laposte.admin.repositories.AdminAlarmsListRepository;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.BooleanSetting;
 import com.dalti.laposte.core.repositories.LongSetting;
-import com.dalti.laposte.core.repositories.TurnAlarm;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import dz.jsoftware95.queue.common.AlarmInfo;
+import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.silverbox.android.backend.Item;
 import dz.jsoftware95.silverbox.android.common.Check;

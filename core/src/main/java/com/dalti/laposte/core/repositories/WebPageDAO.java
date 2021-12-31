@@ -7,6 +7,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.dalti.laposte.core.entity.WebPage;
+
 @Dao
 @WorkerThread
 public abstract class WebPageDAO {

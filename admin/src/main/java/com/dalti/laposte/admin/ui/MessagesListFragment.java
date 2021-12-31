@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
@@ -19,19 +20,25 @@ import com.dalti.laposte.admin.BR;
 import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.model.ShortMessagesHistoryModel;
 import com.dalti.laposte.core.model.QueueRecyclerView;
-import com.dalti.laposte.core.repositories.ShortMessage;
+import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.ui.AbstractQueueFragment;
 import com.dalti.laposte.core.util.QueueUtils;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import dz.jsoftware95.silverbox.android.backend.BackendEvent;
 import dz.jsoftware95.silverbox.android.frontend.BasicRefreshBehaviour;
 import dz.jsoftware95.silverbox.android.frontend.StatefulRecyclerView;
 import dz.jsoftware95.silverbox.android.middleware.BindingUtil;
+import dz.jsoftware95.silverbox.android.observers.MainObserver;
 
 @AndroidEntryPoint
 public class MessagesListFragment extends AbstractQueueFragment {
 
     private ShortMessagesHistoryModel model;
+    @Keep
+    private MainObserver<BackendEvent> backendObserver;
+    @Keep
+    private BasicRefreshBehaviour refreshBehaviour;
 
     @Override
     public void onAttach(Context context) {
@@ -58,7 +65,7 @@ public class MessagesListFragment extends AbstractQueueFragment {
         final SwipeRefreshLayout refreshLayout = view.findViewById(R.id.refresh_layout);
         if (refreshLayout != null) {
             QueueUtils.style(refreshLayout);
-            final BasicRefreshBehaviour refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
+            refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
             model.addModelObserver(refreshBehaviour);
             refreshLayout.setOnRefreshListener(refreshBehaviour);
         }
@@ -77,7 +84,8 @@ public class MessagesListFragment extends AbstractQueueFragment {
         recycler.setLayoutManager(layoutManager);
 
         model.getCurrentList().observe(getViewLifecycleOwner(), adapter::setData);
-        model.addDataObserver(recycler.newBackendObserver(model, getViewLifecycle()));
+        backendObserver = recycler.newBackendObserver(model, getViewLifecycle());
+        model.addDataObserver(backendObserver);
     }
 
     @Override

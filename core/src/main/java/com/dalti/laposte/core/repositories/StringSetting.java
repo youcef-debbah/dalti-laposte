@@ -1,5 +1,6 @@
 package com.dalti.laposte.core.repositories;
 
+import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.util.BuildConfiguration;
 import com.dalti.laposte.core.util.QueueUtils;
 
@@ -22,7 +23,10 @@ public enum StringSetting implements StringPreference {
     LATEST_TURN_ALARM_PHONE(""),
     CONTACT_PHONE(""),
 
-    UNRECORDED_EXCEPTIONS(QueueUtils.JAVA_NET_SOCKET_EXCEPTION + GlobalConf.SEPARATOR + QueueUtils.JAVA_NET_SOCKET_TIMEOUT_EXCEPTION),
+    UNRECORDED_EXCEPTIONS(QueueUtils.JAVA_NET_SOCKET_EXCEPTION +
+            GlobalConf.SEPARATOR + QueueUtils.JAVA_NET_SOCKET_TIMEOUT_EXCEPTION +
+            GlobalConf.SEPARATOR + QueueUtils.JAVA_NET_UNKNOWN_HOST_EXCEPTION
+    ),
 
     LAST_RECEIVED_ALARM("none"),
 
@@ -46,8 +50,5 @@ public enum StringSetting implements StringPreference {
     @Override
     public String getDefaultString() {
         return defaultString;
-    }
-
-    private static class Constants {
     }
 }

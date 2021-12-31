@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.dalti.laposte.core.repositories.AdminAlarm"
+            type="com.dalti.laposte.core.entity.AdminAlarm"
             />
 
         <variable

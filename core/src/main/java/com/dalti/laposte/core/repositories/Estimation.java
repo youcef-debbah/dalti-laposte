@@ -3,6 +3,8 @@ package com.dalti.laposte.core.repositories;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 
+import com.dalti.laposte.core.entity.Progress;
+
 import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 
 public class Estimation {

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -25,7 +26,7 @@ import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.NotificationUtils;
 import com.dalti.laposte.core.repositories.StringSetting;
 import com.dalti.laposte.core.repositories.Teller;
-import com.dalti.laposte.core.repositories.TurnAlarm;
+import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.ui.AbstractQueueFragment;
 import com.dalti.laposte.core.ui.DialogSupplier;
 import com.dalti.laposte.core.ui.IntegerInputDialog;
@@ -72,6 +73,7 @@ public final class AlarmsFragment extends AbstractQueueFragment {
     private DialogSupplier<SelectOneInputDialog<TurnAlarmModel>> minLiquidityDialog;
     private DialogSupplier<SelectOneInputDialog<TurnAlarmModel>> priorityDialog;
     private DialogSupplier<SelectOneInputDialog<TurnAlarmModel>> ringtoneDialog;
+    @Keep
     private AlarmsUpdater updater;
     private final LiveDataWrapper<Integer> noAlarmIconVisibility = new LiveDataWrapper<>(ContextUtils.VIEW_INVISIBLE);
 

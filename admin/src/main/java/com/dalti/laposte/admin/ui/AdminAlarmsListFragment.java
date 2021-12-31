@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
@@ -21,9 +22,9 @@ import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.model.AdminAlarmsListModel;
 import com.dalti.laposte.admin.repositories.AdminAlarmsListRepository;
 import com.dalti.laposte.core.model.QueueRecyclerView;
-import com.dalti.laposte.core.repositories.AdminAlarm;
+import com.dalti.laposte.core.entity.AdminAlarm;
 import com.dalti.laposte.core.repositories.LoadedProgress;
-import com.dalti.laposte.core.repositories.Progress;
+import com.dalti.laposte.core.entity.Progress;
 import com.dalti.laposte.core.repositories.ProgressRepository;
 import com.dalti.laposte.core.ui.AbstractQueueFragment;
 import com.dalti.laposte.core.util.QueueUtils;
@@ -33,10 +34,12 @@ import java.util.Objects;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import dz.jsoftware95.silverbox.android.backend.BackendEvent;
 import dz.jsoftware95.silverbox.android.backend.Item;
 import dz.jsoftware95.silverbox.android.frontend.BasicRefreshBehaviour;
 import dz.jsoftware95.silverbox.android.frontend.StatefulRecyclerView;
 import dz.jsoftware95.silverbox.android.middleware.BindingUtil;
+import dz.jsoftware95.silverbox.android.observers.MainObserver;
 
 @AndroidEntryPoint
 public class AdminAlarmsListFragment extends AbstractQueueFragment {
@@ -48,6 +51,10 @@ public class AdminAlarmsListFragment extends AbstractQueueFragment {
 
     @Inject
     ProgressRepository progressRepository;
+    @Keep
+    private MainObserver<BackendEvent> backendObserver;
+    @Keep
+    private BasicRefreshBehaviour refreshBehaviour;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -74,7 +81,7 @@ public class AdminAlarmsListFragment extends AbstractQueueFragment {
         final SwipeRefreshLayout refreshLayout = view.findViewById(R.id.refresh_layout);
         if (refreshLayout != null) {
             QueueUtils.style(refreshLayout);
-            final BasicRefreshBehaviour refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
+            refreshBehaviour = new BasicRefreshBehaviour(getViewLifecycle(), refreshLayout, model);
             model.addModelObserver(refreshBehaviour);
             refreshLayout.setOnRefreshListener(refreshBehaviour);
         }
@@ -93,7 +100,8 @@ public class AdminAlarmsListFragment extends AbstractQueueFragment {
         recycler.setLayoutManager(layoutManager);
 
         model.getCurrentAdminAlarms().observe(getViewLifecycleOwner(), adapter::setData);
-        model.addDataObserver(recycler.newBackendObserver(model, getViewLifecycle()));
+        backendObserver = recycler.newBackendObserver(model, getViewLifecycle());
+        model.addDataObserver(backendObserver);
     }
 
     @Override

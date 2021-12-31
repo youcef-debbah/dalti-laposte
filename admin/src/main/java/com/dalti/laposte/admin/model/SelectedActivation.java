@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 
-import com.dalti.laposte.core.repositories.Activation;
+import com.dalti.laposte.core.entity.Activation;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 

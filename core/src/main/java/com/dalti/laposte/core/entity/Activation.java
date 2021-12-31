@@ -1,4 +1,4 @@
-package com.dalti.laposte.core.repositories;
+package com.dalti.laposte.core.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -7,6 +7,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.dalti.laposte.R;
+import com.dalti.laposte.core.repositories.Teller;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

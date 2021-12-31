@@ -148,6 +148,7 @@ public final class MainObserversRegistry<T> implements AutoCleanable {
      *
      * @return the observers count
      */
+    @AnyThread
     public int count() {
         return observers.size();
     }
@@ -165,6 +166,7 @@ public final class MainObserversRegistry<T> implements AutoCleanable {
      *                               registered in this instance)
      */
     public void publish(@Nullable final T data) {
+        LDT.i("publishing data: " + data);
         Assert.isMainThread();
         final State state = this.state;
         if (state == State.IDLE)

@@ -364,6 +364,7 @@ public abstract class BasicModel extends StatefulModel {
      */
     @Override
     public void markAsRefreshDone() {
+        LDT.i(getClass().getSimpleName() + "#markAsRefreshDone (isRefreshing = " + isRefreshing + ")");
         if (isRefreshing) {
             isRefreshing = false;
             ensureActivated();
@@ -411,7 +412,7 @@ public abstract class BasicModel extends StatefulModel {
     @ForOverride
     protected void onCleared() {
         if (lifecycle.getCurrentState().isAtLeast(State.CREATED))
-        lifecycle.setCurrentState(State.DESTROYED);
+            lifecycle.setCurrentState(State.DESTROYED);
         observers.close();
         state.clear();
         exportableState.clear();
