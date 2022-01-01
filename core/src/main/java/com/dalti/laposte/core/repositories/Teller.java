@@ -115,6 +115,14 @@ public class Teller extends LazyRepository<LogDAO> {
         }
     }
 
+    public static void logActivationCheckCompleted(long t0, boolean successful) {
+        final long duration = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - t0);
+        if (successful)
+            log(Event.FailedActivationAppCheck.NAME, Event.FailedActivationAppCheck.Param.DURATION, duration + " ms");
+        else
+            log(Event.SuccessfulActivationAppCheck.NAME, Event.SuccessfulActivationAppCheck.Param.DURATION, duration + " ms");
+    }
+
     @Override
     protected void ontInitialize() {
         final AbstractQueueApplication app = AbstractQueueApplication.getInstance();

@@ -39,6 +39,8 @@ public enum StringSetting implements StringPreference {
     USER_RATING(""),
 
     ACTIVE_USERNAME(""),
+
+    LAST_ACTIVATION_APP_CHECK(""),
     ;
 
     private final String defaultString;

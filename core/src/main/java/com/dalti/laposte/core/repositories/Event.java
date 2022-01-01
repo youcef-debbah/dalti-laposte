@@ -1064,4 +1064,20 @@ public abstract class Event {
             String INPUT_LENGTH = "SMS_VERIFICATION_CODE_INPUT_LENGTH";
         }
     }
+
+    public interface SuccessfulActivationAppCheck {
+        String NAME = "SUCCESSFUL_ACTIVATION_APPCHECK";
+
+        interface Param {
+            String DURATION = "SUCCESSFUL_ACTIVATION_APPCHECK_DURATION";
+        }
+    }
+
+    public interface FailedActivationAppCheck {
+        String NAME = "FAILED_ACTIVATION_APPCHECK";
+
+        interface Param {
+            String DURATION = "FAILED_ACTIVATION_APPCHECK_DURATION";
+        }
+    }
 }

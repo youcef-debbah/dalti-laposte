@@ -105,12 +105,14 @@ public class ContextInitLogger extends BasicJob {
             properties.putString(UserProperty.IN_APP_MESSAGE_ID, appConfig.getInAppMessageID());
             properties.putString(UserProperty.LAST_RECEIVED_ALARM, appConfig.get(StringSetting.LAST_RECEIVED_ALARM));
             properties.putString(UserProperty.USER_RATING, appConfig.get(StringSetting.USER_RATING));
+            properties.putString(UserProperty.LAST_ACTIVATION_APP_CHECK, appConfig.get(StringSetting.LAST_ACTIVATION_APP_CHECK));
         } else {
             properties.putString(UserProperty.ACTIVATION_STATE, NO_APP_CONFIG);
             properties.putString(UserProperty.REMOTE_CONFIG_VERSION, NO_APP_CONFIG);
             properties.putString(UserProperty.IN_APP_MESSAGE_ID, NO_APP_CONFIG);
             properties.putString(UserProperty.LAST_RECEIVED_ALARM, NO_APP_CONFIG);
             properties.putString(UserProperty.USER_RATING, NO_APP_CONFIG);
+            properties.putString(UserProperty.LAST_ACTIVATION_APP_CHECK, NO_APP_CONFIG);
         }
 
         try {
@@ -298,6 +300,8 @@ public class ContextInitLogger extends BasicJob {
         String USER_RATING = "USER_RATING";
         String NIGHT_MODE = "NIGHT_MODE";
         String CONTEXT_INIT_DURATION = "CONTEXT_INIT_DURATION";
+
+        String LAST_ACTIVATION_APP_CHECK = "LAST_ACTIVATION_APPCHECK";
     }
 
     private static String getZenModeLabel(Context context) {

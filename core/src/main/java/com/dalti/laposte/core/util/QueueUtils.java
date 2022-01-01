@@ -65,6 +65,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 import dz.jsoftware95.common.ProjectPhase;
@@ -707,20 +708,24 @@ public class QueueUtils {
             return null;
         else {
             final AtomicReference<String> token = new AtomicReference<>();
+            final AtomicBoolean successful = new AtomicBoolean();
             final CountDownLatch latch = new CountDownLatch(1);
             long t0 = System.nanoTime();
             FirebaseAppCheck.getInstance()
                     .getAppCheckToken(false)
                     .addOnCompleteListener(result -> {
-                        if (result.isSuccessful())
-                            token.set(result.getResult().getToken());
-                        else
-                            token.set("not successful");
+                        if (result.isSuccessful()) {
+                            successful.set(true);
+                            final String appCheckToken = result.getResult().getToken();
+                            token.set(appCheckToken);
+                        } else
+                            successful.set(false);
                         latch.countDown();
                     });
-            final boolean appCheckFinishedInTime = latch.await(AppConfig.getInstance().getRemoteLong(LongSetting.APP_CHECK_TIMEOUT_IN_MILLIS), TimeUnit.MILLISECONDS);
-            final long duration = System.nanoTime() - t0;
-            Teller.info("app check finished in " + TimeUnit.NANOSECONDS.toMillis(duration) + " ms in time? " + appCheckFinishedInTime + " with token: " + token.get());
+            //noinspection ResultOfMethodCallIgnored
+            latch.await(AppConfig.getInstance().getRemoteLong(LongSetting.APP_CHECK_TIMEOUT_IN_MILLIS), TimeUnit.MILLISECONDS);
+            AppConfig.getInstance().put(StringSetting.LAST_ACTIVATION_APP_CHECK, successful.get()? "successful" : "failed");
+            Teller.logActivationCheckCompleted(t0, successful.get());
             return token.get();
         }
     }
