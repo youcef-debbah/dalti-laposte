@@ -74,7 +74,7 @@ public class ClientActivationRepository extends AbstractActivationRepository {
                                                                        boolean feedbackEnabled) throws InterruptedException {
         String code = extraRepository.getAndWait(InputProperty.ACTIVATION_CODE);
         if (code != null) {
-            Call<ServerResponse> activationCall = clientAPI.get().activateClient(code, applicationID, applicationVersion, androidVersion, googleServicesVersion, targetServer);
+            Call<ServerResponse> activationCall = clientAPI.get().activateClient(code, applicationID, applicationVersion, androidVersion, googleServicesVersion, targetServer, QueueUtils.getAppCheckToken());
             Executable postActivation = () -> {
                 dashboardRepository.get().invalidate();
                 extraRepository.putAndWait(SimpleProperty.CURRENT_ACTIVATED_CODE, code);

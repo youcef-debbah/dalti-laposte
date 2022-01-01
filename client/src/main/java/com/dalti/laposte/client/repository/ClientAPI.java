@@ -3,6 +3,7 @@ package com.dalti.laposte.client.repository;
 import dz.jsoftware95.queue.common.GlobalConf;
 import dz.jsoftware95.queue.api.ServerResponse;
 import retrofit2.Call;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -14,5 +15,6 @@ public interface ClientAPI {
                                         @Query("app-version") int applicationVersion,
                                         @Query("android-version") int androidVersion,
                                         @Query("google-services") Long googleServices,
-                                        @Query("target") int target);
+                                        @Query("target") int target,
+                                        @Header(GlobalConf.APP_CHECK_HEADER) String appCheckToken);
 }

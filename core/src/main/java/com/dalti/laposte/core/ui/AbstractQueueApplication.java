@@ -36,6 +36,8 @@ import com.dalti.laposte.core.util.QueueUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
@@ -179,7 +181,7 @@ public abstract class AbstractQueueApplication extends StatefulApplication imple
 
     @Override
     public void onCreate() {
-        initFirebaseApp();
+        initAppCheck(initFirebaseApp());
         AppConfig.init(this);
         super.onCreate();
         setTheme(R.style.Theme_App_Basic);
@@ -214,7 +216,12 @@ public abstract class AbstractQueueApplication extends StatefulApplication imple
         );
     }
 
-    protected abstract void initFirebaseApp();
+    protected abstract FirebaseApp initFirebaseApp();
+
+    protected void initAppCheck(FirebaseApp firebaseApp) {
+        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance(firebaseApp);
+        firebaseAppCheck.installAppCheckProviderFactory(SafetyNetAppCheckProviderFactory.getInstance(), false);
+    }
 
     private static Runnable newRoutineJob(Map<Runnable, Long> jobs) {
         return new Runnable() {

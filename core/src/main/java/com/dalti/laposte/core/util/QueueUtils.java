@@ -54,6 +54,7 @@ import com.dalti.laposte.core.ui.AbstractQueueActivity;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.appcheck.FirebaseAppCheck;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +63,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import dz.jsoftware95.common.ProjectPhase;
 import dz.jsoftware95.queue.common.Function;
@@ -697,5 +700,28 @@ public class QueueUtils {
                 appConfig.getRemoteString(StringSetting.EMAIL),
                 getString(R.string.feedback_email_subject),
                 activity.getString(R.string.feedback_email_text, appConfig.getInAppMessageID()));
+    }
+
+    public static String getAppCheckToken() throws InterruptedException {
+        if (!AppConfig.findInstance().get(BooleanSetting.ENABLE_APP_CHECK))
+            return null;
+        else {
+            final AtomicReference<String> token = new AtomicReference<>();
+            final CountDownLatch latch = new CountDownLatch(1);
+            long t0 = System.nanoTime();
+            FirebaseAppCheck.getInstance()
+                    .getAppCheckToken(false)
+                    .addOnCompleteListener(result -> {
+                        if (result.isSuccessful())
+                            token.set(result.getResult().getToken());
+                        else
+                            token.set("not successful");
+                        latch.countDown();
+                    });
+            final boolean appCheckFinishedInTime = latch.await(AppConfig.getInstance().getRemoteLong(LongSetting.APP_CHECK_TIMEOUT_IN_MILLIS), TimeUnit.MILLISECONDS);
+            final long duration = System.nanoTime() - t0;
+            Teller.info("app check finished in " + TimeUnit.NANOSECONDS.toMillis(duration) + " ms in time? " + appCheckFinishedInTime + " with token: " + token.get());
+            return token.get();
+        }
     }
 }

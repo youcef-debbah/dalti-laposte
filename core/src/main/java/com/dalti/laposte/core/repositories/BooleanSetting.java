@@ -5,6 +5,7 @@ public enum BooleanSetting implements BooleanPreference {
     RETRY_WITH_IMPLICIT_ACTIVATION(true),
     ENABLE_SMS_ALARM_CONFIRMATION(true),
     ENABLE_SMS_ALARM(true),
+    ENABLE_APP_CHECK(true),
 
     // local settings
 

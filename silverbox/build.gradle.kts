@@ -3,8 +3,8 @@ plugins {
     id("com.android.library")
 //    id("dz.jsoftware95.silverdocs") version "0.5.1"
 //    id("dz.jsoftware95.silvercleaner-android") version "0.5.0"
-    id("dz.jsoftware95.common-dependencies-android") version "1.0.5"
-    id("com.github.ben-manes.versions") version "0.21.0"
+    id("dz.jsoftware95.common-dependencies-android") version "1.7.3"
+    id("com.github.ben-manes.versions") version "0.40.0"
     //id("net.ltgt.errorprone") version "1.3.0"
 }
 
@@ -13,15 +13,13 @@ project.group = "dz.jsoftware95"
 project.version = "0.2." + System.currentTimeMillis()
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
 
     buildFeatures.dataBinding = true
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(31)
-        versionCode = 2
-        versionName = "0.9.2"
+        minSdk = 21
+        targetSdk = 31
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -36,13 +34,11 @@ android {
         val proguardRules = File("proguard-rules.pro")
 
         named("debug") {
-            isDebuggable = true
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
         }
 
         named("release") {
-            isDebuggable = false
             isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
         }
@@ -63,15 +59,17 @@ dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.android.gms:play-services-base:18.0.1")
 
+    implementation("androidx.lifecycle:lifecycle-service:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-common:2.4.0")
+
     addJetbrainsAnnotations()
     addAndroidAnnotations()
     addGuava()
 
     addPaging()
-    addLifecycle()
     addRoomCore()
-    addDaggerCore()
-    addDaggerAndroidSupport()
+    addDaggerCore("2.40.5")
+    addDaggerAndroidSupport("2.40.5")
 
     addJunit4ToAllTests()
     addMockitoToAllTests()

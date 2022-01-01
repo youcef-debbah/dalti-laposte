@@ -1,5 +1,7 @@
 package com.dalti.laposte.admin.repositories;
 
+import android.util.Log;
+
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
@@ -8,12 +10,23 @@ import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.entity.AdminAPI;
 import com.dalti.laposte.core.repositories.AbstractActivationRepository;
 import com.dalti.laposte.core.repositories.ActivationState;
+import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.ExtraRepository;
 import com.dalti.laposte.core.repositories.InputProperty;
+import com.dalti.laposte.core.repositories.LongSetting;
 import com.dalti.laposte.core.repositories.StateRepository;
+import com.dalti.laposte.core.repositories.Teller;
 import com.dalti.laposte.core.util.BuildConfiguration;
 import com.dalti.laposte.core.util.QueueUtils;
 import com.dalti.laposte.core.util.RepositoryUtil;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.appcheck.AppCheckToken;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -69,7 +82,7 @@ public class AdminActivationRepository extends AbstractActivationRepository {
 
         return new Pair<>(adminAPI.get().activateAdmin(
                 applicationID, applicationVersion, androidVersion, googleServicesVersion,
-                username, password, targetServer), () -> {
+                username, password, targetServer, QueueUtils.getAppCheckToken()), () -> {
             stateRepository.invalidateCacheThenFetch();
             activeUsername.set(username);
         });

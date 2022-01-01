@@ -30,14 +30,14 @@ public final class ClientApplication extends AbstractQueueApplication {
     private volatile Long initDuration;
 
     @Override
-    protected void initFirebaseApp() {
+    protected FirebaseApp initFirebaseApp() {
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setProjectId("dalti-laposte")
                 .setStorageBucket("dalti-laposte.appspot.com")
                 .setApiKey("AIzaSyDXQCVYJtfnhIPXwfRkHzrlOaYtdqqgT8g") // Required for Auth.
                 .setApplicationId("1:208112057686:android:d613a73cd6ddbeaad42af7") // Required for Analytics.
                 .build();
-        FirebaseApp.initializeApp(this /* Context */, options, FIREBASE_APP_NAME);
+        return FirebaseApp.initializeApp(this /* Context */, options, FIREBASE_APP_NAME);
     }
 
     @Override

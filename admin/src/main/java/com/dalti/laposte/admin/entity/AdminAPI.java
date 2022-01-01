@@ -11,6 +11,7 @@ import dz.jsoftware95.queue.api.UpdateResult;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -59,7 +60,8 @@ public interface AdminAPI {
                                        @Query("google-services") Long googleServices,
                                        @Query("username") String username,
                                        @Query("password") String password,
-                                       @Query("target") int target);
+                                       @Query("target") int target,
+                                       @Header(GlobalConf.APP_CHECK_HEADER) String appCheckToken);
 
     @PUT(GlobalConf.API_PUT_ADMIN_ALARM)
     Call<AlarmsInfo> putAdminAlarm(@Query("username") String username,

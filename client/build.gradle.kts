@@ -6,22 +6,22 @@ plugins {
     id("dagger.hilt.android.plugin")
 //    id("dz.jsoftware95.silverdocs") version "0.5.1"
 //    id("dz.jsoftware95.silvercleaner-android") version "0.5.0"
-    id("dz.jsoftware95.common-dependencies-android") version "1.0.5"
-    id("com.github.ben-manes.versions") version "0.21.0"
+    id("dz.jsoftware95.common-dependencies-android") version "1.7.3"
+    id("com.github.ben-manes.versions") version "0.40.0"
 }
 
 println("client config...")
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
 
     buildFeatures.dataBinding = true
 
     val roomSchemaLocation = projectDir.absolutePath + "/src/androidTest/schemas"
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(31)
+        minSdk = 21
+        targetSdk = 31
         applicationId = "com.dalti.laposte.client"
         versionCode = 2
         versionName = "0.9.2"
@@ -94,15 +94,13 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":silverbox"))
 
-
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    annotationProcessor("com.google.dagger:hilt-android-compiler:2.38.1")
-
     implementation("androidx.hilt:hilt-work:1.0.0")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     annotationProcessor("androidx.hilt:hilt-compiler:1.0.0")
 
-    addDaggerAll("2.38.1")
+    implementation("com.google.dagger:hilt-android:2.40.5")
+    annotationProcessor("com.google.dagger:hilt-android-compiler:2.40.5")
+    addDaggerAll("2.40.5")
 
     addGuava()
 
