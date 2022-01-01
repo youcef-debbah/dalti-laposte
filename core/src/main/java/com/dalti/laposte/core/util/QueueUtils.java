@@ -703,7 +703,7 @@ public class QueueUtils {
     }
 
     public static String getAppCheckToken() throws InterruptedException {
-        if (!AppConfig.findInstance().get(BooleanSetting.ENABLE_APP_CHECK))
+        if (!AppConfig.getInstance().get(BooleanSetting.ENABLE_APP_CHECK))
             return null;
         else {
             final AtomicReference<String> token = new AtomicReference<>();
