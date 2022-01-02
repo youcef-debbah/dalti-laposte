@@ -704,7 +704,8 @@ public class QueueUtils {
     }
 
     public static String getAppCheckToken() throws InterruptedException {
-        if (!AppConfig.getInstance().get(BooleanSetting.ENABLE_APP_CHECK))
+        final AppConfig appConfig = AppConfig.getInstance();
+        if (!appConfig.get(BooleanSetting.ENABLE_APP_CHECK))
             return null;
         else {
             final AtomicReference<String> token = new AtomicReference<>();
@@ -712,7 +713,7 @@ public class QueueUtils {
             final CountDownLatch latch = new CountDownLatch(1);
             long t0 = System.nanoTime();
             FirebaseAppCheck.getInstance()
-                    .getAppCheckToken(false)
+                    .getAppCheckToken(appConfig.get(BooleanSetting.FORCE_APP_CHECK_REFRESH))
                     .addOnCompleteListener(result -> {
                         if (result.isSuccessful()) {
                             successful.set(true);

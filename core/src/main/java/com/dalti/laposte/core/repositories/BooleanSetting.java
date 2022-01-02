@@ -27,6 +27,8 @@ public enum BooleanSetting implements BooleanPreference {
 
     ENABLE_FIREBASE_SMS_AUTH(false),
 
+    FORCE_APP_CHECK_REFRESH(false),
+
     ;
 
     private final boolean defaultValue;
