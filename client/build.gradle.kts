@@ -23,8 +23,8 @@ android {
         minSdk = 21
         targetSdk = 31
         applicationId = "com.dalti.laposte.client"
-        versionCode = 2
-        versionName = "0.9.2"
+        versionCode = 3
+        versionName = "0.9.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
@@ -38,15 +38,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    signingConfigs {
-        register("release") {
-            storeFile = project.file("D:\\Data\\keystores\\LocalAndroidStore.jks")
-            storePassword = "serializable"
-            keyAlias = "acceptance"
-            keyPassword = "a-2021"
-            isV1SigningEnabled = true
-        }
-    }
+//    signingConfigs {
+//        register("release") {
+//            storeFile = project.file("D:\\Data\\keystores\\LocalAndroidStore.jks")
+//            storePassword = "serializable"
+//            keyAlias = "acceptance"
+//            keyPassword = "a-2021"
+//            enableV1Signing = true
+//        }
+//    }
 
     buildTypes {
         val defaultProguardFile = getDefaultProguardFile("proguard-android-optimize.txt")
@@ -70,7 +70,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(defaultProguardFile, proguardRules)
-            signingConfig = signingConfigs.getByName("release")
+//            signingConfig = signingConfigs.getByName("release")
         }
     }
 }

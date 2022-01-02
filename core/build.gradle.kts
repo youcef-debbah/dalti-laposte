@@ -38,6 +38,19 @@ android {
         val proguardRules = File("proguard-rules.pro")
 
         named("debug") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
+            isMinifyEnabled = true
+            proguardFiles(defaultProguardFile, proguardRules)
+            resValue("string", "hostname", hostname)
+            resValue("string", "build_epoch", "${System.currentTimeMillis()}")
+        }
+
+        named("release") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
             isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
             resValue("string", "hostname", hostname)

@@ -34,11 +34,17 @@ android {
         val proguardRules = File("proguard-rules.pro")
 
         named("debug") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
             isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
         }
 
         named("release") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
             isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
         }

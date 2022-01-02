@@ -23,8 +23,8 @@ android {
         minSdk = 21
         targetSdk = 31
         applicationId = "com.dalti.laposte.admin"
-        versionCode = 2
-        versionName = "0.9.2"
+        versionCode = 3
+        versionName = "0.9.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
@@ -43,6 +43,16 @@ android {
         val proguardRules = File("proguard-rules.pro")
 
         named("debug") {
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(defaultProguardFile, proguardRules)
+        }
+
+        named("release") {
             ndk {
                 debugSymbolLevel = "FULL"
             }
