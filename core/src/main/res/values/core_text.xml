@@ -106,8 +106,8 @@
     <string name="update_failed">update failed!</string>
     <string name="server_error">Server Error %d</string>
     <string name="server_is_down">The service is currently down, please try again later</string>
-    <string name="could_not_receive_response">Could not receive a response from the server</string>
-    <string name="could_not_resolve_server">"We couldn't find the server!"</string>
+    <string name="could_not_receive_response">Could not connect to the server!</string>
+    <string name="could_not_resolve_server">"Could not find the server!"</string>
     <string name="could_not_persist_data">Could not save downloaded data in the phone</string>
     <string name="server_response_incomplete">Server response is incomplete</string>
     <string name="error_while_sending_data_to_server">An error has occurred while sending the data</string>

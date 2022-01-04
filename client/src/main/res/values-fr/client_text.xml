@@ -29,7 +29,7 @@
     <string name="help_title1_header1">&#8226; Voir le statut actuel du bureau.</string>
     <string name="help_title1_header1_text">Après avoir sélectionné un bureau de poste, vous pouvez immédiatement voir son état actuel (est-il ouvert, la liquidité est-elle disponible, etc.)\npar exemple comme ceci:</string>
     <string name="help_title1_header2">"&#8226; Afficher l'état actuel de la file d'attente"</string>
-    <string name="help_title1_header2_text">"Vous pouvez également voir l'état actuel de la file d'attente (en temps réel), y compris une estimation du temps d'attente prévu (si vous vous rendez immédiatement au bureau de poste):"</string>
+    <string name="help_title1_header2_text">"Vous pouvez également voir l'état actuel de la file d'attente (en temps réel), y compris une estimation du temps d'attente anticipé (si vous vous rendez immédiatement au bureau de poste):"</string>
     <string name="help_title1_header3">&#8226; Recevoir une notification lorsque votre tour est proche</string>
     <string name="help_title1_header3_text">"Lorsque vous obtenez votre billet au bureau de poste, cliquez sur le bouton \"AJOUTER&#160;UN&#160;BILLET\" et entrez le numéro de votre billet, celui-ci s'affiche comme suit:"</string>
     <string name="help_title1_header3_text2">"Vous pouvez configurer le moment où vous serez averti dans l'onglet \"ALARMES\", vous pouvez même ajouter plusieurs alarmes si vous voulez être averti plusieurs fois."</string>

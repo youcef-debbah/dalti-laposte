@@ -99,8 +99,8 @@
     <string name="update_failed">فشل التحديث!</string>
     <string name="server_error">خطأ من الخادم %d</string>
     <string name="server_is_down">الخدمة غير متوفرة حاليا، يرجى إعادة المحاولة لاحقا</string>
-    <string name="could_not_receive_response">لم يصل أي رد من الخادم</string>
-    <string name="could_not_resolve_server">لم نتمكن من إيجاد الخادم!</string>
+    <string name="could_not_receive_response">فشل الإتصال بالخادم</string>
+    <string name="could_not_resolve_server">لم يتم العثور على الخادم</string>
     <string name="could_not_persist_data">لا يمكن حفظ البيانات التي تم تنزيلها في الهاتف</string>
     <string name="server_response_incomplete">رد الخادم يبدو غير مكتمل</string>
     <string name="error_while_sending_data_to_server">حدث خطأ أثناء إرسال البيانات</string>

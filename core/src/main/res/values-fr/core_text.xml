@@ -99,8 +99,8 @@
     <string name="update_failed">la actualisation a échoué!</string>
     <string name="server_error">Erreur de serveur %d</string>
     <string name="server_is_down">Le service est actuellement hors service, veuillez réessayer plus tard</string>
-    <string name="could_not_receive_response">Impossible de recevoir une réponse du serveur</string>
-    <string name="could_not_resolve_server">"Nous n'avons pas pu trouver le serveur!"</string>
+    <string name="could_not_receive_response">Impossible de se connecter au serveur</string>
+    <string name="could_not_resolve_server">Impossible de trouver le serveur!</string>
     <string name="could_not_persist_data">"Impossible d'enregistrer les données téléchargées dans le téléphone"</string>
     <string name="server_response_incomplete">La réponse du serveur est incomplète</string>
     <string name="error_while_sending_data_to_server">"Une erreur s'est produite lors de l'envoi des données"</string>
@@ -218,7 +218,7 @@
     <string name="estimation_not_available">Estimation non disponible pour le moment</string>
     <string name="turn_passed">Votre tour est déjà passé</string>
     <string name="turn_now">Votre tour est maintenant!</string>
-    <string name="potential_waiting_time">"Temps d'attente prévu"</string>
+    <string name="potential_waiting_time">"Temps d'attente anticipé"</string>
     <string name="less_than_1min">"Moins d'une minute"</string>
     <string name="enter_your_phone_number">Veuillez entrer votre numéro de téléphone</string>
     <string name="max_withdrawal">Retrait maximum</string>
