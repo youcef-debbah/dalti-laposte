@@ -24,7 +24,7 @@
     <dimen name="small_icon">24dp</dimen>
     <dimen name="compact_icon">40dp</dimen>
     <dimen name="large_icon">80dp</dimen>
-    <dimen name="large_button_width">215dp</dimen>
+    <dimen name="large_button_width">224dp</dimen>
     <dimen name="medium_button_width">165dp</dimen>
     <dimen name="note_icon">40dp</dimen>
     <dimen name="splash_icon">140dp</dimen>
