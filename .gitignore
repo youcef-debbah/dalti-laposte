@@ -18,6 +18,7 @@ deployments/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+**/google-services.json
 
 ### IntelliJ IDEA ###
 .idea/
@@ -37,6 +38,7 @@ bin/
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
+local.properties
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 # File-based project format:
