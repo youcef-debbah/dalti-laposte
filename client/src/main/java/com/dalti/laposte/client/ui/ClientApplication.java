@@ -13,6 +13,7 @@
 package com.dalti.laposte.client.ui;
 
 import com.dalti.laposte.client.R;
+import com.dalti.laposte.client.BuildConfig;
 import com.dalti.laposte.client.model.ClientActionReceiver;
 import com.dalti.laposte.core.model.BasicActionReceiver;
 import com.dalti.laposte.core.ui.AbstractQueueActivity;
@@ -34,7 +35,7 @@ public final class ClientApplication extends AbstractQueueApplication {
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setProjectId("dalti-laposte")
                 .setStorageBucket("dalti-laposte.appspot.com")
-                .setApiKey("AIzaSyDXQCVYJtfnhIPXwfRkHzrlOaYtdqqgT8g") // Required for Auth.
+                .setApiKey(BuildConfig.API_KEY) // Required for Auth
                 .setApplicationId("1:208112057686:android:d613a73cd6ddbeaad42af7") // Required for Analytics.
                 .build();
         return FirebaseApp.initializeApp(this /* Context */, options, FIREBASE_APP_NAME);

@@ -1,5 +1,6 @@
 package com.dalti.laposte.admin.ui;
 
+import com.dalti.laposte.admin.BuildConfig;
 import com.dalti.laposte.admin.R;
 import com.dalti.laposte.admin.model.AdminActionReceiver;
 import com.dalti.laposte.core.model.BasicActionReceiver;
@@ -22,7 +23,7 @@ public final class AdminApplication extends AbstractQueueApplication {
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setProjectId("dalti-laposte")
                 .setStorageBucket("dalti-laposte.appspot.com")
-                .setApiKey("AIzaSyDXQCVYJtfnhIPXwfRkHzrlOaYtdqqgT8g") // Required for Auth.
+                .setApiKey(BuildConfig.API_KEY) // Required for Auth.
                 .setApplicationId("1:208112057686:android:befd6bacf7f8892ad42af7") // Required for Analytics.
                 .build();
         return FirebaseApp.initializeApp(this /* Context */, options, FIREBASE_APP_NAME);
