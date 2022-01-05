@@ -132,7 +132,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="@dimen/compact_icon"
                                 android:layout_height="@dimen/compact_icon"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 android:tint="?colorPrimary"
                                 app:srcCompat="@drawable/ic_baseline_confirmation_number_24"
                                 />
@@ -141,7 +141,7 @@
                                 android:id="@+id/ticket_input"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -155,7 +155,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="@dimen/compact_icon"
                                 android:layout_height="@dimen/compact_icon"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 android:tint="?colorPrimary"
                                 app:srcCompat="@drawable/ic_baseline_access_time_24"
                                 />
@@ -164,7 +164,7 @@
                                 android:id="@+id/duration_input"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -178,7 +178,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="@dimen/compact_icon"
                                 android:layout_height="@dimen/compact_icon"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 android:tint="?colorPrimary"
                                 app:srcCompat="@drawable/ic_padded_waiting_24"
                                 />
@@ -187,7 +187,7 @@
                                 android:id="@+id/queue_input"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/small"
+                                android:layout_margin="@dimen/tiny"
                                 />
                         </androidx.appcompat.widget.LinearLayoutCompat>
                     </com.google.android.flexbox.FlexboxLayout>
