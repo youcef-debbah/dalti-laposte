@@ -127,8 +127,11 @@ public class NotificationUtils {
                     context.getString(R.string.unknown_office_state_content, serviceDescription),
                     context.getString(R.string.unknown_office_state_details, serviceDescription),
                     R.drawable.ic_logo_client_app_24);
-            NotificationManagerCompat.from(context).notify(NOTIFICATION_TAG_UNKNOWN_AVAILABILITY, StringUtil.hash(serviceID), notification);
-            AppConfig.getInstance().getAndSet(BooleanSetting.UNKNOWN_AVAILABILITY_NOTIFICATION_SHOWN, true);
+            if (notification != null) {
+                NotificationManagerCompat.from(context).notify(NOTIFICATION_TAG_UNKNOWN_AVAILABILITY, StringUtil.hash(serviceID), notification);
+                AppConfig.getInstance().getAndSet(BooleanSetting.UNKNOWN_AVAILABILITY_NOTIFICATION_SHOWN, true);
+            } else
+                Teller.logUnexpectedCondition();
         }
     }
 
@@ -140,27 +143,35 @@ public class NotificationUtils {
                     context.getString(R.string.idle_admin_content, serviceDescription),
                     context.getString(R.string.idle_admin_details, serviceDescription),
                     R.drawable.ic_logo_admin_app_24);
-            NotificationManagerCompat.from(context).notify(NOTIFICATION_TAG_IDLE_ADMIN, StringUtil.hash(serviceID), notification);
-            AppConfig.getInstance().getAndSet(BooleanSetting.IDLE_ADMIN_NOTIFICATION_SHOWN, true);
+            if (notification != null) {
+                NotificationManagerCompat.from(context).notify(NOTIFICATION_TAG_IDLE_ADMIN, StringUtil.hash(serviceID), notification);
+                AppConfig.getInstance().getAndSet(BooleanSetting.IDLE_ADMIN_NOTIFICATION_SHOWN, true);
+            } else
+                Teller.logUnexpectedCondition();
         }
     }
 
-    @NotNull
+    @Nullable
     private static Notification newStaticAlarmNotification(AbstractQueueApplication context, boolean once, String title, String content, String details, int icon) {
-        return new NotificationCompat.Builder(context, context.getString(R.string.alarms_channel_id))
-                .setSmallIcon(icon)
-                .setColor(context.getResources().getColor(R.color.brand_color))
-                .setContentTitle(title)
-                .setContentText(content)
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(details))
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setOnlyAlertOnce(once)
-                .setAutoCancel(true)
-                .setShowWhen(true)
-                .setVibrate(QueueConfig.ALARM_VIBRATION_PATTERN)
-                .setLights(context.getResources().getColor(R.color.brand_color), QueueConfig.ON_DURATION, QueueConfig.OFF_DURATION)
-                .setContentIntent(ContextUtils.newOpenActivityIntent(context, context.getMainActivity()))
-                .build();
+        try {
+            return new NotificationCompat.Builder(context, context.getString(R.string.alarms_channel_id))
+                    .setSmallIcon(icon)
+                    .setColor(context.getResources().getColor(R.color.brand_color))
+                    .setContentTitle(title)
+                    .setContentText(content)
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(details))
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setOnlyAlertOnce(once)
+                    .setAutoCancel(true)
+                    .setShowWhen(true)
+                    .setVibrate(QueueConfig.ALARM_VIBRATION_PATTERN)
+                    .setLights(context.getResources().getColor(R.color.brand_color), QueueConfig.ON_DURATION, QueueConfig.OFF_DURATION)
+                    .setContentIntent(ContextUtils.newOpenActivityIntent(context, context.getMainActivity()))
+                    .build();
+        } catch (RuntimeException e) {
+            Teller.warn("could not get static notification", e);
+            return null;
+        }
     }
 
     public static void cancelIdleAdminAlert(long serviceID) {
@@ -199,23 +210,28 @@ public class NotificationUtils {
         int alarmPriority = TurnAlarm.alarmPriority(appConfig, priority);
         Intent openIntent = newNotificationIntent(context, context.getMainActivity(), notificationID, notificationTag, smsToken);
 
-        return new NotificationCompat.Builder(context, context.getString(R.string.alarms_channel_id))
-                .setSmallIcon(R.drawable.ic_logo_client_app_24)
-                .setColor(context.getResources().getColor(R.color.brand_color))
-                .setContentTitle(alarmTitle)
-                .setContentText(getAlarmContent(context, queue, serviceDescription))
-                .setPriority(alarmPriority)
-                .setOnlyAlertOnce(false)
-                .setAutoCancel(true)
-                .setShowWhen(true)
-                .setVibrate(StringUtil.isTrue(vibrate) ? QueueConfig.ALARM_VIBRATION_PATTERN : null)
-                .setSound(ContextUtils.getUri(context, TurnAlarm.ringtoneRes(ringtone, alarmPriority)))
-                .setLights(context.getResources().getColor(R.color.brand_color), QueueConfig.ON_DURATION, QueueConfig.OFF_DURATION)
-                .setContentIntent(ContextUtils.newOpenActivityIntent(context, openIntent))
-                .setDeleteIntent(newAlarmClearedIntent(context, notificationID, notificationTag, smsToken, progressID))
-                .addAction(R.drawable.ic_baseline_alarm_off_24, context.getString(R.string.dismiss_alarm), newAlarmDismissIntent(context, notificationID, notificationTag, smsToken, progressID))
-                .addAction(R.drawable.ic_baseline_snooze_24, context.getString(R.string.snooze), newAlarmSnoozeIntent(context, notificationID, notificationTag, smsToken))
-                .build();
+        try {
+            return new NotificationCompat.Builder(context, context.getString(R.string.alarms_channel_id))
+                    .setSmallIcon(R.drawable.ic_logo_client_app_24)
+                    .setColor(context.getResources().getColor(R.color.brand_color))
+                    .setContentTitle(alarmTitle)
+                    .setContentText(getAlarmContent(context, queue, serviceDescription))
+                    .setPriority(alarmPriority)
+                    .setOnlyAlertOnce(false)
+                    .setAutoCancel(true)
+                    .setShowWhen(true)
+                    .setVibrate(StringUtil.isTrue(vibrate) ? QueueConfig.ALARM_VIBRATION_PATTERN : null)
+                    .setSound(ContextUtils.getUri(context, TurnAlarm.ringtoneRes(ringtone, alarmPriority)))
+                    .setLights(context.getResources().getColor(R.color.brand_color), QueueConfig.ON_DURATION, QueueConfig.OFF_DURATION)
+                    .setContentIntent(ContextUtils.newOpenActivityIntent(context, openIntent))
+                    .setDeleteIntent(newAlarmClearedIntent(context, notificationID, notificationTag, smsToken, progressID))
+                    .addAction(R.drawable.ic_baseline_alarm_off_24, context.getString(R.string.dismiss_alarm), newAlarmDismissIntent(context, notificationID, notificationTag, smsToken, progressID))
+                    .addAction(R.drawable.ic_baseline_snooze_24, context.getString(R.string.snooze), newAlarmSnoozeIntent(context, notificationID, notificationTag, smsToken))
+                    .build();
+        } catch (RuntimeException e) {
+            Teller.warn("could not get turn alarm notification", e);
+            return null;
+        }
     }
 
     private static PendingIntent newAlarmClearedIntent(AbstractQueueApplication context, int notificationID, String notificationTag, String smsToken, Long progressID) {

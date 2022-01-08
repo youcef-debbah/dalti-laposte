@@ -26,6 +26,7 @@ public abstract class ForegroundService extends LifecycleService {
 
     protected abstract Intent newIntent();
 
+    @Nullable
     protected abstract Notification getNotification();
 
     protected abstract int getNotificationID();
@@ -40,7 +41,9 @@ public abstract class ForegroundService extends LifecycleService {
         super.onCreate();
         if (showCompatNotification() && Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-            notificationManager.notify(getNotificationID(), getNotification());
+            final Notification notification = getNotification();
+            if (notification != null)
+                notificationManager.notify(getNotificationID(), notification);
         }
     }
 
@@ -90,11 +93,13 @@ public abstract class ForegroundService extends LifecycleService {
                     ForegroundService service = ((ForegroundBinder) binder).getService();
                     if (service != null) {
                         Intent serviceIntent = service.newIntent();
-                        Notification serviceNotification = service.getNotification();
                         int serviceNotificationID = service.getNotificationID();
+                        Notification serviceNotification = service.getNotification();
 
-                        activity.startForegroundService(serviceIntent);
-                        service.startForeground(serviceNotificationID, serviceNotification);
+                        if (serviceNotification != null) {
+                            activity.startForegroundService(serviceIntent);
+                            service.startForeground(serviceNotificationID, serviceNotification);
+                        }
                     }
                     activity.unbindService(this);
                 }

@@ -92,19 +92,24 @@ public class CompactDashboardService extends ForegroundService {
     }
 
     private static Notification getNotification(Context context) {
-        String channelID = context.getString(R.string.ongoing_operations_channel_id);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
-                .setSmallIcon(R.drawable.ic_logo_admin_app_24)
-                .setColor(context.getResources().getColor(R.color.brand_color))
-                .setContentTitle(context.getString(R.string.compact_dashboard_notification_title))
-                .setContentText(context.getString(R.string.compact_dashboard_notification_content))
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .setOnlyAlertOnce(true)
-                .setOngoing(true)
-                .setShowWhen(false)
-                .setContentIntent(newHideOverlayIntent(context))
-                .addAction(R.drawable.ic_baseline_open_in_new_24, context.getString(R.string.open), ContextUtils.newOpenActivityIntent(context, AdminDashboardActivity.class));
-        return builder.build();
+        try {
+            String channelID = context.getString(R.string.ongoing_operations_channel_id);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
+                    .setSmallIcon(R.drawable.ic_logo_admin_app_24)
+                    .setColor(context.getResources().getColor(R.color.brand_color))
+                    .setContentTitle(context.getString(R.string.compact_dashboard_notification_title))
+                    .setContentText(context.getString(R.string.compact_dashboard_notification_content))
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
+                    .setOnlyAlertOnce(true)
+                    .setOngoing(true)
+                    .setShowWhen(false)
+                    .setContentIntent(newHideOverlayIntent(context))
+                    .addAction(R.drawable.ic_baseline_open_in_new_24, context.getString(R.string.open), ContextUtils.newOpenActivityIntent(context, AdminDashboardActivity.class));
+            return builder.build();
+        } catch (RuntimeException e) {
+            Teller.warn("could not get compact dashboard notification");
+            return null;
+        }
     }
 
     private static PendingIntent newHideOverlayIntent(Context context) {
