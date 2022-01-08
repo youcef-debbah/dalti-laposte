@@ -81,23 +81,27 @@ public class ServiceDescriptionActivity extends AbstractQueueActivity {
     }
 
     private void logScheduleVisibility(NestedScrollView scroll, int margin) {
-        View scrollContent = scroll.getChildAt(0);
-        if (scrollContent != null) {
-            long id = getLongExtra(Service.ID, -1);
-            if (scrollContent.getBottom() < scroll.getHeight()) {
-                onScheduleVisible(id, "spontaneous");
-            } else {
-                NestedScrollView.OnScrollChangeListener scrollListener = (scrollview, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                    View content = scrollview.getChildAt(0);
-                    if (content != null) {
-                        if (content.getBottom() < (scroll.getHeight() + scrollY + margin)) {
-                            onScheduleVisible(id, "intentional");
-                            scroll.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) null);
+        try {
+            View scrollContent = scroll.getChildAt(0);
+            if (scrollContent != null) {
+                long id = getLongExtra(Service.ID, -1);
+                if (scrollContent.getBottom() < scroll.getHeight()) {
+                    onScheduleVisible(id, "spontaneous");
+                } else {
+                    NestedScrollView.OnScrollChangeListener scrollListener = (scrollview, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                        View content = scrollview.getChildAt(0);
+                        if (content != null) {
+                            if (content.getBottom() < (scroll.getHeight() + scrollY + margin)) {
+                                onScheduleVisible(id, "intentional");
+                                scroll.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) null);
+                            }
                         }
-                    }
-                };
-                scroll.setOnScrollChangeListener(scrollListener);
+                    };
+                    scroll.setOnScrollChangeListener(scrollListener);
+                }
             }
+        } catch (RuntimeException e) {
+            Teller.warn("could not log Schedule Visibility", e);
         }
     }
 
