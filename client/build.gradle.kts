@@ -24,8 +24,8 @@ android {
         minSdk = 21
         targetSdk = 31
         applicationId = "com.dalti.laposte.client"
-        versionCode = 7
-        versionName = "0.9.7"
+        versionCode = 8
+        versionName = "0.9.8"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
