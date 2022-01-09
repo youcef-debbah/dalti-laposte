@@ -64,6 +64,11 @@ public class ScannerActivity extends AbstractQueueActivity implements Activation
         super.onCreate(savedState);
         codePreview = findViewById(R.id.code_preview);
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         startCamera();
     }
 
@@ -99,6 +104,7 @@ public class ScannerActivity extends AbstractQueueActivity implements Activation
 
         imageAnalysis.setAnalyzer(SystemWorker.MAIN, new QRCodeImageAnalyzer(this));
 
+        cameraProvider.unbindAll();
         camera = cameraProvider.bindToLifecycle(this, getDefaultCameraSelector(), preview, imageAnalysis);
         updateCameraConfig();
     }
