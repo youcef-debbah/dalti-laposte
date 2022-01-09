@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.WindowMetrics;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -669,19 +670,34 @@ public class QueueUtils {
 
     public static void confirmInput(NumberPicker numberPicker) {
         try {
-            if (numberPicker != null) {
-                final View child = numberPicker.getChildAt(0);
-                if (child instanceof TextView) {
-                    final CharSequence inputText = ((TextView) child).getText();
-                    if (inputText != null) {
-                        final Integer input = StringUtil.parseInteger(inputText.toString());
-                        if (input != null)
-                            numberPicker.setValue(input);
-                    }
+            final TextView textView = getTextInput(numberPicker);
+            if (textView != null) {
+                final CharSequence inputText = textView.getText();
+                if (inputText != null) {
+                    final Integer input = StringUtil.parseInteger(inputText.toString());
+                    if (input != null)
+                        numberPicker.setValue(input);
                 }
             }
         } catch (RuntimeException e) {
             Teller.warn("could not confirm number pucker input", e);
+        }
+    }
+
+    public static TextView getTextInput(View view) {
+        try {
+            if (view instanceof TextView)
+                return (TextView) view;
+            else if (view instanceof NumberPicker) {
+                NumberPicker numberPicker = (NumberPicker) view;
+                final View child = numberPicker.getChildAt(0);
+                if (child instanceof TextView)
+                    return (TextView) child;
+            }
+            return null;
+        } catch (RuntimeException e) {
+            Teller.warn("could not extract picker input", e);
+            return null;
         }
     }
 
@@ -725,9 +741,36 @@ public class QueueUtils {
                     });
             //noinspection ResultOfMethodCallIgnored
             latch.await(AppConfig.getInstance().getRemoteLong(LongSetting.APP_CHECK_TIMEOUT_IN_MILLIS), TimeUnit.MILLISECONDS);
-            AppConfig.getInstance().put(StringSetting.LAST_ACTIVATION_APP_CHECK, successful.get()? "successful" : "failed");
+            AppConfig.getInstance().put(StringSetting.LAST_ACTIVATION_APP_CHECK, successful.get() ? "successful" : "failed");
             Teller.logActivationCheckCompleted(t0, successful.get());
             return token.get();
+        }
+    }
+
+    @NonNull
+    public static BasicJob newShowKeyboardJob(@NonNull View view) {
+        Objects.requireNonNull(view);
+        return new BasicJob() {
+            @Override
+            protected void doFromMain() {
+                final AbstractQueueApplication context = AbstractQueueApplication.getInstance();
+                if (context != null) {
+                    InputMethodManager info = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (info != null)
+                        info.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+                    else
+                        Teller.logUnexpectedCondition();
+                } else
+                    Teller.logUnexpectedCondition();
+            }
+        };
+    }
+
+    public static void showKeyboardOnFocus(View view) {
+        TextView input = getTextInput(view);
+        if (input != null) {
+            input.setSelectAllOnFocus(true);
+            input.setOnFocusChangeListener((v, hasFocus) -> QueueUtils.newShowKeyboardJob(input).execute());
         }
     }
 }

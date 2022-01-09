@@ -42,6 +42,15 @@ public class IntegerInputDialog<M> extends InputDialog<Integer, M> {
         super(viewModel, view, dialogBuilder, inputListener, shownStateKey, inputListenerKey);
         this.numberPicker = Objects.requireNonNull(numberPicker);
         this.numberPickerStateKey = Objects.requireNonNull(numberPickerStateKey);
+        QueueUtils.showKeyboardOnFocus(numberPicker);
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        final TextView input = QueueUtils.getTextInput(numberPicker);
+        if (input != null)
+            input.requestFocus();
     }
 
     @Override
