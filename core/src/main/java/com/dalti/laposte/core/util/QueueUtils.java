@@ -69,7 +69,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import dz.jsoftware95.common.ProjectPhase;
 import dz.jsoftware95.queue.common.Function;
 import dz.jsoftware95.queue.common.GlobalUtil;
 import dz.jsoftware95.queue.api.Situation;
@@ -155,14 +154,13 @@ public class QueueUtils {
         String text;
         if (currentActivity != null)
             text = msgText;
-        else if (AppConfig.getInstance().get(BooleanSetting.TOAST_FROM_BACKGROUND)) {
-            Teller.logUnexpectedCondition("toast from background: " + msgText);//TODO remove after fixing
+        else if (AppConfig.getInstance().get(BooleanSetting.TOAST_FROM_BACKGROUND))
             text = context.getString(R.string.background_toast_template, msgText);
-        } else
+        else
             return;
 
-        Toast.makeText(context, text, getToastDuration(msgText)).show();
         Teller.debug("Toast: " + text);
+        Toast.makeText(context, text, getToastDuration(msgText)).show();
     }
 
     private static int getToastDuration(String msg) {
@@ -317,7 +315,6 @@ public class QueueUtils {
     }
 
     @Nullable
-    @SuppressWarnings("deprecation")
     private static Dimension getDisplayDimensionUsingOldAPI(WindowManager windowManager) {
         Display defaultDisplay = windowManager.getDefaultDisplay();
         if (defaultDisplay != null) {
