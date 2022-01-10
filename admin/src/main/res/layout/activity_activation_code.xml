@@ -97,6 +97,15 @@
                             android:layout_height="wrap_content"
                             app:imageBitmap="@{activity.selectedActivation.codeImage}"
                             />
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.Jsoftware95.Subtitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginBottom="@dimen/small"
+                            app:string="@{`#` + activity.selectedActivation.activation.id}"
+                            />
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </com.google.android.material.card.MaterialCardView>
 
