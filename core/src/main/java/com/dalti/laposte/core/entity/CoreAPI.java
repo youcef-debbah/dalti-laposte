@@ -4,7 +4,7 @@ import com.dalti.laposte.core.entity.ServicesInfo;
 
 import dz.jsoftware95.queue.api.EventsList;
 import dz.jsoftware95.queue.common.GlobalConf;
-import dz.jsoftware95.queue.api.Payload;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.queue.api.Situation;
 import dz.jsoftware95.queue.api.WebPageInfo;
 import dz.jsoftware95.queue.api.ServerResponse;

@@ -12,7 +12,7 @@ import com.dalti.laposte.admin.repositories.ActivationsListRepository;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import dz.jsoftware95.queue.common.Pair;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.silverbox.android.middleware.RepositoryModel;
 
 @HiltViewModel

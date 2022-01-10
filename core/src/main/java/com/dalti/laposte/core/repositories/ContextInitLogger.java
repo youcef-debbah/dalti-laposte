@@ -31,7 +31,7 @@ import java.io.IOException;
 import dagger.Lazy;
 import dagger.assisted.Assisted;
 import dagger.assisted.AssistedInject;
-import dz.jsoftware95.queue.api.Payload;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.queue.api.ServerResponse;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.concurrent.AppWorker;

@@ -32,7 +32,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import dz.jsoftware95.queue.common.Pair;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.silverbox.android.backend.DataEvent;
 import dz.jsoftware95.silverbox.android.backend.DatabaseUtils;
 import dz.jsoftware95.silverbox.android.backend.LiveListRepository;

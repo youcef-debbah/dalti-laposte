@@ -14,7 +14,7 @@ import net.glxn.qrgen.android.QRCode;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
-import dz.jsoftware95.queue.common.Pair;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.silverbox.android.common.Cache;
 import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 

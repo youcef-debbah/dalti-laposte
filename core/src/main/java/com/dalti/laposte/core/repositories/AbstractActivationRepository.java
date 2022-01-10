@@ -16,7 +16,7 @@ import java.util.Map;
 import javax.inject.Singleton;
 
 import dz.jsoftware95.queue.common.Executable;
-import dz.jsoftware95.queue.common.Pair;
+import dz.jsoftware95.queue.api.Pair;
 import dz.jsoftware95.queue.common.CodeActivationResult;
 import dz.jsoftware95.queue.common.ResponseConfig;
 import dz.jsoftware95.queue.api.ServerResponse;
