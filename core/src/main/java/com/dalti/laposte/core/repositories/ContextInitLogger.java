@@ -1,5 +1,9 @@
 package com.dalti.laposte.core.repositories;
 
+import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_DISABLED;
+import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED;
+import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_WHITELISTED;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
@@ -27,6 +31,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import dagger.Lazy;
 import dagger.assisted.Assisted;
@@ -40,10 +45,6 @@ import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 import dz.jsoftware95.silverbox.android.middleware.TimeUtils;
 import retrofit2.Call;
 import retrofit2.Response;
-
-import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_DISABLED;
-import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED;
-import static android.net.ConnectivityManager.RESTRICT_BACKGROUND_STATUS_WHITELISTED;
 
 public class ContextInitLogger extends BasicJob {
 
@@ -367,6 +368,9 @@ public class ContextInitLogger extends BasicJob {
             try {
                 final Payload payload = new Payload();
                 payload.setData(StringUtil.toStringMap(getAllUserProperties()));
+                Teller.info("payload: " + payload);
+                Teller.info("payload methods: " + Arrays.toString(Payload.class.getMethods()));
+                Teller.info("payload fields: " + Arrays.toString(Payload.class.getDeclaredFields()));
                 final Call<ServerResponse> call = coreAPI.get().pong(payload);
                 final Response<ServerResponse> response = call.execute();
                 return response.isSuccessful() ? Result.success() : Result.failure();

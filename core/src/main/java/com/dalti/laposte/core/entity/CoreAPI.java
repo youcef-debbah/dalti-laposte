@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
-public interface CoreAPI {
+public interface CoreAPI extends ExternalAPI {
 
     @GET(GlobalConf.API_ALL_SERVICES_FOR_GUEST)
     Call<ServicesInfo> getServicesAsGuest(@Query("target") int target,

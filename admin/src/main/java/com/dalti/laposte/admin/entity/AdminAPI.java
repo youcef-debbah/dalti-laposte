@@ -2,6 +2,7 @@ package com.dalti.laposte.admin.entity;
 
 import com.dalti.laposte.core.entity.ActivationsInfo;
 import com.dalti.laposte.core.entity.AlarmsInfo;
+import com.dalti.laposte.core.entity.ExternalAPI;
 
 import dz.jsoftware95.queue.api.AlarmInfo;
 import dz.jsoftware95.queue.common.GlobalConf;
@@ -17,7 +18,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
-public interface AdminAPI {
+public interface AdminAPI extends ExternalAPI {
 
     @PATCH(GlobalConf.API_SET_TOKENS)
     Call<UpdateResult> setTokens(@Query("id") long progressID,
