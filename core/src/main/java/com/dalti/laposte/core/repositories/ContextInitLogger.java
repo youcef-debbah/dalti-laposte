@@ -31,7 +31,6 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import dagger.Lazy;
 import dagger.assisted.Assisted;
@@ -368,9 +367,6 @@ public class ContextInitLogger extends BasicJob {
             try {
                 final Payload payload = new Payload();
                 payload.setData(StringUtil.toStringMap(getAllUserProperties()));
-                Teller.info("payload: " + payload);
-                Teller.info("payload methods: " + Arrays.toString(Payload.class.getMethods()));
-                Teller.info("payload fields: " + Arrays.toString(Payload.class.getDeclaredFields()));
                 final Call<ServerResponse> call = coreAPI.get().pong(payload);
                 final Response<ServerResponse> response = call.execute();
                 return response.isSuccessful() ? Result.success() : Result.failure();
