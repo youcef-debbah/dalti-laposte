@@ -37,8 +37,9 @@ android {
             ndk {
                 debugSymbolLevel = "FULL"
             }
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(defaultProguardFile, proguardRules)
+
         }
 
         named("release") {

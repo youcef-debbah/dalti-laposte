@@ -200,7 +200,7 @@ public abstract class AbstractQueueApplication extends StatefulApplication imple
         CaocConfig.Builder.create()
                 .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT)
                 .errorDrawable(R.drawable.ic_logo_crash_240)
-                .showErrorDetails(QueueUtils.isTesting())
+                .showErrorDetails(QueueUtils.isTestingEnabled(this))
                 .trackActivities(true)
                 .apply();
     }

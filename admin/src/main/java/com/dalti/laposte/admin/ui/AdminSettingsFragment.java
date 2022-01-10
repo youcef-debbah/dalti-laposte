@@ -147,7 +147,7 @@ public class AdminSettingsFragment extends PreferenceFragmentCompat {
             final String lastUpdate = TimeUtils.formatAsDateTime(appConfig.getLong(LongSetting.LAST_AUTO_REFRESH));
             aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.last_auto_refresh, lastUpdate != null ? lastUpdate : GlobalConf.EMPTY_TOKEN));
 
-            if (QueueUtils.isTesting())
+            if (QueueUtils.isTestingEnabled(context))
                 aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.host, getString(R.string.hostname)));
 
             aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.version, buildConf.getFullVersionName()));

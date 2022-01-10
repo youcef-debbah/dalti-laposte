@@ -41,10 +41,11 @@ android {
             ndk {
                 debugSymbolLevel = "FULL"
             }
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(defaultProguardFile, proguardRules)
             resValue("string", "hostname", hostname)
             resValue("string", "build_epoch", "${System.currentTimeMillis()}")
+            resValue("bool", "is_development_stage", "true")
         }
 
         named("release") {
@@ -53,8 +54,9 @@ android {
             }
             isMinifyEnabled = true
             proguardFiles(defaultProguardFile, proguardRules)
-            resValue("string", "hostname", hostname)
+            resValue("string", "hostname", "www.dalti-laposte.com")
             resValue("string", "build_epoch", "${System.currentTimeMillis()}")
+            resValue("bool", "is_development_stage", "false")
         }
     }
 }

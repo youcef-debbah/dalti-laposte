@@ -198,12 +198,19 @@ public class QueueUtils {
         return AbstractQueueApplication.requireInstance().getString(resId, args);
     }
 
-    public static boolean isTestingOnEmulator() {
-        return isTesting() && ContextUtils.isEmulator();
+    public static boolean isTestingEnabled(Context context) {
+        if (context != null)
+            try {
+                return context.getResources().getBoolean(R.bool.is_development_stage);
+            } catch (RuntimeException e) {
+                Teller.warn("could not get project stage", e);
+            }
+
+        return false;
     }
 
     public static boolean isTesting() {
-        return QueueConfig.PROJECT_PHASE == ProjectPhase.DEVELOPMENT;
+        return isTestingEnabled(AbstractQueueApplication.getInstance());
     }
 
     @RequiresPermission(Manifest.permission.VIBRATE)
@@ -214,14 +221,6 @@ public class QueueUtils {
             if (vibratorService != null)
                 vibratorService.vibrate(duration);
         }
-    }
-
-    public static String getVersionSuffix() {
-        return isTesting() ? " (test version)" : "";
-    }
-
-    public static boolean isProjectOnDevelopment() {
-        return QueueConfig.PROJECT_PHASE == ProjectPhase.DEVELOPMENT;
     }
 
     public static Long getGoogleServicesVersion() {

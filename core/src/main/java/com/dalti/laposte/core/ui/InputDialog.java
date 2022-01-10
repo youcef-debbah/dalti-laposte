@@ -74,7 +74,7 @@ public abstract class InputDialog<T, C> implements DialogInterface.OnClickListen
 
     private void setInputListener(InputListener<T, C> inputListener) {
         this.inputListener = inputListener;
-        if (QueueUtils.isTesting())
+        if (view != null && QueueUtils.isTestingEnabled(view.getContext()))
             ContextUtils.checkSerialization(inputListener);
     }
 

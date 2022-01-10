@@ -77,6 +77,7 @@ public class AppConfig {
     protected final FirebaseRemoteConfig remoteConfig;
     protected final SharedPreferences userPreferences;
     protected final SharedPreferences systemPreferences;
+    protected final AbstractQueueApplication context;
     protected final MutableLiveData<ActivationState> activationStateLiveData;
     protected final MutableLiveData<Boolean> compactDashboardShown;
     protected final AtomicLong lastUserInteraction = new AtomicLong();
@@ -110,7 +111,8 @@ public class AppConfig {
     }
 
     @MainThread
-    public AppConfig(AbstractQueueApplication context) {
+    public AppConfig(AbstractQueueApplication application) {
+        context = application;
         remoteConfig = FirebaseRemoteConfig.getInstance(context.getFirebaseApp());
         userPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -176,7 +178,7 @@ public class AppConfig {
 
     private void fetchRemoteConfig() {
         final boolean noCache = systemPreferences.getBoolean(NO_CONFIG_CACHE, false);
-        if (noCache || QueueUtils.isTesting())
+        if (noCache || QueueUtils.isTestingEnabled(context))
             remoteConfig.fetch(0).addOnCompleteListener(fetch -> {
                 if (fetch.isSuccessful())
                     systemPreferences.edit().putBoolean(NO_CONFIG_CACHE, false).apply();
@@ -198,11 +200,12 @@ public class AppConfig {
 
     @NonNull
     public String getCoreApiUrl() {
-        if (QueueUtils.isTesting()) {
+        if (QueueUtils.isTestingEnabled(context)) {
             if (ContextUtils.isEmulator())
                 return BuildConfiguration.getEmulatorLocalServicesApiUrl();
             else
-                return BuildConfiguration.getLocalServicesApiUrl();
+                return BuildConfiguration.
+                        getLocalServicesApiUrl();
         } else
             return getRemoteString(StringSetting.SERVICES_API_URL);
     }

@@ -13,14 +13,14 @@ import dz.jsoftware95.silverbox.android.common.StringUtil;
 
 public abstract class AbstractUpdateHandler {
 
-    private static final String EXCLUDE_KEY = QueueUtils.isTesting() ? GlobalConf.EXCLUDE_TEST_CLIENTS
+    private final String excludeKey = QueueUtils.isTesting() ? GlobalConf.EXCLUDE_TEST_CLIENTS
             : GlobalConf.EXCLUDE_PRODUCTION_CLIENTS;
 
     public AbstractUpdateHandler() {
     }
 
     public void handleUpdate(Map<String, String> data) {
-        if (!StringUtil.isTrue(data, EXCLUDE_KEY)) {
+        if (!StringUtil.isTrue(data, excludeKey)) {
             LDT.i("handling update: " + data);
             onData(data);
         }

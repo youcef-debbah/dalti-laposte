@@ -81,7 +81,7 @@ public class ClientSettingsFragment extends PreferenceFragmentCompat {
             aboutCategory.setTitle(R.string.about);
 
             aboutCategory.addPreference(PreferenceUtil.getActivationStatePreference(context));
-            if (QueueUtils.isTesting()) {
+            if (QueueUtils.isTestingEnabled(context)) {
                 final String lastUpdate = TimeUtils.formatAsDateTime(appConfig.getLong(LongSetting.LAST_AUTO_REFRESH));
                 aboutCategory.addPreference(PreferenceUtil.getStaticTextPreference(context, R.string.last_auto_refresh, lastUpdate != null ? lastUpdate : GlobalConf.EMPTY_TOKEN));
             }
