@@ -47,7 +47,7 @@
     <string name="help_activation_offer_price">بدلاً من ذلك نقوم ببيع رموز تفعيل بشكل مستقل، يكلف رمز التفعيل الواحد %s&#160;دج&#160;فقط!</string>
     <string name="help_activation_offer_price_duration">بدلاً من ذلك نقوم ببيع رموز تفعيل بشكل مستقل، يكلف رمز التفعيل الواحد %1$s&#160;دج&#160;فقط! (مدة التفعيل %2$s&#160;يوما)</string>
     <string name="help_activation_where_to_buy">أين يمكنك شراء رمز تفعيل؟</string>
-    <string name="help_activation_buy_from_sell_point">يمكنك شراء رمز تفعيل من نقاط البيع المعتمدة من قبلنا بالقرب من جميع مكاتب البريد التي ندعمها.</string>
+    <string name="help_activation_buy_from_sell_point">يمكنك شراء رمز تفعيل من نقاط البيع المعتمدة من قبلنا والمتواجدة بالقرب من جميع مكاتب البريد التي ندعمها.</string>
     <string name="help_activation_to_open_the_map">لفتح خريطة توضح موقع نقطة البيع الخاصة بنا، قم بما يلي:</string>
     <string name="help_activation_open_map_step1">&#8226; من الصفحة الرئيسية، انقر فوق زر \"إختر&#160;مكتب&#160;بريد\".</string>
     <string name="help_activation_open_map_step2">&#8226; انقر فوق زر \"معلومات\" الخاص بالمكتب الذي تريد زيارته.</string>

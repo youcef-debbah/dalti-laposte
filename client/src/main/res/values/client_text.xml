@@ -50,7 +50,7 @@
     <string name="help_activation_offer_price">Instead we sell activation codes, a single activation code cost only&#160;%s&#160;DA!</string>
     <string name="help_activation_offer_price_duration">Instead we sell activation codes, a single activation code cost only&#160;%1$s&#160;DA and last for %2$s&#160;days!</string>
     <string name="help_activation_where_to_buy">Where can you buy an activation code\?</string>
-    <string name="help_activation_buy_from_sell_point">You can buy an activation code from our selling points near all the poste offices we support.</string>
+    <string name="help_activation_buy_from_sell_point">You can buy an activation code from our selling points near any poste office we support.</string>
     <string name="help_activation_to_open_the_map">To open a map that shows our selling point location do the following:</string>
     <!--    "SELECT OFFICE" should be translated the same way as "select_service" text but with caps-->
     <string name="help_activation_open_map_step1">&#8226; From the home page click \"SELECT&#160;OFFICE\" button.</string>

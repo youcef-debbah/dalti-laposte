@@ -47,7 +47,7 @@
     <string name="help_activation_offer_price">"Nous vendons des codes d'activation, un seul code d'activation coûte seulement&#160;%s&#160;DA!"</string>
     <string name="help_activation_offer_price_duration">"Nous vendons plutôt des codes d'activation, un seul code d'activation coûte seulement&#160;%1$s&#160;DA et dure %2$s&#160;jours!"</string>
     <string name="help_activation_where_to_buy">"Où pouvez-vous acheter un code d'activation\?"</string>
-    <string name="help_activation_buy_from_sell_point">"Vous pouvez acheter un code d'activation dans nos points de vente situés près de tous les bureaux de poste que nous soutenons."</string>
+    <string name="help_activation_buy_from_sell_point">"Vous pouvez acheter un code d'activation à partir de nos points de vente à proximité de n'importe quel bureau de poste que nous supportons"</string>
     <string name="help_activation_to_open_the_map">"Pour ouvrir une carte qui montre l'emplacement de nos points de vente, procédez comme suit:"</string>
     <string name="help_activation_open_map_step1">"&#8226; Sur la page d'accueil, cliquez sur le bouton \"SÉLECTIONNER\"."</string>
     <string name="help_activation_open_map_step2">&#8226; Cliquez sur le bouton "INFO" du bureau que vous souhaitez visiter.</string>
