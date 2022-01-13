@@ -2,8 +2,6 @@ package com.dalti.laposte.core.util;
 
 import java.util.concurrent.TimeUnit;
 
-import dz.jsoftware95.common.ProjectPhase;
-
 public final class QueueConfig {
     public static final int ANR_TIMEOUT_SECONDS = 5;
 
