@@ -10,7 +10,7 @@ public class ClientBuildConfiguration implements BuildConfiguration {
 
     @Inject
     public ClientBuildConfiguration() {
-        this.serverTarget = 1;
+        this.serverTarget = 2;
     }
 
     @Override

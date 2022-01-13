@@ -10,7 +10,7 @@ public class AdminBuildConfiguration implements BuildConfiguration {
 
     @Inject
     public AdminBuildConfiguration() {
-        this.serverTarget = 1;
+        this.serverTarget = 2;
     }
 
     @Override
