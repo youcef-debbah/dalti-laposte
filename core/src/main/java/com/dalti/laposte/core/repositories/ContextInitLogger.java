@@ -180,7 +180,7 @@ public class ContextInitLogger extends BasicJob {
     @NonNull
     private static String getTurnAlarmsPhoneNumbers(AppConfig appConfig) {
         final Set<String> numbers = appConfig.get(SetSetting.TURN_ALARM_PHONE_NUMBERS);
-        return GlobalUtil.truncate(GlobalUtil.join(numbers, ""), 36);
+        return GlobalUtil.truncate(GlobalUtil.join(numbers, "", 4), 36);
     }
 
     private static String getGoogleServicesAvailability(Context context) {
