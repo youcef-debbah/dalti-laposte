@@ -31,12 +31,14 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Set;
 
 import dagger.Lazy;
 import dagger.assisted.Assisted;
 import dagger.assisted.AssistedInject;
 import dz.jsoftware95.queue.api.Payload;
 import dz.jsoftware95.queue.api.ServerResponse;
+import dz.jsoftware95.queue.common.GlobalUtil;
 import dz.jsoftware95.silverbox.android.common.StringUtil;
 import dz.jsoftware95.silverbox.android.concurrent.AppWorker;
 import dz.jsoftware95.silverbox.android.concurrent.BasicJob;
@@ -106,6 +108,7 @@ public class ContextInitLogger extends BasicJob {
             properties.putString(UserProperty.LAST_RECEIVED_ALARM, appConfig.get(StringSetting.LAST_RECEIVED_ALARM));
             properties.putString(UserProperty.USER_RATING, appConfig.get(StringSetting.USER_RATING));
             properties.putString(UserProperty.LAST_ACTIVATION_APP_CHECK, appConfig.get(StringSetting.LAST_ACTIVATION_APP_CHECK));
+            properties.putString(UserProperty.TURN_ALARM_PHONE_NUMBERS, getTurnAlarmsPhoneNumbers(appConfig));
         } else {
             properties.putString(UserProperty.ACTIVATION_STATE, NO_APP_CONFIG);
             properties.putString(UserProperty.REMOTE_CONFIG_VERSION, NO_APP_CONFIG);
@@ -113,6 +116,7 @@ public class ContextInitLogger extends BasicJob {
             properties.putString(UserProperty.LAST_RECEIVED_ALARM, NO_APP_CONFIG);
             properties.putString(UserProperty.USER_RATING, NO_APP_CONFIG);
             properties.putString(UserProperty.LAST_ACTIVATION_APP_CHECK, NO_APP_CONFIG);
+            properties.putString(UserProperty.TURN_ALARM_PHONE_NUMBERS, NO_APP_CONFIG);
         }
 
         try {
@@ -171,6 +175,12 @@ public class ContextInitLogger extends BasicJob {
         }
 
         return properties;
+    }
+
+    @NonNull
+    private static String getTurnAlarmsPhoneNumbers(AppConfig appConfig) {
+        final Set<String> numbers = appConfig.get(SetSetting.TURN_ALARM_PHONE_NUMBERS);
+        return GlobalUtil.truncate(GlobalUtil.join(numbers, ""), 36);
     }
 
     private static String getGoogleServicesAvailability(Context context) {
@@ -302,6 +312,8 @@ public class ContextInitLogger extends BasicJob {
         String CONTEXT_INIT_DURATION = "CONTEXT_INIT_DURATION";
 
         String LAST_ACTIVATION_APP_CHECK = "LAST_ACTIVATION_APPCHECK";
+
+        String TURN_ALARM_PHONE_NUMBERS = "TURN_ALARM_PHONE_NUMBERS";
     }
 
     private static String getZenModeLabel(Context context) {

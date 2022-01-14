@@ -12,6 +12,7 @@ import com.dalti.laposte.R;
 import com.dalti.laposte.core.repositories.AppConfig;
 import com.dalti.laposte.core.repositories.BooleanSetting;
 import com.dalti.laposte.core.repositories.Event;
+import com.dalti.laposte.core.repositories.SetSetting;
 import com.dalti.laposte.core.repositories.Teller;
 import com.dalti.laposte.core.entity.TurnAlarm;
 import com.dalti.laposte.core.repositories.TurnAlarmDAO;
@@ -102,8 +103,10 @@ public class TurnAlarmRepository extends LazyRepository<TurnAlarmDAO> {
         return new UnDatabaseJob<TurnAlarmRepository>(repository) {
             @Override
             protected void doFromBackground(@NonNull TurnAlarmRepository repository) {
-                if (repository.requireDAO().delete(id) != 0)
+                final TurnAlarmDAO dao = repository.requireDAO();
+                if (dao.delete(id) != 0)
                     Teller.log(Event.DeleteTurnAlarmPhone.NAME, Event.DeleteTurnAlarmPhone.Param.TURN_ALARM_ID, String.valueOf(id));
+                AppConfig.getInstance().set(SetSetting.TURN_ALARM_PHONE_NUMBERS, dao.getPhoneNumbers());
             }
         };
     }
@@ -339,7 +342,8 @@ public class TurnAlarmRepository extends LazyRepository<TurnAlarmDAO> {
             protected void doFromBackground(@NonNull TurnAlarmRepository repository,
                                             @NonNull Long id) {
                 super.doFromBackground(repository, id);
-                if (repository.requireDAO().updatePhone(id, value) == 0)
+                final TurnAlarmDAO dao = repository.requireDAO();
+                if (dao.updatePhone(id, value) == 0)
                     repository.postPublish(DataEvent.SUCCESSFUL_UPDATE);
                 else {
                     Bundle params = new Bundle();
@@ -347,6 +351,8 @@ public class TurnAlarmRepository extends LazyRepository<TurnAlarmDAO> {
                     params.putString(Event.UpdateTurnAlarmPhone.Param.NEW_VALUE, String.valueOf(value));
                     Teller.logEvent(Event.UpdateTurnAlarmPhone.NAME, params);
                 }
+
+                AppConfig.getInstance().set(SetSetting.TURN_ALARM_PHONE_NUMBERS, dao.getPhoneNumbers());
             }
         };
     }

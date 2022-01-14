@@ -20,7 +20,7 @@ import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 @WorkerThread
 public abstract class TurnAlarmDAO {
 
-    private static final int MAX_ALARMS_COUNT = 5;
+    private static final int MAX_ALARMS_COUNT = 4;
     protected final QueueDatabase database;
 
     public TurnAlarmDAO(QueueDatabase database) {
@@ -30,6 +30,9 @@ public abstract class TurnAlarmDAO {
     public RoomDatabase getDatabase() {
         return database;
     }
+
+    @Query("select phone from turn_alarm order by creationTime desc")
+    public abstract List<String> getPhoneNumbers();
 
     @Query("select * from turn_alarm order by creationTime desc")
     public abstract LiveData<List<TurnAlarm>> getTurnAlarmValues();

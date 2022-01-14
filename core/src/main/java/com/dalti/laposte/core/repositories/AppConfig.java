@@ -33,6 +33,7 @@ import java.security.GeneralSecurityException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -466,6 +467,19 @@ public class AppConfig {
             userPreferences.edit().remove(key).commit();
             Teller.logAppConfig(key, null);
             return set;
+        }
+    }
+
+    @WorkerThread
+    @SuppressLint("ApplySharedPref")
+    public Set<String> set(SetPreference preference, Collection<String> values) {
+        //noinspection SynchronizationOnLocalVariableOrMethodParameter
+        synchronized (preference) {
+            String key = preference.name() + SYNCED;
+            final Set<String> valuesSet = values != null ? new LinkedHashSet<>(values) : null;
+            userPreferences.edit().putStringSet(key, valuesSet).commit();
+            Teller.logAppConfig(key, values);
+            return valuesSet;
         }
     }
 
