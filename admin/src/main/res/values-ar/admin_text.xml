@@ -11,7 +11,7 @@
     <string name="max_token">الحد الأقصى لرقم التذكرة</string>
     <string name="max_waiting">الحد الأقصى لطول قائمة الانتظار</string>
     <string name="overlay_permission_needed">"هذا التطبيق ليس لديه الإذن (الترخيص) المطلوب لإظهار لوحة القيادة العائمة فوق التطبيقات الأخرى"</string>
-    <string name="queue_changed">قائمة الانتظار الحالية: #٪d</string>
+    <string name="queue_changed">قائمة الانتظار الحالية: #%d</string>
     <string name="service_has_one_rank">هذا المكتب لديه قائمة إنتظار واحد فقط</string>
     <string name="vibrate_on_update_sending">الاهتزاز عند التحديث</string>
     <string name="vibration_duration">مدة الاهتزاز</string>
