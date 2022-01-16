@@ -122,18 +122,36 @@
                 tools:layout_height="1dp"
                 />
 
-            <TextView
-                android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/large"
-                android:layout_marginTop="@dimen/small"
-                android:layout_marginEnd="@dimen/large"
-                android:layout_marginBottom="@dimen/small"
                 android:gravity="center"
-                app:string="@{data.textContent}"
-                tools:text="Dalti-laposte thank you for using our service!"
-                />
+                android:orientation="horizontal"
+                >
+
+                <Button
+                    style="@style/Widget.App.Button.FilledIconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:controller_name="@{fragment.namespace + `_resend_sms`}"
+                    app:controller_payload="@{data.phone}"
+                    app:icon="@drawable/ic_baseline_sms_24"
+                    app:on_click="@{e -> fragment.sendNewSms(data.phone, data.textContent)}"
+                    />
+
+                <TextView
+                    android:textAppearance="@style/TextAppearance.Jsoftware95.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large"
+                    android:layout_marginTop="@dimen/small"
+                    android:layout_marginEnd="@dimen/large"
+                    android:layout_marginBottom="@dimen/small"
+                    android:gravity="center"
+                    app:string="@{data.textContent}"
+                    tools:text="Dalti-laposte thank you for using our service!"
+                    />
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.flexbox.FlexboxLayout>
 
     </com.google.android.material.card.MaterialCardView>

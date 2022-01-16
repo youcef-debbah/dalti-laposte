@@ -29,6 +29,7 @@ import dz.jsoftware95.silverbox.android.backend.BackendEvent;
 import dz.jsoftware95.silverbox.android.frontend.BasicRefreshBehaviour;
 import dz.jsoftware95.silverbox.android.frontend.StatefulRecyclerView;
 import dz.jsoftware95.silverbox.android.middleware.BindingUtil;
+import dz.jsoftware95.silverbox.android.middleware.ContextUtils;
 import dz.jsoftware95.silverbox.android.observers.MainObserver;
 
 @AndroidEntryPoint
@@ -100,5 +101,13 @@ public class MessagesListFragment extends AbstractQueueFragment {
 
     public LiveData<Integer> noDataIconVisibility() {
         return model.getNoDataIconVisibility();
+    }
+
+    public void sendNewSms(String phone, String text) {
+        requireActivity().startActivity(ContextUtils.getSmsIntent(phone, text));
+    }
+
+    public String getNamespace() {
+        return "messages_list_fragment";
     }
 }

@@ -122,10 +122,10 @@ public class AdminAlarmActivity extends AbstractQueueActivity {
     public void sendSms(AdminAlarm alarm) {
         if (alarm != null) {
             LoadedProgress loadedProgress = currentLoadedProgress;
-            int current = loadedProgress != null && loadedProgress.getCurrentToken() != null ? loadedProgress.getCurrentToken() : alarm.getTicket();//check
+            int current = loadedProgress != null && loadedProgress.getCurrentToken() != null ? loadedProgress.getCurrentToken() : alarm.getTicket();
             Long avg = loadedProgress != null ? loadedProgress.getAverageServingTime() : null;
             String description = loadedProgress != null ? loadedProgress.getServiceDescription() : null;
-            String text = GlobalUtil.getSmsNotificationText(description, current, alarm.getTicket(), Estimator.calcRemainingTime(avg, current, alarm.getTicket()));//check
+            String text = GlobalUtil.getSmsNotificationText(description, current, alarm.getTicket(), Estimator.calcRemainingTime(avg, current, alarm.getTicket()));
             startActivity(ContextUtils.getSmsIntent(alarm.getPhone(), text));
         }
     }
