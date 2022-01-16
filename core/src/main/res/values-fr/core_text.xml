@@ -131,7 +131,7 @@
     <string name="activation_state">"État de l'activation"</string>
     <string name="not_activated_yet">Pas encore activé</string>
     <string name="activated_at">activé depuis</string>
-    <string name="activation_code_label">%1$s (%2$02d&#160;jours)</string>
+    <string name="activation_code_label">%1$s#%2$05d</string>
     <string name="activation_expired_since">Activation expirée depuis: %s</string>
     <string name="activated_until">"Activé jusqu'à %s"</string>
     <string name="name_invalid">Nom non valide, utilisez uniquement des alphabets et des chiffres</string>

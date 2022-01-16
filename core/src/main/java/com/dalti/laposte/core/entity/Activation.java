@@ -196,13 +196,8 @@ public class Activation implements VisualItem, Serializable {
     public String getCodeLabel() {
         if (id == Item.AUTO_ID || StringUtil.isBlank(code))
             return null;
-        else {
-            Long days = TimeUtils.getDays(duration);
-            if (days != null && days > 1)
-                return QueueUtils.getString(R.string.activation_code_label, code, days);
-            else
-                return code;
-        }
+        else
+            return QueueUtils.getString(R.string.activation_code_label, code, id);
     }
 
     public String getApplicationVersionAsText() {
