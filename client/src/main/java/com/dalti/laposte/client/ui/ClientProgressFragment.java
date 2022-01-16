@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -118,6 +119,7 @@ public class ClientProgressFragment extends ProgressFragment implements DialogIn
         ticketInput.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0));
         ticketInput.setMinValue(1);
         ticketInput.setMaxValue(AppConfig.getInstance().getAsInt(StringNumberSetting.MAX_TOKEN));
+        QueueUtils.showKeyboardOnFocus(ticketInput);
 
         LinearLayoutCompat layout = new LinearLayoutCompat(context);
         layout.setOrientation(LinearLayoutCompat.HORIZONTAL);
@@ -184,6 +186,11 @@ public class ClientProgressFragment extends ProgressFragment implements DialogIn
 
                         this.ticketRank = ticketRank;
                         ticketDialog.show();
+
+                        final TextView input = QueueUtils.getTextInput(ticketInput);
+                        if (input != null)
+                            input.requestFocus();
+
                         Teller.logSelectContentEvent(String.valueOf(progress.getId()), Progress.TABLE_NAME + "_ticket_dialog");
                     } else
                         Teller.logUnexpectedCondition();
