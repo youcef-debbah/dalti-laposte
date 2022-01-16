@@ -75,4 +75,6 @@
     <string name="closing_time">Closing Time</string>
     <string name="sms_history">SMS History</string>
     <string name="sms_statistics">SMS statistics</string>
+    <string name="vibrate_on_sms_failure_title">Vibrate on SMS failure</string>
+    <string name="vibrate_on_sms_failure_summary">Vibrate when a short message sending failed</string>
 </resources>

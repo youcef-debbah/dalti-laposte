@@ -304,8 +304,9 @@ public class SmsRepository extends LiveListRepository<ShortMessage, ShortMessage
         smsFailedCounter.increment();
         smsLatestOutcome.set(SmsRepository.getOutcome(resultCode));
         Teller.logSendSmsFailure(id, smsToken, resultCode);
-        QueueUtils.vibrate(500);
         QueueUtils.toast(R.string.sms_sending_failed);
+        if (AppConfig.findInstance().get(BooleanSetting.VIBRATE_ON_SMS_FAILURE))
+            QueueUtils.vibrate(700);
     }
 
     private static Job newMarkMessageAsConfirmedJob(SmsRepository smsRepository, long id, int resultCode) {

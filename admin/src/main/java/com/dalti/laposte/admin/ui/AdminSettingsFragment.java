@@ -135,6 +135,12 @@ public class AdminSettingsFragment extends PreferenceFragmentCompat {
                 otherConfig.setTitle(R.string.send_other_sim_title);
                 otherConfig.setDialogTitle(R.string.send_other_sim_dialog_title);
             }
+
+            SwitchPreferenceCompat vibrateOnSmsFailure = PreferenceUtil.newSwitchPreference(context, BooleanSetting.VIBRATE_ON_SMS_FAILURE);
+            if (smsCategory.addPreference(vibrateOnSmsFailure)) {
+                vibrateOnSmsFailure.setTitle(R.string.vibrate_on_sms_failure_title);
+                vibrateOnSmsFailure.setSummary(R.string.vibrate_on_sms_failure_summary);
+            }
         }
 
         AppConfig appConfig = AppConfig.getInstance();

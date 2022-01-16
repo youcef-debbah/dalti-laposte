@@ -29,6 +29,7 @@ public enum BooleanSetting implements BooleanPreference {
 
     FORCE_APP_CHECK_REFRESH(false),
 
+    VIBRATE_ON_SMS_FAILURE(true),
     ;
 
     private final boolean defaultValue;

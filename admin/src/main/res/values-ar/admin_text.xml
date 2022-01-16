@@ -75,4 +75,6 @@
     <string name="closing_time">وقت الإغلاق</string>
     <string name="sms_history">سجل الرسائل</string>
     <string name="sms_statistics">إحصائيات الرسائل</string>
+    <string name="vibrate_on_sms_failure_title">إهتز عند الفشل في الإرسال</string>
+    <string name="vibrate_on_sms_failure_summary">إهتز عند الفشل إرسال أحد الرسائل القصيرة إلى الزبائن</string>
 </resources>
