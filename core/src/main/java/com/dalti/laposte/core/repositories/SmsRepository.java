@@ -218,7 +218,6 @@ public class SmsRepository extends LiveListRepository<ShortMessage, ShortMessage
     private void sendSms(AbstractQueueApplication context, SimStrategy simStrategy,
                          String textContent, String smsToken, boolean resend) {
         SmsManager smsManager = getSmsManager(context, simStrategy.getSubscription());
-        Teller.info("£££ " + simStrategy);
         ArrayList<String> parts = smsManager.divideMessage(textContent);
         long smsID = GlobalUtil.randomLong();
 
