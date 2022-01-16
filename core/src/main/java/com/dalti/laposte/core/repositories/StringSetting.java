@@ -41,6 +41,8 @@ public enum StringSetting implements StringPreference {
     ACTIVE_USERNAME(""),
 
     LAST_ACTIVATION_APP_CHECK(""),
+
+    ADMIN_DOWNLOAD_LINK("https://drive.google.com/drive/folders/1HVLu5olnvN1_FieeLvlqCuv2M0iOBbdR?usp=sharing"),
     ;
 
     private final String defaultString;

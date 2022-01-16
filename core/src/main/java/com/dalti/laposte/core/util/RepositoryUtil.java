@@ -1,5 +1,8 @@
 package com.dalti.laposte.core.util;
 
+import android.content.Intent;
+import android.net.Uri;
+
 import androidx.annotation.WorkerThread;
 
 import com.dalti.laposte.R;
@@ -14,6 +17,7 @@ import com.dalti.laposte.core.entity.Service;
 import com.dalti.laposte.core.repositories.ServicesListRepository;
 import com.dalti.laposte.core.repositories.SimpleProperty;
 import com.dalti.laposte.core.repositories.StateRepository;
+import com.dalti.laposte.core.repositories.StringSetting;
 import com.dalti.laposte.core.repositories.Teller;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -143,7 +147,10 @@ public class RepositoryUtil {
                     BasicActivity currentActivity = BasicActivity.CURRENT_STARTED_ACTIVITY;
                     if (currentActivity != null && updateNeededCount > appConfig.getRemoteLong(LongSetting.UPDATE_HINTS_COUNT)) {
                         updateNeededEncounters.set(appConfig.getRemoteInt(LongSetting.UPDATE_HINTS_RESET));
-                        QueueUtils.startPlayStore(currentActivity);
+                        if (buildConf.isClient())
+                            QueueUtils.startPlayStore(currentActivity);
+                        else
+                            currentActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appConfig.getRemoteString(StringSetting.ADMIN_DOWNLOAD_LINK))));
                     }
                 }
                 return true;
