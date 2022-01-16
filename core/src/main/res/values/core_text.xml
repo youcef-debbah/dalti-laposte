@@ -301,4 +301,5 @@
     <string name="sent_messages_count">Sent SMS</string>
     <string name="by_updater">(by&#160;%s)</string>
     <string name="press_back_again">press \"back\" again to exit</string>
+    <string name="sms_sending_failed">SMS sending failed</string>
 </resources>

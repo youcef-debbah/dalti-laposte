@@ -22,6 +22,7 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.dalti.laposte.R;
 import com.dalti.laposte.core.entity.CoreAPI;
 import com.dalti.laposte.core.entity.ShortMessage;
 import com.dalti.laposte.core.ui.AbstractQueueApplication;
@@ -303,6 +304,8 @@ public class SmsRepository extends LiveListRepository<ShortMessage, ShortMessage
         smsFailedCounter.increment();
         smsLatestOutcome.set(SmsRepository.getOutcome(resultCode));
         Teller.logSendSmsFailure(id, smsToken, resultCode);
+        QueueUtils.vibrate(500);
+        QueueUtils.toast(R.string.sms_sending_failed);
     }
 
     private static Job newMarkMessageAsConfirmedJob(SmsRepository smsRepository, long id, int resultCode) {
