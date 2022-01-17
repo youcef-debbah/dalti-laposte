@@ -45,12 +45,12 @@ public abstract class ActivationDAO extends PageableDAO<Activation> {
     }
 
     @Override
-    @Query("SELECT count(code) FROM activation")
+    @Query("SELECT count(code) FROM activation where activationDate is null")
     public abstract int count();
 
     @Override
     @AnyThread
-    @Query("SELECT * FROM activation ORDER BY activation_id ASC LIMIT :start, :count")
+    @Query("SELECT * FROM activation where activationDate is null ORDER BY activation_id ASC LIMIT :start, :count")
     public abstract List<Activation> getRange(final long start, final long count);
 
     @Query("DELETE FROM activation")
