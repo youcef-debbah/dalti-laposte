@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="native_background">@color/gray_230</color>
+    <color name="color_on_background">@color/gray_130</color>
+    <color name="color_foreground">@color/black</color>
+
+    <color name="color_on_primary">@color/white</color>
+    <color name="color_on_secondary">@color/white</color>
+    <color name="color_on_surface">@color/black</color>
+
+    <color name="color_primary">@color/indigo_500</color>
+    <color name="color_secondary">@color/pink_500</color>
+    <color name="color_surface">@color/white</color>
+
+    <color name="color_primary_variant">@color/indigo_800</color>
+    <color name="color_secondary_variant">@color/pink_800</color>
+
+    <color name="settings_background">@color/white</color>
+    <color name="clock_color">@color/indigo_500</color>
+</resources>

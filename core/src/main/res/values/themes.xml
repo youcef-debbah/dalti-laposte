@@ -2,31 +2,31 @@
 
     <!-- themes -->
 
-    <style name="Theme.App.Basic" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.App.Basic" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="shapeAppearanceSmallComponent">@style/RoundedShape.Circle</item>
         <item name="shapeAppearanceMediumComponent">@style/RoundedShape.Medium</item>
         <item name="shapeAppearanceLargeComponent">@style/RoundedShape.Medium</item>
 
-        <item name="nativeBackground">@color/gray_230</item>
-        <item name="colorOnBackground">@color/gray_130</item>
+        <item name="nativeBackground">@color/native_background</item>
+        <item name="colorOnBackground">@color/color_on_background</item>
         <item name="android:windowBackground">?nativeBackground</item>
         <item name="android:colorBackground">?nativeBackground</item>
-        <item name="android:colorForeground">@color/black</item>
+        <item name="android:colorForeground">@color/color_foreground</item>
         <item name="android:navigationBarColor">?nativeBackground</item>
         <item name="android:navigationBarDividerColor">?nativeBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
 
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <item name="colorOnSurface">@color/black</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
 
-        <item name="colorPrimary">@color/indigo_500</item>
-        <item name="colorSecondary">@color/pink_500</item>
-        <item name="colorSurface">@color/white</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSurface">@color/color_surface</item>
 
-        <item name="colorPrimaryVariant">@color/indigo_800</item>
-        <item name="colorSecondaryVariant">@color/pink_800</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
 
         <item name="colorError">@color/error</item>
         <item name="errorIconOnForeground">@color/error</item>
@@ -62,7 +62,7 @@
     <style name="Theme.App.Main" parent="Theme.App.Basic" />
 
     <style name="Theme.App.Settings" parent="Theme.App.Basic">
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/settings_background</item>
     </style>
 
     <!-- global styles -->
@@ -179,6 +179,10 @@
         <item name="android:padding">@dimen/small</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/button_outlined_stroke_color_selector</item>
+
+        <item name="android:textColor">@color/button_outlined_foreground_color_selector</item>
+        <item name="iconTint">@color/button_outlined_foreground_color_selector</item>
+        <item name="rippleColor">@color/button_outlined_ripple_color_selector</item>
     </style>
 
     <style name="Widget.App.Button.OutlinedIconOnly.Accent">
@@ -195,6 +199,10 @@
         <item name="iconPadding">0dp</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:padding">@dimen/small</item>
+
+        <item name="android:textColor">@color/button_naked_foreground_color_selector</item>
+        <item name="iconTint">@color/button_naked_foreground_color_selector</item>
+        <item name="rippleColor">@color/button_naked_ripple_color_selector</item>
     </style>
 
     <style name="Widget.App.Button.Filled" parent="@style/Widget.MaterialComponents.Button">
@@ -243,6 +251,10 @@
         <item name="android:paddingBottom">@dimen/small</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/button_outlined_stroke_color_selector</item>
+
+        <item name="android:textColor">@color/button_outlined_foreground_color_selector</item>
+        <item name="iconTint">@color/button_outlined_foreground_color_selector</item>
+        <item name="rippleColor">@color/button_outlined_ripple_color_selector</item>
     </style>
 
     <style name="Widget.App.Button.Outlined.Accent">
@@ -260,6 +272,10 @@
         <item name="android:paddingEnd">@dimen/medium</item>
         <item name="android:paddingTop">@dimen/small</item>
         <item name="android:paddingBottom">@dimen/small</item>
+
+        <item name="android:textColor">@color/button_naked_foreground_color_selector</item>
+        <item name="iconTint">@color/button_naked_foreground_color_selector</item>
+        <item name="rippleColor">@color/button_naked_ripple_color_selector</item>
     </style>
 
     <style name="Widget.App.Button.Link" parent="@style/Widget.MaterialComponents.Button.TextButton">
@@ -269,6 +285,10 @@
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
         <item name="android:minHeight">0dp</item>
+
+        <item name="android:textColor">@color/button_naked_foreground_color_selector</item>
+        <item name="iconTint">@color/button_naked_foreground_color_selector</item>
+        <item name="rippleColor">@color/button_naked_ripple_color_selector</item>
     </style>
 
     <style name="Widget.App.Button.Naked.Big">
