@@ -3,8 +3,8 @@ plugins {
     id("com.android.library")
 //    id("dz.jsoftware95.silverdocs") version "0.5.1"
 //    id("dz.jsoftware95.silvercleaner-android") version "0.5.0"
-    id("dz.jsoftware95.common-dependencies-android") version "1.7.3"
-    id("com.github.ben-manes.versions") version "0.40.0"
+    id("dz.jsoftware95.common-dependencies-android")
+    id("com.github.ben-manes.versions")
     //id("net.ltgt.errorprone") version "1.3.0"
 }
 

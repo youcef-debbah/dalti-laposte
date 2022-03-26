@@ -1,3 +1,9 @@
+plugins {
+    id("dz.jsoftware95.common-dependencies-android") version "1.7.3" apply false
+    id("com.github.ben-manes.versions") version "0.40.0" apply false
+}
+
+
 println("root project config...")
 
 buildscript {
