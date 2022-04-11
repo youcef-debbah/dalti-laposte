@@ -60,7 +60,7 @@ repositories {
 
 dependencies {
     implementation("dz.jsoftware95:common:+")
-    implementation("dz.jsoftware95:cleaningtools:0.7.0")
+    implementation("dz.jsoftware95:cleaningtools:0.8.0")
 
 //    implementation("com.google.errorprone:error_prone_core:2.5.1")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
