@@ -1,6 +1,6 @@
 plugins {
     id("com.github.ben-manes.versions") version "0.40.0" apply false
-    id("dz.jsoftware95.common-dependencies-android") version "1.8.1" apply false
+    id("dz.jsoftware95.common-dependencies-android") version "1.8.2" apply false
 }
 
 

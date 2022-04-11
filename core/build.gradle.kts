@@ -71,8 +71,8 @@ repositories {
 dependencies {
     implementation(project(":silverbox"))
 
-    api("dz.jsoftware95:common:0.7.+")
-    api("dz.jsoftware95:cleaningtools:0.7.0")
+    api("dz.jsoftware95:common:+")
+    api("dz.jsoftware95:cleaningtools:0.8.2")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     api("com.google.code.findbugs:jsr305:3.0.2")
     api("androidx.appcompat:appcompat:1.4.0")
