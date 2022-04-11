@@ -1,6 +1,6 @@
 plugins {
-    id("dz.jsoftware95.common-dependencies-android") version "1.7.3" apply false
     id("com.github.ben-manes.versions") version "0.40.0" apply false
+    id("dz.jsoftware95.common-dependencies-android") version "1.8.1" apply false
 }
 
 
@@ -25,10 +25,8 @@ buildscript {
     }
 }
 
-val lockPath: String? = System.getenv("COMMON_LIB_LOCK")
-if (lockPath != null) {
-    val lockFile = File(lockPath)
-    while (lockFile.exists()) {
+System.getenv("COMMON_LIB_LOCK")?.let {
+    while (File(it).exists()) {
         println("configuration locked...")
         Thread.sleep(250)
     }

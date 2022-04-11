@@ -3,9 +3,9 @@ plugins {
     id("com.android.library")
 //    id("dz.jsoftware95.silverdocs") version "0.5.1"
 //    id("dz.jsoftware95.silvercleaner-android") version "0.5.0"
-    id("dz.jsoftware95.common-dependencies-android")
+//    id("net.ltgt.errorprone") version "1.3.0"
     id("com.github.ben-manes.versions")
-    //id("net.ltgt.errorprone") version "1.3.0"
+    id("dz.jsoftware95.common-dependencies-android")
 }
 
 println("silverbox library configuration...")

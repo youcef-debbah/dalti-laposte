@@ -3,8 +3,8 @@ plugins {
     id("dagger.hilt.android.plugin")
 //    id("dz.jsoftware95.silverdocs") version "0.5.1"
 //    id("dz.jsoftware95.silvercleaner-android") version "0.5.0"
-    id("dz.jsoftware95.common-dependencies-android")
     id("com.github.ben-manes.versions")
+    id("dz.jsoftware95.common-dependencies-android")
 }
 
 println("core library config...")
