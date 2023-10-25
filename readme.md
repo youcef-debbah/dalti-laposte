@@ -65,11 +65,15 @@ We appreciate your understanding and support as we navigate the legal challenges
 
 <img src="docs/screenshot-6-en.png" alt="activation code input screenshot" width="50%" height="auto" />
 
-## Implementation details
+## Implementation Details
 
-This repo actually contains two Android applications, the [client](client) app (for users) and the [admin](admin) app (for our field agents), each app has it's own module, the [core](core) contains code common to both of them, and the [silverbox](silverbox) module contains code shared with other similar projects.
+This repository actually contains two Android applications: the [client app](client) (for users) and the [admin app](admin) (for our field agents). Each app has its own module. The [core](core) module contains code common to both of them, while the [silverbox](silverbox) module contains code shared with other similar projects.
 
-All modules are implemented in java, many libraries are used namely retrofit, guava, espresso, a few Android Jetpack libraries (hilt, room, camera, databinding, paging, etc.), and other. Firebase services are used implement many features including push notifications, logging, crash-reports, etc.
+All modules are implemented in Java. We use several libraries, including Retrofit, Guava, Espresso, and multiple Android Jetpack libraries (Hilt, Room, Camera, Paging, etc.), among others. Firebase services are employed to implement various features such as push notifications, logging, and crash reports.
+
+Because the minimum supported Android version is 5.0, all image resources, are provided in vector format. This approach ensures better support for all devices with a smaller download size.
+
+The code in this repo is nearly complete; it lacks only a few tests (which are not needed to build the app) and Google Services JSON files (one per app module), you can obtain these files by creating your own Firebase account. Additionally, there are a few small private libraries needed to compile the code. If you want to compile the code, you can either clone the project and refactor the problematic parts yourself or [Contact US](#contact-us).
 
 ## Licence
 
@@ -87,6 +91,6 @@ Under the following terms:
 
 For more details about the Apache License 2.0, please refer to the [LICENSE](LICENSE.txt) file.
 
-## Contact US
+## Contact Us
 
-If you
+If you have any questions or inquiries about this project, please don't hesitate to contact the main developer at [youcef-debbah@hotmail.com](mailto:youcef-debbah@hotmail.com).
