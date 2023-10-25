@@ -18,7 +18,8 @@ deployments/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-**/google-services.json
+client/google-services.json
+admin/google-services.json
 
 ### IntelliJ IDEA ###
 .idea/
