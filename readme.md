@@ -53,12 +53,12 @@ We appreciate your understanding and support as we navigate the legal challenges
 
 ## Application Features
 
-![post office status screenshot](docs\image1-phone-en.png)
-![queue status screenshot](docs\image2-phone-en.png)
-![remaining time screenshot](docs\image3-phone-en.png)
-![alarms list screenshot](docs\alarm-en.png)
-![phone number input screenshot](docs\screenshot-5-en.png)
-![activation code input screenshot](docs\screenshot-6-en.png)
+![post office status screenshot](docs/image1-phone-en.png)
+![queue status screenshot](docs/image2-phone-en.png)
+![remaining time screenshot](docs/image3-phone-en.png)
+![alarms list screenshot](docs/alarm-en.png)
+![phone number input screenshot](docs/screenshot-5-en.png)
+![activation code input screenshot](docs/screenshot-6-en.png)
 
 ## implementation
 
