@@ -16,7 +16,8 @@ This monopoly is deliberate, as part of the government plan to support the worke
 
 This is where the idea of this project came from, what makes the project even more feasible is the fact that most Post offices already have a queue management system with a tickets distribution machines and a monitor that show the current ticket, this system is connected through a private WAN network across the country, so the Algeria Post HQ can keep its dashboard updated in real-time.
 
-![Ticket system monitor](docs/ticket_system_monitor.jpg | width=50%)
+<img src="docs/ticket_system_monitor.jpg" alt="Ticket system monitor" width="50%" height="auto" />
+
 *Image: The queue monitoring system at an Algerian post office.*
 
 ## Project objectives 
