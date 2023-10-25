@@ -59,7 +59,7 @@ We appreciate your understanding and support as we navigate the legal challenges
 
 <img src="docs/image3-phone-en.png" alt="remaining time screenshot" width="50%" height="auto" />
 
-<img src="docs/alarm-en.png" alt="alarms list screenshot" width="50%" height="auto" />
+<img src="docs/screenshot-4-en.png" alt="alarms list screenshot" width="50%" height="auto" />
 
 <img src="docs/screenshot-5-en.png" alt="phone number input screenshot" width="50%" height="auto" />
 
