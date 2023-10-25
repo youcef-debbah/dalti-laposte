@@ -53,12 +53,17 @@ We appreciate your understanding and support as we navigate the legal challenges
 
 ## Application Features
 
-![post office status screenshot](docs/image1-phone-en.png)
-![queue status screenshot](docs/image2-phone-en.png)
-![remaining time screenshot](docs/image3-phone-en.png)
-![alarms list screenshot](docs/alarm-en.png)
-![phone number input screenshot](docs/screenshot-5-en.png)
-![activation code input screenshot](docs/screenshot-6-en.png)
+<img src="docs/image1-phone-en.png" alt="post office status screenshot" width="50%" height="auto" />
+
+<img src="docs/image2-phone-en.png" alt="queue status screenshot" width="50%" height="auto" />
+
+<img src="docs/image3-phone-en.png" alt="remaining time screenshot" width="50%" height="auto" />
+
+<img src="docs/alarm-en.png" alt="alarms list screenshot" width="50%" height="auto" />
+
+<img src="docs/screenshot-5-en.png" alt="phone number input screenshot" width="50%" height="auto" />
+
+<img src="docs/screenshot-6-en.png" alt="activation code input screenshot" width="50%" height="auto" />
 
 ## implementation
 
