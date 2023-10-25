@@ -65,10 +65,28 @@ We appreciate your understanding and support as we navigate the legal challenges
 
 <img src="docs/screenshot-6-en.png" alt="activation code input screenshot" width="50%" height="auto" />
 
-## implementation
+## Implementation details
+
+This repo actually contains two Android applications, the [client](client) app (for users) and the [admin](admin) app (for our field agents), each app has it's own module, the [core](core) contains code common to both of them, and the [silverbox](silverbox) module contains code shared with other similar projects.
+
+All modules are implemented in java, many libraries are used namely retrofit, guava, espresso, a few Android Jetpack libraries (hilt, room, camera, databinding, paging, etc.), and other. Firebase services are used implement many features including push notifications, logging, crash-reports, etc.
 
 ## Licence
 
+This project is licensed under the [Apache License 2.0](LICENSE.txt).
+
+You are free to:
+
+- **Share:** Copy and redistribute the material in any medium or format.
+- **Adapt:** Remix, transform, and build upon the material for any purpose, even commercially.
+
+Under the following terms:
+
+- **Attribution:** You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **No Additional Restrictions:** You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+For more details about the Apache License 2.0, please refer to the [LICENSE](LICENSE.txt) file.
+
 ## Contact US
 
-
+If you
