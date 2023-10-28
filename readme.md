@@ -12,11 +12,13 @@ In Algeria, government post offices have effectively replaced the banks, even th
 This monopoly is deliberate, as part of the government plan to support the workers class, but one of consequences of this monopoly is an always-empty bank agencies and unbelievably crowded post offices especially on saturdays (weekends) and from the 18th to the 22th of every month (public service payment days).
 
 ![Crowded post office](docs/crowded_post_office.webp)
+
 *Image: A crowded Algerian post office on a busy day.*
 
 This is where the idea of this project came from, what makes the project even more feasible is the fact that most Post offices already have a queue management system with a tickets distribution machines and a monitor that show the current ticket, this system is connected through a private WAN network across the country, so the Algeria Post HQ can keep its dashboard updated in real-time.
 
 <img src="docs/ticket_system_monitor.jpg" alt="Ticket system monitor" width="50%" height="auto" />
+
 *Image: The queue monitoring system at an Algerian post office.*
 
 ## Project objectives 
