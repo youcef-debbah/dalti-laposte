@@ -72,3 +72,6 @@ modules.xml
 
 ### VS Code ###
 .vscode/
+
+### log files ###
+logs/**/*.bat
